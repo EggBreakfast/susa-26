@@ -14,18 +14,15 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="SkillsUSA 25-26"
+config/name="SUSA 26"
 run/main_scene="uid://8npokvov3g2i"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=640
-window/size/viewport_height=360
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
-window/stretch/scale_mode="integer"
 mouse_cursor/stretch/aspect="keep"
 
 [input]
