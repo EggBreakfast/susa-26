@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://l0vvnhnx3nju" path="res://scenes/drawing_system/drawing_system.gd" id="1_okv10"]
 
-[node name="DrawingSystem" type="Node2D"]
+[node name="DrawingSystem" type="Node2D" unique_id=470064038]
 script = ExtResource("1_okv10")
 
-[node name="Lines" type="Node2D" parent="."]
+[node name="Lines" type="Node2D" parent="." unique_id=1729566489]
