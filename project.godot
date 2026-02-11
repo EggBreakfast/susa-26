@@ -22,7 +22,6 @@ config/icon="res://icon.svg"
 [display]
 
 window/stretch/mode="viewport"
-window/stretch/aspect="expand"
 mouse_cursor/stretch/aspect="keep"
 
 [input]
@@ -46,6 +45,9 @@ Capture={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/default_filters/use_nearest_mipmap_filter=true
+textures/default_filters/texture_mipmap_bias=2.0
 environment/defaults/default_clear_color=Color(0.8047426, 0.80474263, 0.8047426, 1)
