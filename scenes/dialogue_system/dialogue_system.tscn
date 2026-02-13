@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cli8t0itp3tpe"]
+
+[ext_resource type="Texture2D" uid="uid://b2hs1pxqlm671" path="res://sprites/background_test.jpg" id="1_fs3ls"]
+[ext_resource type="PackedScene" uid="uid://c1x50v8tdr14k" path="res://scenes/customer.tscn" id="2_20h2c"]
+
+[node name="Node2D" type="Node2D" unique_id=1407013849]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=729596747]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1370249172]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 768.0
+offset_bottom = 432.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_fs3ls")
+
+[node name="Customer" parent="." unique_id=1395521766 instance=ExtResource("2_20h2c")]
+position = Vector2(595, 457.00003)
+scale = Vector2(3, 3)

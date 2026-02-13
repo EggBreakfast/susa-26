@@ -84,3 +84,4 @@ func capture() -> void:
 	
 	
 # Splat me now
+# References: https://www.youtube.com/watch?v=2EkoIB0c8Rw, https://www.youtube.com/watch?v=U_TGOgp5-pc, https://www.youtube.com/watch?v=zvWA4vMPoLI
