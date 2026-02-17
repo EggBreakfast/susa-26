@@ -118,6 +118,7 @@ animations = [{
 script = ExtResource("1_rjbu2")
 
 [node name="Placeholder" type="AnimatedSprite2D" parent="." unique_id=1422648030]
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_d4wcg")
 animation = &"talking"
 frame_progress = 0.29999974

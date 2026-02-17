@@ -5,10 +5,10 @@
 
 [node name="Node2D" type="Node2D" unique_id=1407013849]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=729596747]
-layer = -1
+[node name="Background" type="CanvasLayer" parent="." unique_id=729596747]
+layer = -2
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1370249172]
+[node name="TextureRect" type="TextureRect" parent="Background" unique_id=1370249172]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -19,6 +19,40 @@ grow_vertical = 2
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_fs3ls")
 
-[node name="Customer" parent="." unique_id=1395521766 instance=ExtResource("2_20h2c")]
-position = Vector2(595, 457.00003)
-scale = Vector2(3, 3)
+[node name="Customer" type="CanvasLayer" parent="." unique_id=1140329066]
+
+[node name="Control" type="Control" parent="Customer" unique_id=756679093]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Customer" parent="Customer/Control" unique_id=1395521766 instance=ExtResource("2_20h2c")]
+position = Vector2(0, -216)
+scale = Vector2(2, 2)
+
+[node name="DialogueBox" type="CanvasLayer" parent="." unique_id=2110116391]
+layer = 0
+
+[node name="Control" type="Control" parent="DialogueBox" unique_id=303089381]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="DialogueBox/Control" unique_id=201158029]
+layout_mode = 0
+offset_left = -556.0
+offset_right = 599.0
+offset_bottom = 235.0

@@ -16,6 +16,6 @@ var dialogue_start: bool = false
 	"LINE 3",
 ]
 
-func _unhandled_key_input(_event: InputEvent) -> void:
-	if dialogue_start == true:
-		DialogueManager.start_dialogue(global_position, "%s ")
+#func _unhandled_key_input(_event: InputEvent) -> void:
+	#if dialogue_start == true:
+		#DialogueManager.start_dialogue(global_position, ""
