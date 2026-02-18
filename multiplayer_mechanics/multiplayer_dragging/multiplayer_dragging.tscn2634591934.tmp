@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://b8yhawf77t6xk"]
+
+[ext_resource type="Script" uid="uid://daur08iwunbqq" path="res://multiplayer_dragging/cursor.gd" id="1_ghm0g"]
+[ext_resource type="Texture2D" uid="uid://1118mifso8rk" path="res://icon.svg" id="2_wtbko"]
+[ext_resource type="Script" uid="uid://betf6kufxnv1k" path="res://multiplayer_dragging/draggable.gd" id="3_wtbko"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ghm0g"]
+size = Vector2(136, 133)
+
+[node name="MultiplayerDragging" type="Node2D" unique_id=285797780]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1729037907]
+
+[node name="Cursor1" type="Control" parent="CanvasLayer" unique_id=1004279577]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 10.0
+offset_top = 9.0
+offset_right = 42.0
+offset_bottom = 41.0
+script = ExtResource("1_ghm0g")
+movement_speed = 500.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Cursor1" unique_id=310516109]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 128.0
+offset_bottom = 127.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_wtbko")
+
+[node name="Cursor2" type="Control" parent="CanvasLayer" unique_id=474974756]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 70.0
+offset_top = 48.0
+offset_right = 102.0
+offset_bottom = 80.0
+script = ExtResource("1_ghm0g")
+id = &"p2"
+movement_speed = 500.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Cursor2" unique_id=704006375]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 128.0
+offset_bottom = 127.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_wtbko")
+
+[node name="Draggable" type="AnimatableBody2D" parent="." unique_id=1883441979]
+position = Vector2(734, 336)
+script = ExtResource("3_wtbko")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Draggable" unique_id=667397115]
+position = Vector2(1.5, 0)
+scale = Vector2(1.0800024, 1.0800024)
+shape = SubResource("RectangleShape2D_ghm0g")
+
+[node name="Sprite2D" type="Sprite2D" parent="Draggable" unique_id=1393775658]
+texture = ExtResource("2_wtbko")
+
+[node name="Draggable2" type="AnimatableBody2D" parent="." unique_id=272983902]
+position = Vector2(548, 418)
+script = ExtResource("3_wtbko")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Draggable2" unique_id=1383039174]
+position = Vector2(-1, -1.5)
+scale = Vector2(1.08, 1.08)
+shape = SubResource("RectangleShape2D_ghm0g")
+
+[node name="Sprite2D" type="Sprite2D" parent="Draggable2" unique_id=1920082637]
+texture = ExtResource("2_wtbko")
+
+[node name="Draggable3" type="AnimatableBody2D" parent="." unique_id=1000435164]
+position = Vector2(437, 460)
+script = ExtResource("3_wtbko")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Draggable3" unique_id=461811492]
+position = Vector2(1.5, 0)
+scale = Vector2(1.0799975, 1.0799975)
+shape = SubResource("RectangleShape2D_ghm0g")
+
+[node name="Sprite2D" type="Sprite2D" parent="Draggable3" unique_id=734011076]
+texture = ExtResource("2_wtbko")

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://nqnqbtaduyxh"
-path="res://.godot/imported/TextboxTest.png-63da1bdbbd7fc7628aa74eb9ac250ddb.ctex"
+path="res://.godot/imported/TextboxTest.png-c84df3a722b583da0202e8a620c30e10.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/TextboxTest.png"
-dest_files=["res://.godot/imported/TextboxTest.png-63da1bdbbd7fc7628aa74eb9ac250ddb.ctex"]
+source_file="res://sprites/ui_elements/TextboxTest.png"
+dest_files=["res://.godot/imported/TextboxTest.png-c84df3a722b583da0202e8a620c30e10.ctex"]
 
 [params]
 

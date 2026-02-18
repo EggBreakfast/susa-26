@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://diixerso2aiqw"]
+
+[ext_resource type="Script" uid="uid://b07fofmax0loo" path="res://multiplayer_mechanics/multiplayer_movement/player_character.gd" id="1_ix352"]
+[ext_resource type="Texture2D" uid="uid://shsvpvcswlni" path="res://sprites/icon.svg" id="2_cv85w"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4lgii"]
+radius = 0.6567383
+height = 1.3134766
+
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=703573571 node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_ix352")
+color = Color(1, 0.32941177, 0.9254902, 1)
+sprite = NodePath("Sprite3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=608852102]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.68862104, 0)
+shape = SubResource("CapsuleShape3D_4lgii")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1307481033]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69612205, 0)
+modulate = Color(1, 0.32941177, 0.9254902, 1)
+billboard = 1
+texture = ExtResource("2_cv85w")

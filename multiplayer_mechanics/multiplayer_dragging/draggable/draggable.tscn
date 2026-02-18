@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dmddw8o1xj52a"]
+
+[ext_resource type="Script" uid="uid://betf6kufxnv1k" path="res://multiplayer_mechanics/multiplayer_dragging/draggable/draggable.gd" id="1_dqxyc"]
+[ext_resource type="Texture2D" uid="uid://shsvpvcswlni" path="res://sprites/icon.svg" id="2_741xj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ghm0g"]
+size = Vector2(136, 133)
+
+[node name="Draggable" type="AnimatableBody2D" unique_id=1299935962]
+script = ExtResource("1_dqxyc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=489519537]
+position = Vector2(1.5, 0)
+scale = Vector2(1.0800024, 1.0800024)
+shape = SubResource("RectangleShape2D_ghm0g")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=139508360]
+texture = ExtResource("2_741xj")

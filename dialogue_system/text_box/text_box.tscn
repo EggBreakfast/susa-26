@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ij7rbdc1cdug"]
 
-[ext_resource type="Script" uid="uid://dlg1a0y6m7bx" path="res://scenes/text_box.gd" id="1_dyarx"]
-[ext_resource type="Texture2D" uid="uid://nqnqbtaduyxh" path="res://sprites/TextboxTest.png" id="1_wscpg"]
+[ext_resource type="Script" uid="uid://dlg1a0y6m7bx" path="res://dialogue_system/text_box/text_box.gd" id="1_dyarx"]
+[ext_resource type="Texture2D" uid="uid://nqnqbtaduyxh" path="res://sprites/ui_elements/TextboxTest.png" id="1_wscpg"]
 
 [node name="TextBox" type="MarginContainer" unique_id=907625405]
 offset_right = 32.0

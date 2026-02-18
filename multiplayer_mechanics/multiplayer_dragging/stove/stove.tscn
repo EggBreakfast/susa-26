@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dm1f7vq024mrw"]
+
+[ext_resource type="Script" uid="uid://b7g2eq3cgfgno" path="res://multiplayer_mechanics/multiplayer_dragging/stove/stove.gd" id="1_quvit"]
+[ext_resource type="Texture2D" uid="uid://shsvpvcswlni" path="res://sprites/icon.svg" id="2_gjbl0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oi6wx"]
+
+[node name="Stove" type="Node2D" unique_id=1507517867 node_paths=PackedStringArray("area")]
+scale = Vector2(11.841383, 11.360001)
+script = ExtResource("1_quvit")
+area = NodePath("Area2D")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2081704866]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1917045619]
+shape = SubResource("CircleShape2D_oi6wx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2024325003]
+modulate = Color(0.9814747, 0, 0.1341744, 1)
+scale = Vector2(0.16147833, 0.16416727)
+texture = ExtResource("2_gjbl0")

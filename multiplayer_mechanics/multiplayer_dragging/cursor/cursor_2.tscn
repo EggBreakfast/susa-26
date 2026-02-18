@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://c1fgs02uimq30"]
+
+[ext_resource type="Script" uid="uid://daur08iwunbqq" path="res://multiplayer_mechanics/multiplayer_dragging/cursor.gd" id="1_dqu38"]
+[ext_resource type="Texture2D" uid="uid://shsvpvcswlni" path="res://sprites/icon.svg" id="2_hh5ti"]
+
+[node name="Cursor2" type="Control" unique_id=326591762]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 70.0
+offset_top = 48.0
+offset_right = 102.0
+offset_bottom = 80.0
+script = ExtResource("1_dqu38")
+id = &"p2"
+movement_speed = 500.0
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1260749251]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 128.0
+offset_bottom = 127.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_hh5ti")

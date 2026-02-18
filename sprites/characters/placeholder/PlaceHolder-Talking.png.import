@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://uq2wdpi1x0a2"
-path="res://.godot/imported/PlaceHolder-Eating.png-e2e08e2b0d56cda83c7e17d7a6d01775.ctex"
+uid="uid://bfdsygnywvl6n"
+path="res://.godot/imported/PlaceHolder-Talking.png-ea952913871c328a55bfca5a225bd0d0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/placeholder/PlaceHolder-Eating.png"
-dest_files=["res://.godot/imported/PlaceHolder-Eating.png-e2e08e2b0d56cda83c7e17d7a6d01775.ctex"]
+source_file="res://sprites/characters/placeholder/PlaceHolder-Talking.png"
+dest_files=["res://.godot/imported/PlaceHolder-Talking.png-ea952913871c328a55bfca5a225bd0d0.ctex"]
 
 [params]
 

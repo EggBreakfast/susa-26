@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://c1x50v8tdr14k"]
 
-[ext_resource type="Texture2D" uid="uid://uq2wdpi1x0a2" path="res://sprites/placeholder/PlaceHolder-Eating.png" id="1_qqtjw"]
-[ext_resource type="Script" uid="uid://cjcbuuqk5sril" path="res://scenes/customer.gd" id="1_rjbu2"]
-[ext_resource type="Texture2D" uid="uid://c8nsar1mmjd55" path="res://sprites/placeholder/PlaceHolder-Idle.png" id="2_fd46v"]
-[ext_resource type="Texture2D" uid="uid://bfdsygnywvl6n" path="res://sprites/placeholder/PlaceHolder-Talking.png" id="3_k1bqq"]
+[ext_resource type="Texture2D" uid="uid://uq2wdpi1x0a2" path="res://sprites/characters/placeholder/PlaceHolder-Eating.png" id="1_qqtjw"]
+[ext_resource type="Script" uid="uid://cjcbuuqk5sril" path="res://dialogue_system/customer/customer.gd" id="1_rjbu2"]
+[ext_resource type="Texture2D" uid="uid://c8nsar1mmjd55" path="res://sprites/characters/placeholder/PlaceHolder-Idle.png" id="2_fd46v"]
+[ext_resource type="Texture2D" uid="uid://bfdsygnywvl6n" path="res://sprites/characters/placeholder/PlaceHolder-Talking.png" id="3_k1bqq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6bdyt"]
 atlas = ExtResource("1_qqtjw")
@@ -116,9 +116,10 @@ animations = [{
 
 [node name="Customer" type="Node2D" unique_id=1395521766]
 script = ExtResource("1_rjbu2")
+lines_placeholder = Array[String]([])
+lines_eyeguy = null
 
 [node name="Placeholder" type="AnimatedSprite2D" parent="." unique_id=1422648030]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_d4wcg")
-animation = &"talking"
-frame_progress = 0.29999974
+animation = &"idle"

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://b8yhawf77t6xk"]
+
+[ext_resource type="PackedScene" uid="uid://31a85ebjcobg" path="res://multiplayer_mechanics/multiplayer_dragging/cursor/cursor_1.tscn" id="1_2n56a"]
+[ext_resource type="PackedScene" uid="uid://c1fgs02uimq30" path="res://multiplayer_mechanics/multiplayer_dragging/cursor/cursor_2.tscn" id="2_8r100"]
+[ext_resource type="PackedScene" uid="uid://dm1f7vq024mrw" path="res://multiplayer_mechanics/multiplayer_dragging/stove/stove.tscn" id="3_14k70"]
+[ext_resource type="PackedScene" uid="uid://dmddw8o1xj52a" path="res://multiplayer_mechanics/multiplayer_dragging/draggable/draggable.tscn" id="4_qnn1r"]
+
+[node name="MultiplayerDragging" type="Node2D" unique_id=285797780]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1729037907]
+
+[node name="Cursor1" parent="CanvasLayer" unique_id=913670594 instance=ExtResource("1_2n56a")]
+
+[node name="Cursor2" parent="CanvasLayer" unique_id=326591762 instance=ExtResource("2_8r100")]
+
+[node name="Stove" parent="." unique_id=1507517867 instance=ExtResource("3_14k70")]
+position = Vector2(361, 170)
+
+[node name="Draggable" parent="." unique_id=1299935962 instance=ExtResource("4_qnn1r")]
+position = Vector2(734, 336)
+
+[node name="Draggable2" parent="." unique_id=1980044353 instance=ExtResource("4_qnn1r")]
+position = Vector2(960, 216)
+
+[node name="Draggable3" parent="." unique_id=289850671 instance=ExtResource("4_qnn1r")]
+position = Vector2(456, 384)

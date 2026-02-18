@@ -1,5 +1,7 @@
-class_name CustomerDialogue
+class_name Customer
 extends Node2D
+
+@export var data: CustomerData
 
 var dialogue_start: bool = false
 

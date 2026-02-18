@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c8nsar1mmjd55"
-path="res://.godot/imported/PlaceHolder-Idle.png-4f649adc96be9d477740521b6a5b943e.ctex"
+path="res://.godot/imported/PlaceHolder-Idle.png-f5399e892d36fd65de68b90d70b9a85f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/placeholder/PlaceHolder-Idle.png"
-dest_files=["res://.godot/imported/PlaceHolder-Idle.png-4f649adc96be9d477740521b6a5b943e.ctex"]
+source_file="res://sprites/characters/placeholder/PlaceHolder-Idle.png"
+dest_files=["res://.godot/imported/PlaceHolder-Idle.png-f5399e892d36fd65de68b90d70b9a85f.ctex"]
 
 [params]
 
