@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://1wte56tksmmk"]
+
+[ext_resource type="PackedScene" uid="uid://wfqq7b2cb2lu" path="res://customers/_customer/customer.tscn" id="1_6634j"]
+[ext_resource type="Texture2D" uid="uid://c8nsar1mmjd55" path="res://sprites/characters/placeholder/PlaceHolder-Idle.png" id="2_4tlt8"]
+[ext_resource type="Script" uid="uid://t40qpvbwnk7f" path="res://customers/_customer/customer_data.gd" id="2_hoowc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4tlt8"]
+atlas = ExtResource("2_4tlt8")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ct0px"]
+atlas = ExtResource("2_4tlt8")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3r1p"]
+atlas = ExtResource("2_4tlt8")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cj1fg"]
+atlas = ExtResource("2_4tlt8")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0sec"]
+atlas = ExtResource("2_4tlt8")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtkvv"]
+atlas = ExtResource("2_4tlt8")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2q37v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4tlt8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ct0px")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3r1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cj1fg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d0sec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtkvv")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_4tlt8"]
+script = ExtResource("2_hoowc")
+display_name = "Placeholder"
+sprite_frames = SubResource("SpriteFrames_2q37v")
+min_timer_duration = 1.0
+max_timer_duration = 20.0
+metadata/_custom_type_script = "uid://t40qpvbwnk7f"
+
+[node name="Customer" unique_id=159484568 instance=ExtResource("1_6634j")]
+data = SubResource("Resource_4tlt8")

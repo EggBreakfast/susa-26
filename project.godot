@@ -19,12 +19,9 @@ run/main_scene="uid://8npokvov3g2i"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://sprites/icon.svg"
 
-[autoload]
-
-DialogueManager="*uid://b5ricmfxtdvnl"
-
 [display]
 
+window/size/viewport_width=1153
 window/stretch/mode="viewport"
 mouse_cursor/stretch/aspect="keep"
 
@@ -109,7 +106,7 @@ Capture={
 
 [rendering]
 
-textures/canvas_textures/default_texture_filter=0
+textures/canvas_textures/default_texture_filter=3
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 textures/default_filters/use_nearest_mipmap_filter=true
