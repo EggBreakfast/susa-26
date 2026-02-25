@@ -3,6 +3,20 @@
 [ext_resource type="Script" uid="uid://l0vvnhnx3nju" path="res://drawing_system/drawing_system.gd" id="1_okv10"]
 
 [node name="DrawingSystem" type="Node2D" unique_id=470064038]
+visible = false
 script = ExtResource("1_okv10")
 
 [node name="Lines" type="Node2D" parent="." unique_id=1729566489]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2135269875]
+follow_viewport_enabled = true
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer" unique_id=1110874903]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Area2D" type="Area2D" parent="CanvasLayer/PanelContainer" unique_id=85639750]
+scale = Vector2(10.052106, 10.052106)
