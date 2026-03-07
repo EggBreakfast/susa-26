@@ -41,7 +41,7 @@ theme_override_constants/margin_bottom = 16
 layout_mode = 2
 
 [node name="DrawingSystem" parent="CanvasLayer/VBoxContainer/HBoxContainer/DrawingArea/PanelContainer" unique_id=470064038 instance=ExtResource("4_2r452")]
-position = Vector2(290, 145)
+position = Vector2(0, -10)
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/VBoxContainer" unique_id=2034646522]
 layout_mode = 2

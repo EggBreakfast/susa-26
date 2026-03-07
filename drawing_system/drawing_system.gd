@@ -4,30 +4,62 @@ extends Node2D
 
 @export var color: Color = Color()
 @export var radius := 5
+@export var area: Area2D
 
 var is_pressed: bool = false
-var current_line: Line2D 
+#var current_line: Line2D 
+var cursor_lines: Dictionary [Cursor, Line2D]
 var mouse_position := Vector2.ZERO
 var undone_lines: Array [Line2D]
+var active_cursors: Array[Cursor]
+
+
+func _ready()-> void:
+	area.area_entered.connect(_on_area_entered)
+	area.area_exited.connect(_on_area_exited)
+
+func _on_area_entered(other: Area2D) -> void:
+	if other.get_parent() is Cursor:
+		active_cursors.append(other.get_parent())
+
+func _on_area_exited(other: Area2D) -> void:
+	if other.get_parent() is Cursor:
+		var index: int = active_cursors.find(other.get_parent())
+		if index >= 0:
+			active_cursors.remove_at(index)
+
+func _on_cursor_interaction_started(cursor: Cursor) -> void:
+	is_pressed = true
+	active_cursors.append(cursor)
+	
+	var line: Line2D = Line2D.new()
+	line.default_color = color
+	# change to cursor.color if you want to be fancy
+	line.width = radius
+	line.antialiased = true
+	
+	lines.add_child(line)
+	cursor_lines.set()
+
 
 func _unhandled_input(event:InputEvent)-> void:
-	if event is InputEventMouseButton:
-		event = event as InputEventMouseButton
-		#for the rest of this function, the game treats event as if it were InputEventMouseButton
-		
-		if event.button_index == MOUSE_BUTTON_LEFT:
-			is_pressed = event.pressed
-			
-			if is_pressed:
-				current_line = Line2D.new()
-				lines.add_child(current_line)
-				current_line.default_color = color
-				current_line.width = radius
-				current_line.antialiased = true
-				#for lines in undone_lines:
-					#lines.queue_free()
-				#For garbage collection
-				undone_lines.clear()
+	#if event is InputEventMouseButton:
+		#event = event as InputEventMouseButton
+		##for the rest of this function, the game treats event as if it were InputEventMouseButton
+		#
+		#if event.button_index == MOUSE_BUTTON_LEFT:
+			#is_pressed = event.pressed
+			#
+			#if is_pressed:
+				#current_line = Line2D.new()
+				#lines.add_child(current_line)
+				#current_line.default_color = color
+				#current_line.width = radius
+				#current_line.antialiased = true
+				##for lines in undone_lines:
+					##lines.queue_free()
+				##For garbage collection
+				#undone_lines.clear()
 	
 	if event is InputEventMouseMotion:
 		mouse_position = event.global_position
@@ -41,11 +73,15 @@ func _unhandled_input(event:InputEvent)-> void:
 		#WIP capture; maybe change to some other event later
 
 
-@warning_ignore("unused_parameter")
+#@warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
-	if is_pressed and mouse_position != Vector2.ZERO:
-		current_line.add_point(mouse_position)
-		mouse_position = Vector2.ZERO
+	if active_cursor.size() > 0:
+		for active_cursor: Cursor in active_cursors:
+			var line: Line2D = cursor_lines.get(active_cursor)
+			line.add_point(active_cursor.position)
+	#if is_pressed and mouse_position != Vector2.ZERO:
+		#current_line.add_point(mouse_position)
+		#mouse_position = Vector2.ZERO
 
 
 func undo() -> void:
