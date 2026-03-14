@@ -5,18 +5,34 @@
 [sub_resource type="Gradient" id="Gradient_tf7fp"]
 colors = PackedColorArray(0.64096594, 0.50550735, 0.26866668, 1, 0.8202517, 0.6537763, 0.5286537, 1)
 
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tf7fp"]
+gradient = SubResource("Gradient_tf7fp")
+
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_io4w8"]
 gradient = SubResource("Gradient_tf7fp")
 fill = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tf7fp"]
-size = Vector2(540, 300)
 
-[node name="DrawingSystem" type="Node2D" unique_id=470064038 node_paths=PackedStringArray("area")]
+[node name="DrawingSystem" type="Control" unique_id=1223814054 node_paths=PackedStringArray("area")]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_okv10")
 area = NodePath("Area2D")
 
-[node name="Background" type="Sprite2D" parent="." unique_id=1646454757]
+[node name="Background" type="TextureRect" parent="." unique_id=119748737]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("GradientTexture2D_tf7fp")
+
+[node name="YeOldBackground" type="Sprite2D" parent="." unique_id=1646454757]
+visible = false
 position = Vector2(270, 160)
 scale = Vector2(8.4375, 4.6875)
 texture = SubResource("GradientTexture2D_io4w8")
@@ -26,5 +42,5 @@ texture = SubResource("GradientTexture2D_io4w8")
 [node name="Area2D" type="Area2D" parent="." unique_id=1340656991]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1456317741]
-position = Vector2(270, 160)
+position = Vector2(576, 324)
 shape = SubResource("RectangleShape2D_tf7fp")

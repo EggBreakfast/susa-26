@@ -21,7 +21,6 @@ config/icon="res://sprites/icon.svg"
 
 [display]
 
-window/size/viewport_width=1153
 window/stretch/mode="viewport"
 mouse_cursor/stretch/aspect="keep"
 

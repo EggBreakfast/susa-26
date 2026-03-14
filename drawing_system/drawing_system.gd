@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 @onready var lines: Node2D = $Lines
 
@@ -17,6 +17,18 @@ var active_cursors: Array[Cursor]
 func _ready()-> void:
 	area.area_entered.connect(_on_area_entered)
 	area.area_exited.connect(_on_area_exited)
+	
+	await get_tree().process_frame
+	#Don't do anything until you get this signal (basically, wait 1 frame)
+	#await get_tree().physics_frame
+	#^ Awaits physics frame. Occurs at different interval from process from. 60-interval iirc
+	#await get_tree() gets a reference to the root scene tree. Good for timers, figuring out certain details like frame rate, etc etc
+	
+	var area_collision_shape: CollisionShape2D = area.get_child(0)
+	var subshape: RectangleShape2D = area_collision_shape.shape
+	subshape.size = size
+	area_collision_shape.position = subshape.size / 2
+	
 
 func _on_area_entered(other: Area2D) -> void:
 	if other.get_parent() is not Cursor:

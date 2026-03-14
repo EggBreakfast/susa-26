@@ -24,14 +24,10 @@ texture = ExtResource("2_hsghg")
 clip_contents = true
 custom_minimum_size = Vector2(1121, 290)
 layout_mode = 3
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 0
+anchors_preset = 0
+offset_right = 1121.0
+offset_bottom = 290.0
 script = ExtResource("1_hsghg")
-patty_scene = ExtResource("4_fqane")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1781747532]
 layout_mode = 0
@@ -56,3 +52,6 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_oh1dw")
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_io4qn")
+
+[node name="Ingredient" parent="." unique_id=1325366191 instance=ExtResource("4_fqane")]
+position = Vector2(245, 129)

@@ -15,6 +15,7 @@ offset_right = 42.0
 offset_bottom = 41.0
 script = ExtResource("1_vnbg0")
 movement_speed = 500.0
+screen_peek = 8.0
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1212094212]
 layout_mode = 0
@@ -27,5 +28,5 @@ texture = ExtResource("2_wsrbc")
 [node name="Area2D" type="Area2D" parent="." unique_id=1579805816]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1951527034]
-position = Vector2(3, 2)
+position = Vector2(5, 4)
 shape = SubResource("RectangleShape2D_eb673")

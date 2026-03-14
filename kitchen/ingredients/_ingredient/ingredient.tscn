@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cfrg7o6ah1g2u"]
+
+[ext_resource type="Script" uid="uid://cclih156u50o3" path="res://kitchen/ingredients/_ingredient/ingredient.gd" id="1_xyk0e"]
+
+[node name="Ingredient" type="AnimatableBody2D" unique_id=1325366191 node_paths=PackedStringArray("area")]
+script = ExtResource("1_xyk0e")
+area = NodePath("Area2D")
+
+[node name="PhysicsCollisionShape" type="CollisionShape2D" parent="." unique_id=1974147017]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2107899845]
+
+[node name="AreaCollisionShape" type="CollisionShape2D" parent="Area2D" unique_id=1193654793]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=910218632]
+scale = Vector2(2, 2)

@@ -6,10 +6,9 @@ signal interaction_stopped
 
 
 @export var id: StringName = &"p1"
-
 @export var movement_speed: float = 640.0
-
 @export var color: Color
+@export var screen_peek: float = 4.0
 
 @onready var input_up: StringName = &"%s_move_forward" % id
 @onready var input_down: StringName = &"%s_move_backward" % id
@@ -60,8 +59,8 @@ func _physics_process(delta: float) -> void:
 	position += movement_input * movement_speed * delta
 	
 	var viewport_rect: Rect2 = get_viewport_rect()
-	position.x = clampf(position.x, 0.0, viewport_rect.end.x - size.x)
-	position.y = clampf(position.y, 0.0, viewport_rect.end.y - size.x)
+	position.x = clampf(position.x, 0.0, viewport_rect.end.x - screen_peek)
+	position.y = clampf(position.y, 0.0, viewport_rect.end.y - screen_peek)
 	
 	if is_grabbing and draggable != null:
 		draggable.global_position = global_position
