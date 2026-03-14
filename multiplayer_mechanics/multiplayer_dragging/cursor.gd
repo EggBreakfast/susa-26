@@ -1,20 +1,34 @@
 class_name Cursor extends Control
 
+
+signal interaction_started
+signal interaction_stopped
+
+
 @export var id: StringName = &"p1"
 
 @export var movement_speed: float = 640.0
+
+@export var color: Color
 
 @onready var input_up: StringName = &"%s_move_forward" % id
 @onready var input_down: StringName = &"%s_move_backward" % id
 @onready var input_left: StringName = &"%s_move_left" % id
 @onready var input_right: StringName = &"%s_move_right" % id
 @onready var input_grab: StringName = &"%s_grab" % id
+@onready var input_interact: StringName = &"%s_cursor_interact" % id
 
 var is_grabbing: bool = false
 var max_grab_distance: float = 320.0
 var draggable: Draggable
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed(input_interact):
+		interaction_started.emit(self)
+	
+	if event.is_action_released(input_interact):
+		interaction_stopped.emit(self)
+	
 	
 	if event.is_action_pressed(input_grab): 
 		# THIS IS FOR TOGGLE !

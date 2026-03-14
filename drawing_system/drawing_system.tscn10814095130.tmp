@@ -12,9 +12,8 @@ fill = 2
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tf7fp"]
 size = Vector2(540, 300)
 
-[node name="DrawingSystem" type="Node2D" unique_id=470064038 node_paths=PackedStringArray("area")]
+[node name="DrawingSystem" type="Node2D" unique_id=470064038]
 script = ExtResource("1_okv10")
-area = NodePath("Area2D")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1646454757]
 position = Vector2(270, 160)

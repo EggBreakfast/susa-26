@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://1wte56tksmmk" path="res://customers/placeholder/placeholder.tscn" id="2_apelb"]
 [ext_resource type="PackedScene" uid="uid://cvl4u62fhfby0" path="res://customers/eyeguy/eyeguy.tscn" id="2_qsv0g"]
 [ext_resource type="PackedScene" uid="uid://8npokvov3g2i" path="res://drawing_system/drawing_system.tscn" id="4_2r452"]
-[ext_resource type="Texture2D" uid="uid://shsvpvcswlni" path="res://sprites/icon.svg" id="4_pufpo"]
-[ext_resource type="Script" uid="uid://byis007s41k1w" path="res://customers/_customer/customer_timer.gd" id="5_2r452"]
+[ext_resource type="PackedScene" uid="uid://du8toy0kcqkyr" path="res://kitchen/cursor/cursor.tscn" id="6_2r452"]
+[ext_resource type="PackedScene" uid="uid://l37dx4ga6ok4" path="res://kitchen/cooktop/cooktop.tscn" id="7_3dl54"]
 
 [node name="Kitchen" type="Node2D" unique_id=1082625060 node_paths=PackedStringArray("customer_spawn_point")]
 script = ExtResource("1_lwc1s")
@@ -13,6 +13,7 @@ customers = Array[PackedScene]([ExtResource("2_qsv0g"), ExtResource("2_apelb")])
 customer_spawn_point = NodePath("CustomerSpawnPoint")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=346622203]
+layer = -1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=2064428098]
 anchors_preset = 15
@@ -41,17 +42,16 @@ theme_override_constants/margin_bottom = 16
 layout_mode = 2
 
 [node name="DrawingSystem" parent="CanvasLayer/VBoxContainer/HBoxContainer/DrawingArea/PanelContainer" unique_id=470064038 instance=ExtResource("4_2r452")]
-position = Vector2(290, 145)
+position = Vector2(0, -10)
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/VBoxContainer" unique_id=2034646522]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/VBoxContainer/MarginContainer" unique_id=1090414183]
+layout_mode = 2
+
+[node name="Cooktop" parent="CanvasLayer/VBoxContainer/MarginContainer/PanelContainer" unique_id=1392814311 instance=ExtResource("7_3dl54")]
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/VBoxContainer" unique_id=1855454143]
@@ -60,12 +60,4 @@ layout_mode = 2
 [node name="CustomerSpawnPoint" type="Marker2D" parent="." unique_id=20959887]
 position = Vector2(300, 342)
 
-[node name="CustomerTimer" type="TextureProgressBar" parent="." unique_id=270229198]
-offset_left = 2.0
-offset_top = 1.0
-offset_right = 130.0
-offset_bottom = 129.0
-step = 0.001
-fill_mode = 4
-texture_progress = ExtResource("4_pufpo")
-script = ExtResource("5_2r452")
+[node name="Cursor1" parent="." unique_id=913670594 instance=ExtResource("6_2r452")]
