@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://du8toy0kcqkyr"]
+
+[ext_resource type="Script" uid="uid://daur08iwunbqq" path="res://multiplayer_mechanics/multiplayer_dragging/cursor.gd" id="1_vnbg0"]
+[ext_resource type="Texture2D" uid="uid://shsvpvcswlni" path="res://sprites/icon.svg" id="2_wsrbc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eb673"]
+size = Vector2(5, 5)
+
+[node name="Cursor1" type="Control" unique_id=913670594]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 10.0
+offset_top = 9.0
+offset_right = 42.0
+offset_bottom = 41.0
+script = ExtResource("1_vnbg0")
+movement_speed = 500.0
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1212094212]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 128.0
+offset_bottom = 127.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_wsrbc")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1579805816]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1951527034]
+position = Vector2(3, 2)
+shape = SubResource("RectangleShape2D_eb673")
