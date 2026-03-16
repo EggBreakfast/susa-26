@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://cyn8k8q78v56m" path="res://kitchen/cooktop/cooktop.gd" id="1_hsghg"]
 [ext_resource type="Texture2D" uid="uid://qk2q6hr5sk4n" path="res://sprites/kitchen/countertop.png" id="1_oh1dw"]
 [ext_resource type="Texture2D" uid="uid://dankj0jkceiav" path="res://sprites/kitchen/stove.png" id="2_hsghg"]
+[ext_resource type="PackedScene" uid="uid://0s8oaewwkphp" path="res://kitchen/plates/plate.tscn" id="2_qxnpu"]
 [ext_resource type="PackedScene" uid="uid://b1lhn8p764gh7" path="res://kitchen/ingredients/patty/patty.tscn" id="4_fqane"]
+[ext_resource type="PackedScene" uid="uid://bj3d6viuhnsb7" path="res://kitchen/cooktop/skillet.tscn" id="5_io4qn"]
 
 [sub_resource type="Gradient" id="Gradient_oh1dw"]
 colors = PackedColorArray(0, 0, 0, 1, 0.15269855, 0.31810722, 0.40012613, 1)
@@ -20,6 +22,26 @@ texture = ExtResource("1_oh1dw")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_io4qn"]
 texture = ExtResource("2_hsghg")
 
+[sub_resource type="Gradient" id="Gradient_io4qn"]
+offsets = PackedFloat32Array(0, 0.7, 1)
+colors = PackedColorArray(0.18072194, 0.18072197, 0.18072197, 1, 0.6318125, 0.6318125, 0.6318125, 1, 1, 1, 1, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qxnpu"]
+gradient = SubResource("Gradient_io4qn")
+fill_from = Vector2(0.5, 0.7)
+fill_to = Vector2(0.5, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l8nfa"]
+texture = SubResource("GradientTexture2D_qxnpu")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vnblt"]
+size = Vector2(384, 220)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ewy8k"]
+size = Vector2(384, 80)
+
 [node name="Cooktop" type="Control" unique_id=1392814311]
 clip_contents = true
 custom_minimum_size = Vector2(1121, 290)
@@ -31,6 +53,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("1_hsghg")
+plate_scene = ExtResource("2_qxnpu")
 patty_scene = ExtResource("4_fqane")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1781747532]
@@ -52,7 +75,36 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_oh1dw")
 
+[node name="PattySpawnPoint" type="Marker2D" parent="HBoxContainer/Countertop" unique_id=1636793855]
+position = Vector2(315, 178)
+gizmo_extents = 24.0
+
+[node name="PlateSpawnPoint" type="Marker2D" parent="HBoxContainer/Countertop" unique_id=1988532954]
+position = Vector2(100, 180)
+gizmo_extents = 24.0
+
 [node name="Stovetop" type="PanelContainer" parent="HBoxContainer" unique_id=908588678]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_io4qn")
+
+[node name="Skillet" parent="HBoxContainer/Stovetop" unique_id=933598143 instance=ExtResource("5_io4qn")]
+position = Vector2(95, 163)
+scale = Vector2(1.28, 1.28)
+
+[node name="Dishpit" type="PanelContainer" parent="HBoxContainer" unique_id=1417584278]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_l8nfa")
+
+[node name="OutsideSinkArea" type="Area2D" parent="HBoxContainer/Dishpit" unique_id=393178950]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Dishpit/OutsideSinkArea" unique_id=999092436]
+position = Vector2(190, 100)
+shape = SubResource("RectangleShape2D_vnblt")
+
+[node name="InsideSinkArea" type="Area2D" parent="HBoxContainer/Dishpit" unique_id=1650063855]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Dishpit/InsideSinkArea" unique_id=1286362849]
+position = Vector2(190, 250)
+shape = SubResource("RectangleShape2D_ewy8k")

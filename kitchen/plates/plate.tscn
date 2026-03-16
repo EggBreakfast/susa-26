@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://0s8oaewwkphp"]
+
+[ext_resource type="Script" uid="uid://bojkdr25cub11" path="res://kitchen/plates/plate.gd" id="1_o600i"]
+[ext_resource type="Texture2D" uid="uid://nqnqbtaduyxh" path="res://sprites/ui_elements/TextboxTest.png" id="2_pur20"]
+
+[node name="Plate" type="Node2D" unique_id=2067448789 node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_o600i")
+texture_clean = ExtResource("2_pur20")
+texture_dirty = ExtResource("2_pur20")
+sprite = NodePath("Sprite2D")
+modulate_dirty = Color(0.48235294, 0.48235294, 0.48235294, 0.77254903)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=885312437]
+texture = ExtResource("2_pur20")

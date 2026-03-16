@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://bj3d6viuhnsb7"]
+
+[ext_resource type="Script" uid="uid://dhexcxsuqawl6" path="res://kitchen/cooktop/skillet.gd" id="1_ym30v"]
+
+[sub_resource type="Gradient" id="Gradient_fqane"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_io4qn"]
+gradient = SubResource("Gradient_fqane")
+fill = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8exkf"]
+
+[sub_resource type="Gradient" id="Gradient_ym30v"]
+colors = PackedColorArray(1, 1, 0, 1, 1, 1, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8exkf"]
+gradient = SubResource("Gradient_ym30v")
+
+[node name="Skillet" type="Node2D" unique_id=933598143 node_paths=PackedStringArray("area")]
+script = ExtResource("1_ym30v")
+area = NodePath("Area2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1127324619]
+texture = SubResource("GradientTexture2D_io4qn")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=853495393]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1663927538]
+scale = Vector2(3.68, 3.68)
+shape = SubResource("RectangleShape2D_8exkf")
+
+[node name="ProgressBar" type="TextureProgressBar" parent="." unique_id=420119230]
+offset_left = -49.0
+offset_top = -49.0
+offset_right = 15.0
+offset_bottom = 15.0
+scale = Vector2(0.5, 0.5)
+value = 100.0
+fill_mode = 4
+texture_progress = SubResource("GradientTexture2D_8exkf")
