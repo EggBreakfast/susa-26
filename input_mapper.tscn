@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://byhakxuutdx06"]
+
+[node name="InputMapper" type="Control" unique_id=411361475]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="p1_move_upward" type="Button" parent="." unique_id=2114252649]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="p1_move_backward" type="Button" parent="." unique_id=677868592]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0

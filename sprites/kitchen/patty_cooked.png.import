@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://syteivrr7uci"
-path="res://.godot/imported/cooked_patty1.png-27bd3d7e34b609cd090f1ae5bc021494.ctex"
+path="res://.godot/imported/patty_cooked.png-614d94fdf9f2b664f4aea9de94ef873a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/kitchen/cooked_patty1.png"
-dest_files=["res://.godot/imported/cooked_patty1.png-27bd3d7e34b609cd090f1ae5bc021494.ctex"]
+source_file="res://sprites/kitchen/patty_cooked.png"
+dest_files=["res://.godot/imported/patty_cooked.png-614d94fdf9f2b664f4aea9de94ef873a.ctex"]
 
 [params]
 
