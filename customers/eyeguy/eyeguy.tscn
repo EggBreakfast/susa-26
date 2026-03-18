@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cvl4u62fhfby0"]
+[gd_scene load_steps=19 format=3 uid="uid://cvl4u62fhfby0"]
 
 [ext_resource type="PackedScene" uid="uid://wfqq7b2cb2lu" path="res://customers/_customer/customer.tscn" id="1_b6re7"]
 [ext_resource type="Script" uid="uid://t40qpvbwnk7f" path="res://customers/_customer/customer_data.gd" id="3_nat82"]
@@ -111,5 +111,5 @@ min_timer_duration = 1.0
 max_timer_duration = 20.0
 metadata/_custom_type_script = "uid://t40qpvbwnk7f"
 
-[node name="Customer" unique_id=159484568 instance=ExtResource("1_b6re7")]
+[node name="Customer" instance=ExtResource("1_b6re7")]
 data = SubResource("Resource_4tlt8")
