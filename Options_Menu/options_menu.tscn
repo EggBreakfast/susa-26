@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://bv0s1nkhox2mu"]
+
+[ext_resource type="Script" uid="uid://da7he1il07kd" path="res://Options_Menu/options_menu.gd" id="1_dj71v"]
+[ext_resource type="PackedScene" uid="uid://cjdok80n500pm" path="res://Options_Menu/settings_tab_container.tscn" id="2_vlriv"]
+
+[sub_resource type="SystemFont" id="SystemFont_xn4nt"]
+font_names = PackedStringArray("Impact")
+
+[node name="Options_Menu" type="Control" unique_id=1172565490]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dj71v")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1534167619]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1205632919]
+layout_mode = 2
+theme_override_constants/separation = -48
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=37425178]
+layout_mode = 2
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = SubResource("SystemFont_xn4nt")
+theme_override_font_sizes/font_size = 32
+text = "Options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Settings_Tab_Container" parent="MarginContainer/VBoxContainer" unique_id=1794086752 instance=ExtResource("2_vlriv")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Exit_Button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=184267033]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Exit"
