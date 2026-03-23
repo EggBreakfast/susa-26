@@ -26,7 +26,7 @@ func find_nodes_of_type(parent: Node, type: Variant, is_recursive: bool = true) 
 		if is_instance_of(child, type):
 			nodes.append(child)
 		if is_recursive and child.get_child_count() > 0:
-			var grandchildren: Array[Node] = find_nodes_of_type(child, type, is_recursive)
+			var grandchildren: Array[Node] = find_nodes_of_type(child, type)
 			if grandchildren.size() > 0:
 				for grandchild: Node in grandchildren:
 					nodes.append(grandchild)

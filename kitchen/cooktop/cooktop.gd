@@ -10,8 +10,8 @@ var spawn_points: Array[Marker2D]
 # What do square brackets do? A lot of things. This one is a nested type. It specifies the kind of array this is. Same for dictionaries!
 
 func _ready() -> void:
-	for sp: Marker2D in Helpers.find_nodes_of_type(self, Marker2D):
-		spawn_points.append(sp)
+	for spawnpt: Marker2D in Helpers.find_nodes_of_type(self, Marker2D):
+		spawn_points.append(spawnpt)
 	
 	var patty: Ingredient = patty_scene.instantiate()
 	add_child(patty)
