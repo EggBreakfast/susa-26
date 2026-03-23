@@ -15,9 +15,15 @@ func _ready() -> void:
 	_spawn_customer()
 	
 	Input.joy_connection_changed.connect(_on_joy_connection_changed)
+	SaveSystem.save_loaded.connect(_on_save_system_loaded)
 
 func _exit_tree() -> void:
 	Input.joy_connection_changed.disconnect(_on_joy_connection_changed)
+	SaveSystem.save_loaded.disconnect(_on_save_system_loaded)
+
+
+func _on_save_system_loaded(save_data: SaveData) -> void:
+	print_debug(save_data.current_round)
 
 
 func _spawn_customer() -> void:
