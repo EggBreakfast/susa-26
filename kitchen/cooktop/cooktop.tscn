@@ -89,7 +89,8 @@ size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_io4qn")
 
 [node name="Skillet" parent="HBoxContainer/Stovetop" unique_id=933598143 instance=ExtResource("5_io4qn")]
-position = Vector2(95, 163)
+visible = false
+position = Vector2(-318, 27)
 
 [node name="Dishpit" type="PanelContainer" parent="HBoxContainer" unique_id=1417584278]
 layout_mode = 2

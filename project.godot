@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="SUSA 26"
-run/main_scene="uid://f2vhxdii8x21"
+run/main_scene="uid://c7n38hik22ofo"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://sprites/icon.svg"
 
@@ -23,6 +23,7 @@ config/icon="res://sprites/icon.svg"
 
 Helpers="*uid://chv5i3lfvv3am"
 SaveSystem="*uid://bv8hh5dxdo4nq"
+TransitionSystem="*uid://cvatgw4i3js88"
 
 [display]
 

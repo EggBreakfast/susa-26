@@ -57,6 +57,23 @@ func save_data(save_slot: int, data: SaveData) -> void:
 	#print_debug("Saving data to slot: ", data.to_json(), " | ", save_slot)
 
 
+func get_all_saves() -> Array[SaveData]:
+	if not DirAccess.dir_exists_absolute(SAVE_DIRECTORY):
+		DirAccess.make_dir_recursive_absolute(SAVE_DIRECTORY)
+	
+	var saves: Array[SaveData] = []
+	
+	var filenames: PackedStringArray = DirAccess.get_files_at(SAVE_DIRECTORY)
+	for filename: String in filenames:
+		var filepath: String = "%s/%s" % [SAVE_DIRECTORY, filename]
+		var file_access: FileAccess = FileAccess.open(filepath, FileAccess.READ)
+		var json: String = file_access.get_as_text()
+		var data: SaveData = SaveData.new()
+		data.from_json(json)
+		saves.append(data)
+	
+	return saves
+
 
 # DirAccess: for folders and stuff! You can make new folders, read new folders...
 # DON'T SAVE YOUR DATA TO :res// !! Data is READ-ONLY. YOU CAN'T WRITE IN THERE. 

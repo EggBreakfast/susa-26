@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://c7n38hik22ofo"]
+
+[ext_resource type="Script" uid="uid://b7ieam2smiqea" path="res://menu/main_menu/main_menu.gd" id="1_tramc"]
+[ext_resource type="Texture2D" uid="uid://b2hs1pxqlm671" path="res://sprites/ui_elements/background_test.jpg" id="2_mil1o"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mil1o"]
+font_size = 89
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tv72y"]
+bg_color = Color(0.19963112, 0.23644084, 0.3480653, 0.8666667)
+
+[node name="MainMenu" type="Node2D" unique_id=792077329]
+script = ExtResource("1_tramc")
+kitchen_scene_path = &"res://kitchen/kitchen.tscn"
+data_menu_path = &"res://menu/data_menu/data_menu.tscn"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1927630717]
+
+[node name="Background" type="TextureRect" parent="CanvasLayer" unique_id=1026617116]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_mil1o")
+expand_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=1172894047]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer" unique_id=1576921583]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer" unique_id=1095024031]
+layout_mode = 2
+text = "GAME TITLE"
+label_settings = SubResource("LabelSettings_mil1o")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer" unique_id=642857590]
+layout_mode = 2
+
+[node name="ButtonContinue" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1109905566]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_tv72y")
+text = "Continue"
+
+[node name="ButtonNewGame" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=381919455]
+unique_name_in_owner = true
+layout_mode = 2
+text = "New Game"
+
+[node name="ButtonLoadGame" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=89071680]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Load Game"
+
+[node name="ButtonSettings" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1318907095]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Settings"
+
+[node name="ButtonExit" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1965583123]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Exit to Desktop"
