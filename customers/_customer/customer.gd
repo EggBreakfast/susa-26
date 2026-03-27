@@ -13,6 +13,8 @@ static var instance: Customer
 var timer_duration: float
 @export var customer_timer: CustomerTimer
 
+
+
 # @export var sprite_face: Sprite2D
 
 #var facial_expression: StringName = facial_expression.keys()[0]:

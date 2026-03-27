@@ -11,7 +11,7 @@
 
 [node name="Kitchen" type="Node2D" unique_id=1082625060 node_paths=PackedStringArray("customer_spawn_point")]
 script = ExtResource("1_lwc1s")
-customers = Array[PackedScene]([ExtResource("4_o8vxq"), ExtResource("5_ts44q"), ExtResource("2_apelb"), ExtResource("2_qsv0g")])
+customers = Array[PackedScene]([ExtResource("2_qsv0g"), ExtResource("2_apelb"), ExtResource("4_o8vxq"), ExtResource("5_ts44q")])
 customer_spawn_point = NodePath("CustomerSpawnPoint")
 cursor_scene = ExtResource("6_2r452")
 cursor_colors = PackedColorArray(1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1)
@@ -56,4 +56,4 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="CustomerSpawnPoint" type="Marker2D" parent="." unique_id=20959887]
-position = Vector2(300, 358)
+position = Vector2(300, 342)

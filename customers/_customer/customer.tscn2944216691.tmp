@@ -192,7 +192,6 @@ sprite_frames = SubResource("SpriteFrames_1xdbc")
 animation = &"idle"
 
 [node name="Face" type="Sprite2D" parent="." unique_id=2104393957]
-visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1258070152]
 libraries/ = SubResource("AnimationLibrary_h0idb")

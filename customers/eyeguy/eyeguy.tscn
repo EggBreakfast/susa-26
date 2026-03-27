@@ -1,115 +1,22 @@
-[gd_scene load_steps=19 format=3 uid="uid://cvl4u62fhfby0"]
+[gd_scene format=3 uid="uid://cvl4u62fhfby0"]
 
 [ext_resource type="PackedScene" uid="uid://wfqq7b2cb2lu" path="res://customers/_customer/customer.tscn" id="1_b6re7"]
 [ext_resource type="Script" uid="uid://t40qpvbwnk7f" path="res://customers/_customer/customer_data.gd" id="3_nat82"]
-[ext_resource type="Texture2D" uid="uid://lx8cmh0cgusa" path="res://sprites/characters/eye_guy/EndoftheWorld.png" id="3_xjuq5"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_meptc"]
-atlas = ExtResource("3_xjuq5")
-region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_baxlf"]
-atlas = ExtResource("3_xjuq5")
-region = Rect2(128, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fioti"]
-atlas = ExtResource("3_xjuq5")
-region = Rect2(256, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_epl41"]
-atlas = ExtResource("3_xjuq5")
-region = Rect2(384, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o55qe"]
-atlas = ExtResource("3_xjuq5")
-region = Rect2(512, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k0qmb"]
-atlas = ExtResource("3_xjuq5")
-region = Rect2(640, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rng3t"]
-atlas = ExtResource("3_xjuq5")
-region = Rect2(768, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5nake"]
-atlas = ExtResource("3_xjuq5")
-region = Rect2(896, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sef7p"]
-atlas = ExtResource("3_xjuq5")
-region = Rect2(1024, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d8akt"]
-atlas = ExtResource("3_xjuq5")
-region = Rect2(1152, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3wtqn"]
-atlas = ExtResource("3_xjuq5")
-region = Rect2(1280, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_krooh"]
-atlas = ExtResource("3_xjuq5")
-region = Rect2(1408, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_88b5f"]
-atlas = ExtResource("3_xjuq5")
-region = Rect2(1536, 0, 128, 128)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_4bqvc"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_meptc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_baxlf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fioti")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_epl41")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o55qe")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k0qmb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rng3t")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5nake")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sef7p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d8akt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3wtqn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_krooh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_88b5f")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}]
+[ext_resource type="SpriteFrames" uid="uid://bcyuk12e8vleb" path="res://customers/eyeguy/eyeguy_frames.tres" id="3_xjuq5"]
 
 [sub_resource type="Resource" id="Resource_4tlt8"]
 script = ExtResource("3_nat82")
 display_name = "The End of the World"
-sprite_frames = SubResource("SpriteFrames_4bqvc")
+sprite_frames = ExtResource("3_xjuq5")
 min_timer_duration = 1.0
 max_timer_duration = 20.0
+customer_id = 1
 metadata/_custom_type_script = "uid://t40qpvbwnk7f"
 
-[node name="Customer" instance=ExtResource("1_b6re7")]
+[node name="Customer" unique_id=1011596399 instance=ExtResource("1_b6re7")]
 data = SubResource("Resource_4tlt8")
+
+[node name="Body" parent="." index="0" unique_id=371614508]
+sprite_frames = ExtResource("3_xjuq5")
+animation = &"eating"
+frame_progress = 0.16920504

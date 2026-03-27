@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://j5efnul7agos"]
+
+[ext_resource type="PackedScene" uid="uid://wfqq7b2cb2lu" path="res://customers/_customer/customer.tscn" id="1_258lw"]
+[ext_resource type="Script" uid="uid://t40qpvbwnk7f" path="res://customers/_customer/customer_data.gd" id="2_54jt2"]
+[ext_resource type="SpriteFrames" uid="uid://b3ntgfoy0cw4t" path="res://customers/mandymantis/mandymantis_frames.tres" id="3_258lw"]
+
+[sub_resource type="Resource" id="Resource_so2xg"]
+script = ExtResource("2_54jt2")
+display_name = "Mandy Mantis"
+sprite_frames = ExtResource("3_258lw")
+customer_id = 2
+metadata/_custom_type_script = "uid://t40qpvbwnk7f"
+
+[node name="Customer" unique_id=159484568 instance=ExtResource("1_258lw")]
+data = SubResource("Resource_so2xg")
+
+[node name="Body" parent="." index="0" unique_id=371614508]
+sprite_frames = ExtResource("3_258lw")
+animation = &"eating"
+frame_progress = 0.6605956
+
+[node name="Face" parent="." index="1" unique_id=2104393957]
+visible = false

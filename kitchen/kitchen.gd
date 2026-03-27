@@ -29,6 +29,7 @@ func _on_save_system_loaded(save_data: SaveData) -> void:
 	print_debug("Current save slot: ", save_data.current_round)
 
 
+#@export var customer: Customer = Customer.new()
 func _spawn_customer() -> void:
 	if not Customer.instance:
 		#var customer: Customer = Customer.new()

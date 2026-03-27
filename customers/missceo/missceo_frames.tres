@@ -1,0 +1,64 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://jxxcu77ryekw"]
+
+[ext_resource type="Texture2D" uid="uid://pnt488b55msw" path="res://sprites/characters/miss_ceo/CEO_Eating_1.png" id="1_gjiiq"]
+[ext_resource type="Texture2D" uid="uid://di6xrxa4t6oa" path="res://sprites/characters/miss_ceo/CEO_Eating_2.png" id="2_1n4b6"]
+[ext_resource type="Texture2D" uid="uid://brqu7ygwgxsin" path="res://sprites/characters/miss_ceo/CEO_Eating_3.png" id="3_01b0y"]
+[ext_resource type="Texture2D" uid="uid://bir2c0x1hmkss" path="res://sprites/characters/miss_ceo/CEO_Idle2.png" id="5_d2yqf"]
+[ext_resource type="Texture2D" uid="uid://curm8agv1l0uh" path="res://sprites/characters/miss_ceo/CEO_Idle3.png" id="6_53oq3"]
+[ext_resource type="Texture2D" uid="uid://b831fjxwxyrgv" path="res://sprites/characters/miss_ceo/CEO_Idle4.png" id="7_4dw0b"]
+[ext_resource type="Texture2D" uid="uid://b0alked32b5e7" path="res://sprites/characters/miss_ceo/CEO_Idle_1.png" id="8_42t33"]
+[ext_resource type="Texture2D" uid="uid://dj3nbvg2x5d5m" path="res://sprites/characters/miss_ceo/CEO_talking_1.png" id="9_ngtmt"]
+[ext_resource type="Texture2D" uid="uid://de4gksisrair8" path="res://sprites/characters/miss_ceo/CEO_talking_2.png" id="10_btxhd"]
+[ext_resource type="Texture2D" uid="uid://hl7yody76it6" path="res://sprites/characters/miss_ceo/CEO_talking_3.png" id="11_ygmh2"]
+[ext_resource type="Texture2D" uid="uid://bqxidph2k7ffs" path="res://sprites/characters/miss_ceo/CEO_talking_4.png" id="12_ofbor"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_gjiiq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1n4b6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_01b0y")
+}],
+"loop": true,
+"name": &"eating",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_d2yqf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_53oq3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_4dw0b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_42t33")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_ngtmt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_btxhd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ygmh2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ofbor")
+}],
+"loop": true,
+"name": &"talking",
+"speed": 4.0
+}]
