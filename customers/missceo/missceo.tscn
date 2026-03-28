@@ -9,8 +9,9 @@ data = ExtResource("2_yy8md")
 offset = Vector2(0, -100)
 
 [node name="Body" parent="." index="0" unique_id=371614508]
-position = Vector2(0, 1)
+position = Vector2(0, 5.9604645e-08)
 scale = Vector2(0.07, 0.07)
 sprite_frames = ExtResource("3_4eclv")
-animation = &"talking"
+animation = &"eating"
+frame_progress = 0.28423437
 offset = Vector2(-9.536743e-07, -1024)

@@ -9,5 +9,3 @@ data = ExtResource("2_jb2vm")
 
 [node name="Body" parent="." index="0" unique_id=371614508]
 sprite_frames = ExtResource("3_258lw")
-animation = &"eating"
-frame_progress = 0.6605956

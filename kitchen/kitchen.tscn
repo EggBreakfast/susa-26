@@ -7,12 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://6qkko5ma1ep6" path="res://customers/missceo/missceo.tscn" id="4_o8vxq"]
 [ext_resource type="PackedScene" uid="uid://j5efnul7agos" path="res://customers/mandymantis/mandy_mantis.tscn" id="5_ts44q"]
 [ext_resource type="PackedScene" uid="uid://du8toy0kcqkyr" path="res://kitchen/cursor/cursor.tscn" id="6_2r452"]
+[ext_resource type="PackedScene" uid="uid://l7j145144py8" path="res://customers/spcat/spcat.tscn" id="6_ts44q"]
 [ext_resource type="PackedScene" uid="uid://l37dx4ga6ok4" path="res://kitchen/cooktop/cooktop.tscn" id="7_3dl54"]
 
 [node name="Kitchen" type="Node2D" unique_id=1082625060 node_paths=PackedStringArray("customer_spawn_point")]
 script = ExtResource("1_lwc1s")
-debug_customer = &"missceo"
-customers = Array[PackedScene]([ExtResource("4_o8vxq"), ExtResource("5_ts44q"), ExtResource("2_apelb"), ExtResource("2_qsv0g")])
+customers = Array[PackedScene]([ExtResource("4_o8vxq"), ExtResource("5_ts44q"), ExtResource("2_apelb"), ExtResource("2_qsv0g"), ExtResource("6_ts44q")])
 customer_spawn_point = NodePath("CustomerSpawnPoint")
 cursor_scene = ExtResource("6_2r452")
 cursor_colors = PackedColorArray(1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1)

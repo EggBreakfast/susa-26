@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CustomerData" format=3 uid="uid://demfjoelctrxd"]
+
+[ext_resource type="Script" uid="uid://t40qpvbwnk7f" path="res://customers/_customer/customer_data.gd" id="1_5p4sr"]
+[ext_resource type="SpriteFrames" uid="uid://cnbx1gm22yto" path="res://customers/spcat/spcat_frames.tres" id="2_0rchd"]
+
+[resource]
+script = ExtResource("1_5p4sr")
+display_name = "SP Cat"
+sprite_frames = ExtResource("2_0rchd")
+metadata/_custom_type_script = "uid://t40qpvbwnk7f"
