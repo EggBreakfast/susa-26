@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CustomerData" format=3 uid="uid://dhxvctd7uehfg"]
+
+[ext_resource type="Script" uid="uid://t40qpvbwnk7f" path="res://customers/_customer/customer_data.gd" id="1_xfnvx"]
+[ext_resource type="SpriteFrames" uid="uid://jxxcu77ryekw" path="res://customers/missceo/missceo_frames.tres" id="2_2rb6l"]
+
+[resource]
+script = ExtResource("1_xfnvx")
+display_name = "SHE-E-O"
+sprite_frames = ExtResource("2_2rb6l")
+customer_id = 3
+metadata/_custom_type_script = "uid://t40qpvbwnk7f"

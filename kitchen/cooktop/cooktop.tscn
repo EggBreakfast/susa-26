@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://0s8oaewwkphp" path="res://kitchen/plates/plate.tscn" id="2_qxnpu"]
 [ext_resource type="PackedScene" uid="uid://b1lhn8p764gh7" path="res://kitchen/ingredients/patty/patty.tscn" id="4_fqane"]
 [ext_resource type="PackedScene" uid="uid://bj3d6viuhnsb7" path="res://kitchen/cooktop/skillet.tscn" id="5_io4qn"]
+[ext_resource type="PackedScene" uid="uid://bwrglqxqfolxv" path="res://kitchen/pot/pot.tscn" id="7_l8nfa"]
 
 [sub_resource type="Gradient" id="Gradient_oh1dw"]
 colors = PackedColorArray(0, 0, 0, 1, 0.15269855, 0.31810722, 0.40012613, 1)
@@ -89,8 +90,11 @@ size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_io4qn")
 
 [node name="Skillet" parent="HBoxContainer/Stovetop" unique_id=933598143 instance=ExtResource("5_io4qn")]
-visible = false
-position = Vector2(-318, 27)
+position = Vector2(96, 180)
+scale = Vector2(2.2, 2.2)
+
+[node name="Pot" parent="HBoxContainer/Stovetop" unique_id=1397384249 instance=ExtResource("7_l8nfa")]
+position = Vector2(274, 150)
 
 [node name="Dishpit" type="PanelContainer" parent="HBoxContainer" unique_id=1417584278]
 layout_mode = 2

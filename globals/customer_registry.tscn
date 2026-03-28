@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://fijj5wvp113c"]
+
+[ext_resource type="Script" uid="uid://dm0thcmm5b86y" path="res://globals/customer_registry.gd" id="1_51d43"]
+[ext_resource type="PackedScene" uid="uid://cvl4u62fhfby0" path="res://customers/eyeguy/eyeguy.tscn" id="2_ly4jx"]
+[ext_resource type="PackedScene" uid="uid://1wte56tksmmk" path="res://customers/placeholder/placeholder.tscn" id="3_fh6td"]
+[ext_resource type="PackedScene" uid="uid://j5efnul7agos" path="res://customers/mandymantis/mandy_mantis.tscn" id="4_4hvfl"]
+[ext_resource type="PackedScene" uid="uid://6qkko5ma1ep6" path="res://customers/missceo/missceo.tscn" id="5_hfg0y"]
+
+[node name="CustomerRegistry" type="Node" unique_id=1326985360]
+script = ExtResource("1_51d43")
+customer_registry = Dictionary[StringName, PackedScene]({
+&"eyeguy": ExtResource("2_ly4jx"),
+&"mandymantis": ExtResource("4_4hvfl"),
+&"missceo": ExtResource("5_hfg0y"),
+&"placeholder": ExtResource("3_fh6td")
+})
+metadata/_custom_type_script = "uid://dm0thcmm5b86y"

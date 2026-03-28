@@ -17,6 +17,7 @@ script = ExtResource("1_ym30v")
 area = NodePath("Area2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1127324619]
+position = Vector2(0, 6.5)
 texture = ExtResource("2_8exkf")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=853495393]

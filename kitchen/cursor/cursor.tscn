@@ -28,5 +28,5 @@ texture = ExtResource("2_wsrbc")
 [node name="Area2D" type="Area2D" parent="." unique_id=1579805816]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1951527034]
-position = Vector2(9, 7)
+position = Vector2(-1, -1)
 shape = SubResource("RectangleShape2D_eb673")

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CustomerData" format=3 uid="uid://dp8wmn3cjwdva"]
+
+[ext_resource type="Script" uid="uid://t40qpvbwnk7f" path="res://customers/_customer/customer_data.gd" id="1_4nwvk"]
+[ext_resource type="SpriteFrames" uid="uid://b3ntgfoy0cw4t" path="res://customers/mandymantis/mandymantis_frames.tres" id="2_ca2bt"]
+
+[resource]
+script = ExtResource("1_4nwvk")
+display_name = "Mandy Mantis"
+sprite_frames = ExtResource("2_ca2bt")
+customer_id = 2
+metadata/_custom_type_script = "uid://t40qpvbwnk7f"

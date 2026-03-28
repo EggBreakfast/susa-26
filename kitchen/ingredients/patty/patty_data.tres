@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="IngredientData" format=3 uid="uid://b0twc5ldid185"]
+
+[ext_resource type="Script" uid="uid://by7bhnjxfdwk1" path="res://kitchen/ingredients/_ingredient/ingredient_data.gd" id="1_l6bwj"]
+[ext_resource type="Texture2D" uid="uid://syteivrr7uci" path="res://sprites/kitchen/patty_cooked.png" id="2_tfxbs"]
+[ext_resource type="Texture2D" uid="uid://defdvgn2rgcti" path="res://sprites/kitchen/patty_raw.png" id="3_3lh66"]
+
+[resource]
+script = ExtResource("1_l6bwj")
+color_shift = Vector3(0.5, 0, 0)
+texture_raw = ExtResource("3_3lh66")
+texture_prepped = ExtResource("2_tfxbs")
+texture_overprepped = ExtResource("2_tfxbs")
+modulate_overprepped = Color(0.23128814, 0.037838317, 0.01208829, 0.89411765)
+metadata/_custom_type_script = "uid://by7bhnjxfdwk1"

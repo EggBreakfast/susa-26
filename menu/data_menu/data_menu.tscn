@@ -11,6 +11,17 @@ fill_from = Vector2(0.5, 1)
 fill_to = Vector2(0.5, 0)
 metadata/_snap_enabled = true
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lip3v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lip3v"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 32.0
+content_margin_bottom = 16.0
+bg_color = Color(0.09561657, 0.21811575, 0.39043975, 1)
+corner_radius_top_left = 8
+corner_detail = 20
+
 [node name="DataMenu" type="Node2D" unique_id=463551339]
 script = ExtResource("1_lip3v")
 
@@ -30,6 +41,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer" unique_id=2065500040]
 layout_mode = 2
@@ -46,33 +61,44 @@ layout_mode = 2
 
 [node name="NoSavesLabel" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=304138390]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 text = "No Saves Found."
 
 [node name="Template" type="PanelContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=608595379]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_lip3v")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxContainer/Template" unique_id=474670164]
 layout_mode = 2
+theme_override_constants/separation = 16
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxContainer/Template/HBoxContainer" unique_id=1642111534]
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxContainer/Template/HBoxContainer" unique_id=1904650898]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lip3v")
 
-[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxContainer/Template/HBoxContainer/MarginContainer" unique_id=588172320]
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxContainer/Template/HBoxContainer/PanelContainer" unique_id=588172320]
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "01"
+horizontal_alignment = 1
 
 [node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxContainer/Template/HBoxContainer" unique_id=1514852860]
 layout_mode = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 14
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxContainer/Template/HBoxContainer/MarginContainer2" unique_id=1621337088]
 layout_mode = 2
+alignment = 1
 
 [node name="DateTime" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxContainer/Template/HBoxContainer/MarginContainer2/VBoxContainer" unique_id=789374812]
 layout_mode = 2
+text = "0000-00-00  00:00:00"
 
 [node name="PlayerRounds" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxContainer/Template/HBoxContainer/MarginContainer2/VBoxContainer" unique_id=1536621234]
 layout_mode = 2
-
-[node name="TotalScore" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxContainer/Template/HBoxContainer/MarginContainer2/VBoxContainer" unique_id=2100158893]
-layout_mode = 2
+text = "Current Round: 0"

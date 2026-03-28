@@ -1,20 +1,11 @@
 [gd_scene format=3 uid="uid://cvl4u62fhfby0"]
 
 [ext_resource type="PackedScene" uid="uid://wfqq7b2cb2lu" path="res://customers/_customer/customer.tscn" id="1_b6re7"]
-[ext_resource type="Script" uid="uid://t40qpvbwnk7f" path="res://customers/_customer/customer_data.gd" id="3_nat82"]
+[ext_resource type="Resource" uid="uid://dtiod6vx6p1fv" path="res://customers/eyeguy/eyeguy_customer_data.tres" id="2_xjuq5"]
 [ext_resource type="SpriteFrames" uid="uid://bcyuk12e8vleb" path="res://customers/eyeguy/eyeguy_frames.tres" id="3_xjuq5"]
 
-[sub_resource type="Resource" id="Resource_4tlt8"]
-script = ExtResource("3_nat82")
-display_name = "The End of the World"
-sprite_frames = ExtResource("3_xjuq5")
-min_timer_duration = 1.0
-max_timer_duration = 20.0
-customer_id = 1
-metadata/_custom_type_script = "uid://t40qpvbwnk7f"
-
 [node name="Customer" unique_id=1011596399 instance=ExtResource("1_b6re7")]
-data = SubResource("Resource_4tlt8")
+data = ExtResource("2_xjuq5")
 
 [node name="Body" parent="." index="0" unique_id=371614508]
 sprite_frames = ExtResource("3_xjuq5")

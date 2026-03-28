@@ -1,12 +1,14 @@
 class_name Kitchen extends Node2D
 
 
+@export var debug_customer: StringName
 @export var customers: Array[PackedScene]
 
 @export var customer_spawn_point: Marker2D
 
 @export var cursor_scene: PackedScene
 @export var cursor_colors: PackedColorArray
+
 
 var cursors: Dictionary [int, Cursor]
 
@@ -29,12 +31,22 @@ func _on_save_system_loaded(save_data: SaveData) -> void:
 	print_debug("Current save slot: ", save_data.current_round)
 
 
-#@export var customer: Customer = Customer.new()
 func _spawn_customer() -> void:
 	if not Customer.instance:
-		#var customer: Customer = Customer.new()
-		var customer: Customer = customers.pick_random().instantiate()
-		customer_spawn_point.add_child(customer)
+		var customer: Customer
+		if OS.is_debug_build() and debug_customer.length() > 0:
+			var customer_scene: PackedScene = CustomerRegistry.customer_registry.get(debug_customer)
+			if not customer_scene:
+				push_error("Attempted to fetch invalid customer from registry.")
+				return
+			customer = customer_scene.instantiate()
+		else: 
+			#var customer: Customer = Customer.new()
+			customer = customers.pick_random().instantiate()
+		
+		#customer.modulate.a = 0.0
+		customer_spawn_point.add_child.call_deferred(customer)
+		# customer.exited.connect(_on_customer_exited)
 
 
 func _on_joy_connection_changed(device_id: int, is_connection: Variant) -> void:

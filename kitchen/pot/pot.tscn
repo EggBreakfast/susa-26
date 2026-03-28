@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://bwrglqxqfolxv"]
+
+[ext_resource type="Script" uid="uid://c0pkqdsf51s0x" path="res://kitchen/pot/pot.gd" id="1_32n0i"]
+
+[sub_resource type="Gradient" id="Gradient_7y775"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.122252025, 0.12225232, 0.12225216, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_32n0i"]
+gradient = SubResource("Gradient_7y775")
+width = 128
+height = 128
+fill_from = Vector2(0.82905984, 1)
+
+[sub_resource type="Gradient" id="Gradient_32n0i"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.5019608, 0.5019608, 0.5019608, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_a6frh"]
+gradient = SubResource("Gradient_32n0i")
+width = 128
+height = 128
+fill_from = Vector2(0.82905984, 1)
+
+[sub_resource type="Gradient" id="Gradient_a6frh"]
+colors = PackedColorArray(0.6665683, 0.66656893, 0.6665684, 1, 0.28118682, 0.28118688, 0.2811868, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jylah"]
+gradient = SubResource("Gradient_a6frh")
+width = 128
+height = 128
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0.982906, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a6frh"]
+size = Vector2(128, 61)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jylah"]
+size = Vector2(128, 31)
+
+[node name="Pot" type="Node2D" unique_id=1397384249 node_paths=PackedStringArray("ingredient_area", "ladle_area", "sprite_slop")]
+script = ExtResource("1_32n0i")
+ingredient_area = NodePath("IngredientArea")
+ladle_area = NodePath("LadleArea")
+sprite_slop = NodePath("SpriteSlop")
+
+[node name="SpriteBack" type="Sprite2D" parent="." unique_id=2114813691]
+texture = SubResource("GradientTexture2D_32n0i")
+
+[node name="SpriteSlop" type="Sprite2D" parent="." unique_id=812465338]
+position = Vector2(0, 9.5)
+scale = Vector2(1, 0.8515625)
+texture = SubResource("GradientTexture2D_a6frh")
+
+[node name="SpriteFront" type="Sprite2D" parent="." unique_id=2036201669]
+position = Vector2(0, 31.749996)
+scale = Vector2(1, 0.79296875)
+texture = SubResource("GradientTexture2D_jylah")
+
+[node name="IngredientArea" type="Area2D" parent="." unique_id=1845391118]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IngredientArea" unique_id=534668226]
+position = Vector2(0, -33.5)
+shape = SubResource("RectangleShape2D_a6frh")
+
+[node name="LadleArea" type="Area2D" parent="." unique_id=1826474688]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LadleArea" unique_id=1499880343]
+position = Vector2(0, 66.5)
+shape = SubResource("RectangleShape2D_jylah")

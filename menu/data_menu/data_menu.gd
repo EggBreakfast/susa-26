@@ -10,11 +10,11 @@ func _ready() -> void:
 	var saves: Array[SaveData] = SaveSystem.get_all_saves()
 	
 	if saves.size() <= 0:
-		%NoSavesLabel.visible = true	
+		%NoSavesLabel.visible = true
 	
 	for saveslot: int in range(saves.size()):
 		var save: SaveData = saves[saveslot]
-		var template: PanelContainer = $Template.duplicate()
+		var template: PanelContainer = %Template.duplicate()
 		template.visible = true
 		%Template.get_parent().add_child(template)
 		var slot_label: Label = template.get_node(^"HBoxContainer/PanelContainer/Label")
