@@ -67,10 +67,10 @@ func _on_slop_area_entered(other: Area2D) -> void:
 	
 	var pot: Pot = other.get_parent()
 	ladle_filled = true
-	sprite_slop.modulate.r = pot.color_shift.x
-	sprite_slop.modulate.g = pot.color_shift.y
-	sprite_slop.modulate.b = pot.color_shift.z
-	sprite_slop.modulate.a = 
+	sprite_slop.modulate.r = pot.slop_color.x
+	sprite_slop.modulate.g = pot.slop_color.y
+	sprite_slop.modulate.b = pot.slop_color.z
+	sprite_slop.modulate.a = 0.89
 	
 
 func _on_slop_area_exited(other: Area2D) -> void:

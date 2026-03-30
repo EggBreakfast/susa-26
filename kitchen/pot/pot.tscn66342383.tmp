@@ -36,13 +36,12 @@ fill_to = Vector2(0.982906, 1)
 size = Vector2(128, 61)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jylah"]
-size = Vector2(110, 31)
+size = Vector2(128, 31)
 
-[node name="Pot" type="Node2D" unique_id=1397384249 node_paths=PackedStringArray("ingredient_area", "ladle_area", "collision_area", "sprite_slop")]
+[node name="Pot" type="Node2D" unique_id=1397384249 node_paths=PackedStringArray("ingredient_area", "ladle_area", "sprite_slop")]
 script = ExtResource("1_32n0i")
 ingredient_area = NodePath("IngredientArea")
 ladle_area = NodePath("LadleArea")
-collision_area = NodePath("CollisionArea")
 sprite_slop = NodePath("SpriteSlop")
 
 [node name="SpriteBack" type="Sprite2D" parent="." unique_id=2114813691]
@@ -67,11 +66,5 @@ shape = SubResource("RectangleShape2D_a6frh")
 [node name="LadleArea" type="Area2D" parent="." unique_id=1826474688]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LadleArea" unique_id=1499880343]
-position = Vector2(-1, 61)
+position = Vector2(0, 66.5)
 shape = SubResource("RectangleShape2D_jylah")
-
-[node name="CollisionArea" type="Area2D" parent="." unique_id=1527129970]
-priority = 1
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CollisionArea" unique_id=1083141979]
-polygon = PackedVector2Array(-71, -63, -70, 88, 70, 86, 68, -67, 58, -67, 58, 76, -58, 76, -61, -65)
