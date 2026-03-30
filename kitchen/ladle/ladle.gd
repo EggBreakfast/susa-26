@@ -1,4 +1,4 @@
-class_name Ladle extends Node2D
+class_name Ladle extends AnimatableBody2D
 
 @export var pickup_area: Area2D
 @export var slop_area: Area2D
@@ -46,9 +46,10 @@ func _on_pickup_area_exited(other: Area2D) -> void:
 	cursor.interaction_stopped.disconnect(_on_cursor_interaction_stopped)
 
 @warning_ignore("unused_parameter")
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if current_cursor:
-		global_position = current_cursor.global_position + cursor_offset
+		move_and_collide(((current_cursor.global_position + cursor_offset) - global_position) * 64.0 * delta)
+		#global_position = current_cursor.global_position + cursor_offset
 
 func _on_cursor_interaction_started(cursor: Cursor) -> void:
 	current_cursor = cursor
@@ -62,10 +63,10 @@ func _on_cursor_interaction_stopped(cursor: Cursor) -> void:
 
 
 func _on_slop_area_entered(other: Area2D) -> void:
-	if other.get_parent() is not Pot:
+	var pot: Pot = other.get_parent() as Pot
+	if not pot or other != pot.ladle_area:
 		return
 	
-	var pot: Pot = other.get_parent()
 	ladle_filled = true
 	sprite_slop.modulate = pot.sprite_slop.modulate
 	ingredients = pot.ingredients

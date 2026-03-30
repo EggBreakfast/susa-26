@@ -28,7 +28,7 @@ func _exit_tree() -> void:
 	area.area_exited.disconnect(_on_area_exited)
 
 
-func _on_area_entered(other: Area2D) -> void:
+func _on_area_entered(other: Node) -> void:
 	var parent: Node = other.get_parent()
 	if parent is Cursor:
 		return _on_cursor_entered(parent)
@@ -49,15 +49,10 @@ func _on_cursor_entered(cursor: Cursor) -> void:
 
 func _on_cursor_exited(cursor: Cursor) -> void:
 	cursor.interaction_started.disconnect(_on_cursor_interaction_started)
-	cursor.interaction_started.disconnect(_on_cursor_interaction_stopped)
+	cursor.interaction_stopped.disconnect(_on_cursor_interaction_stopped)
 
-func _on_ladle_entered(other: Area2D) -> void: 
-	# is ladle?
-	var ladle: Ladle = other.get_parent() as Ladle
-	if not ladle or not ladle.ladle_filled or other != ladle.slop_area:
-		return
-	
-	# if is ladle, transfer contents to bowl
+func _on_ladle_entered(ladle: Ladle) -> void: 
+	# transfer contents to bowl
 	bowl_filled = true
 	sprite_slop.modulate = ladle.sprite_slop.modulate
 	ingredients = ladle.ingredients

@@ -15,6 +15,7 @@
 
 [node name="Kitchen" type="Node2D" unique_id=1082625060 node_paths=PackedStringArray("customer_spawn_point", "cursor_canvas_layer")]
 script = ExtResource("1_lwc1s")
+debug_customer = &"missceo"
 customers = Array[PackedScene]([ExtResource("4_o8vxq"), ExtResource("5_ts44q"), ExtResource("2_apelb"), ExtResource("2_qsv0g"), ExtResource("6_ts44q")])
 customer_spawn_point = NodePath("CustomerSpawnPoint")
 cursor_scene = ExtResource("6_2r452")

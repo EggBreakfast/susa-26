@@ -26,11 +26,15 @@ gradient = SubResource("Gradient_ovxj6")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j3f13"]
 size = Vector2(64, 29)
 
-[node name="Ladle" type="Node2D" unique_id=1242583197 node_paths=PackedStringArray("pickup_area", "slop_area", "sprite_slop")]
+[node name="Ladle" type="AnimatableBody2D" unique_id=489771186 node_paths=PackedStringArray("pickup_area", "slop_area", "sprite_slop")]
+sync_to_physics = false
 script = ExtResource("1_t7dmj")
 pickup_area = NodePath("PickupArea")
 slop_area = NodePath("SlopArea")
 sprite_slop = NodePath("SpriteSlop")
+
+[node name="CollisionPolygon" type="CollisionPolygon2D" parent="." unique_id=1911901089]
+polygon = PackedVector2Array(-33, -31, -34, 18, 33, 18, 33, -163, 15, -163, 16, -32)
 
 [node name="SpriteBack" type="Sprite2D" parent="." unique_id=1350703503]
 position = Vector2(24.5, -75.00001)
