@@ -11,6 +11,8 @@ var spawn_points: Array[Marker2D]
 # What do square brackets do? A lot of things. This one is a nested type. It specifies the kind of array this is. Same for dictionaries!
 
 func _ready() -> void:
+	SignalHolder.bowl_delivered_to_customer.connect(_on_bowl_delivered)
+	
 	for spawnpt: Marker2D in Helpers.find_nodes_of_type(self, Marker2D):
 		spawn_points.append(spawnpt)
 	
@@ -27,3 +29,10 @@ func _ready() -> void:
 		#plate.global_position.y -= (i * 8.0)
 		
 		# Here, the square brackets are used to access something from within the array. Here, it's being used to access the [0] thing in the array. Cool beans!
+
+func _exit_tree() -> void:
+		SignalHolder.bowl_delivered_to_customer.disconnect(_on_bowl_delivered)
+
+
+func _on_bowl_delivered(bowl: Bowl) -> void:
+	bowl.global_position = spawn_points[1].global_position

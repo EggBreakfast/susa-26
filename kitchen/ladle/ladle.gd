@@ -6,10 +6,10 @@ class_name Ladle extends Node2D
 
 signal grabbed(ladle: Ladle)
 signal dropped(ladle: Ladle)
-signal slopped(ladle: Ladle)
 
 var current_cursor: Cursor
 var cursor_offset: Vector2
+var ingredients: Array[Ingredient]
 
 var ladle_filled: bool = false
 
@@ -67,10 +67,8 @@ func _on_slop_area_entered(other: Area2D) -> void:
 	
 	var pot: Pot = other.get_parent()
 	ladle_filled = true
-	sprite_slop.modulate.r = pot.slop_color.x
-	sprite_slop.modulate.g = pot.slop_color.y
-	sprite_slop.modulate.b = pot.slop_color.z
-	sprite_slop.modulate.a = 0.89
+	sprite_slop.modulate = pot.sprite_slop.modulate
+	ingredients = pot.ingredients
 	
 
 func _on_slop_area_exited(other: Area2D) -> void:

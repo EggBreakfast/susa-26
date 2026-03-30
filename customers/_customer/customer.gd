@@ -31,6 +31,8 @@ func _ready() -> void:
 		push_error("Singleton violation!!")
 	instance = self
 	
+	SignalHolder.bowl_delivered_to_customer.connect(_on_bowl_delivered)
+	
 	#facial_expression = &"smile"
 	
 	timer_duration = randf_range(data.min_timer_duration, data.max_timer_duration)
@@ -47,5 +49,10 @@ func _process(delta: float) -> void:
 	
 
 func _exit_tree() -> void:
-	instance = null
-# When customer leaves scene, make it so we're no longer thinking about it
+	instance = null # When customer leaves scene, make it so we're no longer thinking about it
+	
+	SignalHolder.bowl_delivered_to_customer.disconnect(_on_bowl_delivered)
+
+
+func _on_bowl_delivered(bowl: Bowl) -> void:
+	print_debug(bowl.ingredients)

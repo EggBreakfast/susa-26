@@ -11,7 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://l37dx4ga6ok4" path="res://kitchen/cooktop/cooktop.tscn" id="7_3dl54"]
 [ext_resource type="Script" uid="uid://br8iom01ew43n" path="res://kitchen/customer_delivery_area.gd" id="8_4fetp"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4fetp"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ts44q"]
+size = Vector2(286, 189)
 
 [node name="Kitchen" type="Node2D" unique_id=1082625060 node_paths=PackedStringArray("customer_spawn_point", "cursor_canvas_layer")]
 script = ExtResource("1_lwc1s")
@@ -47,8 +48,9 @@ size_flags_horizontal = 3
 [node name="CustomerDeliveryArea" type="Area2D" parent="CanvasLayer/VBoxContainer/TopHalfContainer/MarginContainer/Customer" unique_id=1476697598]
 script = ExtResource("8_4fetp")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/VBoxContainer/TopHalfContainer/MarginContainer/Customer/CustomerDeliveryArea" unique_id=1796254608]
-shape = SubResource("RectangleShape2D_4fetp")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/VBoxContainer/TopHalfContainer/MarginContainer/Customer/CustomerDeliveryArea" unique_id=2043084775]
+position = Vector2(145, 96)
+shape = SubResource("RectangleShape2D_ts44q")
 
 [node name="DrawingArea" type="MarginContainer" parent="CanvasLayer/VBoxContainer/TopHalfContainer" unique_id=154867783]
 layout_mode = 2

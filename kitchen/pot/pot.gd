@@ -6,14 +6,6 @@ class_name Pot extends Node2D
 @export var collision_area: Area2D
 @export var sprite_slop: Sprite2D
 
-@export var slop_color: Vector3
-
-#var slop_transparency:
-	#get:
-		#sprite_slop.get_transparency()
-	#set(slop_transparency):
-		#sprite_slop.get_transparency()
-
 
 
 var ingredients: Array[Ingredient]
@@ -52,11 +44,10 @@ func _on_ingredient_area_exited(other: Area2D) -> void:
 func _on_ingredient_dropped(ingredient: Ingredient) -> void: 
 	ingredient.get_parent().remove_child(ingredient)
 	ingredients.append(ingredient)
-	sprite_slop.modulate.r += ingredient.data.color_shift.x
-	sprite_slop.modulate.g += ingredient.data.color_shift.y
-	sprite_slop.modulate.b += ingredient.data.color_shift.x
+	sprite_slop.modulate.r = clampf(sprite_slop.modulate.r + ingredient.data.color_shift.x, 0.0, 1.0)
+	sprite_slop.modulate.g = clampf(sprite_slop.modulate.g + ingredient.data.color_shift.y, 0.0, 1.0)
+	sprite_slop.modulate.b = clampf(sprite_slop.modulate.b + ingredient.data.color_shift.z, 0.0, 1.0)
 	sprite_slop.modulate.a = 0.89
-	
 	
 	# r, g, b, a
 

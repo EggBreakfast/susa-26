@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bj3d6viuhnsb7" path="res://kitchen/cooktop/skillet.tscn" id="5_io4qn"]
 [ext_resource type="PackedScene" uid="uid://bwrglqxqfolxv" path="res://kitchen/pot/pot.tscn" id="7_l8nfa"]
 [ext_resource type="PackedScene" uid="uid://dom2rjpg3jf7t" path="res://kitchen/ladle/ladle.tscn" id="8_vnblt"]
+[ext_resource type="PackedScene" uid="uid://duckk80rrj2yw" path="res://kitchen/bowl/bowl.tscn" id="9_ewy8k"]
 
 [sub_resource type="Gradient" id="Gradient_oh1dw"]
 colors = PackedColorArray(0, 0, 0, 1, 0.15269855, 0.31810722, 0.40012613, 1)
@@ -45,7 +46,6 @@ size = Vector2(384, 220)
 size = Vector2(384, 80)
 
 [node name="Cooktop" type="Control" unique_id=1392814311]
-clip_contents = true
 custom_minimum_size = Vector2(1121, 290)
 layout_mode = 3
 anchors_preset = 12
@@ -81,7 +81,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_oh1dw")
 position = Vector2(315, 178)
 gizmo_extents = 24.0
 
-[node name="PlateSpawnPoint" type="Marker2D" parent="HBoxContainer/Countertop" unique_id=1988532954]
+[node name="BowlSpawnPoint" type="Marker2D" parent="HBoxContainer/Countertop" unique_id=1988532954]
 position = Vector2(100, 180)
 gizmo_extents = 24.0
 
@@ -116,3 +116,6 @@ shape = SubResource("RectangleShape2D_ewy8k")
 
 [node name="Ladle" parent="." unique_id=1242583197 instance=ExtResource("8_vnblt")]
 position = Vector2(236, 207)
+
+[node name="Bowl" parent="." unique_id=1838452528 instance=ExtResource("9_ewy8k")]
+position = Vector2(100, 177)

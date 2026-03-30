@@ -11,7 +11,7 @@ gradient = SubResource("Gradient_dt7g3")
 
 [sub_resource type="Gradient" id="Gradient_j3f13"]
 offsets = PackedFloat32Array(0)
-colors = PackedColorArray(1, 1, 1, 0)
+colors = PackedColorArray(1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_xuhxk"]
 gradient = SubResource("Gradient_j3f13")
@@ -22,9 +22,6 @@ colors = PackedColorArray(0.5370113, 0.5370113, 0.5370113, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_c31l0"]
 gradient = SubResource("Gradient_ovxj6")
-
-[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_t7dmj"]
-points = PackedVector2Array(-36, -34, -36, 18, 35, 16, 34, -165, 11, -165, 11, -35)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j3f13"]
 size = Vector2(64, 29)
@@ -41,6 +38,7 @@ scale = Vector2(0.234375, 2.6875)
 texture = SubResource("GradientTexture2D_t7dmj")
 
 [node name="SpriteSlop" type="Sprite2D" parent="." unique_id=852288935]
+modulate = Color(1, 1, 1, 0)
 position = Vector2(-7.4999995, -28.5)
 scale = Vector2(0.765625, 0.23437497)
 texture = SubResource("GradientTexture2D_xuhxk")
@@ -52,8 +50,8 @@ texture = SubResource("GradientTexture2D_c31l0")
 
 [node name="PickupArea" type="Area2D" parent="." unique_id=382080989]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea" unique_id=1866148578]
-shape = SubResource("ConvexPolygonShape2D_t7dmj")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PickupArea" unique_id=130780566]
+polygon = PackedVector2Array(-33, -31, -34, 18, 33, 18, 33, -163, 15, -163, 16, -32)
 
 [node name="SlopArea" type="Area2D" parent="." unique_id=898337586]
 

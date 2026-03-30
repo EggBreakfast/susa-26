@@ -9,6 +9,7 @@ class_name Kitchen extends Node2D
 @export var cursor_scene: PackedScene
 @export var cursor_colors: PackedColorArray
 
+@export var cursor_canvas_layer: CanvasLayer
 
 var cursors: Dictionary [int, Cursor]
 
@@ -28,7 +29,8 @@ func _exit_tree() -> void:
 
 
 func _on_save_system_loaded(save_data: SaveData) -> void:
-	print_debug("Current save slot: ", save_data.current_round)
+	#print_debug("Current save slot: ", save_data.current_round)
+	pass
 
 
 func _spawn_customer() -> void:
@@ -50,7 +52,7 @@ func _spawn_customer() -> void:
 
 
 func _on_joy_connection_changed(device_id: int, is_connection: Variant) -> void:
-	print_debug(device_id, " ::", is_connection, "::", Input.get_connected_joypads())
+	# print_debug(device_id, " ::", is_connection, "::", Input.get_connected_joypads())
 	if is_connection:
 		_add_player(device_id)
 	
@@ -60,7 +62,7 @@ func _on_joy_connection_changed(device_id: int, is_connection: Variant) -> void:
 
 
 func _add_player(device_id: int) -> void:
-	print_debug(device_id)
+	# print_debug(device_id)
 	if cursors.has(device_id):
 		return
 	
