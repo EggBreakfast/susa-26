@@ -43,7 +43,6 @@ script = ExtResource("1_32n0i")
 ingredient_area = NodePath("IngredientArea")
 ladle_area = NodePath("LadleArea")
 sprite_slop = NodePath("SpriteSlop")
-color_shift = null
 
 [node name="SpriteBack" type="Sprite2D" parent="." unique_id=2114813691]
 texture = SubResource("GradientTexture2D_32n0i")

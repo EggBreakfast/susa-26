@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://dom2rjpg3jf7t"]
+
+[ext_resource type="Script" uid="uid://dthb3veoo17rd" path="res://kitchen/ladle/ladle.gd" id="1_t7dmj"]
+
+[sub_resource type="Gradient" id="Gradient_dt7g3"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.3328807, 0.33288068, 0.33288068, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_t7dmj"]
+gradient = SubResource("Gradient_dt7g3")
+
+[sub_resource type="Gradient" id="Gradient_j3f13"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xuhxk"]
+gradient = SubResource("Gradient_j3f13")
+
+[sub_resource type="Gradient" id="Gradient_ovxj6"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.5370113, 0.5370113, 0.5370113, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_c31l0"]
+gradient = SubResource("Gradient_ovxj6")
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_t7dmj"]
+points = PackedVector2Array(-36, -34, -36, 18, 35, 16, 34, -165, 11, -165, 11, -35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j3f13"]
+size = Vector2(64, 29)
+
+[node name="Ladle" type="Node2D" unique_id=1242583197 node_paths=PackedStringArray("pickup_area", "slop_area", "sprite_slop")]
+script = ExtResource("1_t7dmj")
+pickup_area = NodePath("PickupArea")
+slop_area = NodePath("SlopArea")
+sprite_slop = NodePath("SpriteSlop")
+
+[node name="SpriteBack" type="Sprite2D" parent="." unique_id=1350703503]
+position = Vector2(24.5, -75.00001)
+scale = Vector2(0.234375, 2.6875)
+texture = SubResource("GradientTexture2D_t7dmj")
+
+[node name="SpriteSlop" type="Sprite2D" parent="." unique_id=852288935]
+position = Vector2(-7.4999995, -28.5)
+scale = Vector2(0.765625, 0.23437497)
+texture = SubResource("GradientTexture2D_xuhxk")
+
+[node name="SpriteFront" type="Sprite2D" parent="." unique_id=738105476]
+position = Vector2(0, -6.5)
+scale = Vector2(1, 0.703125)
+texture = SubResource("GradientTexture2D_c31l0")
+
+[node name="PickupArea" type="Area2D" parent="." unique_id=382080989]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea" unique_id=1866148578]
+shape = SubResource("ConvexPolygonShape2D_t7dmj")
+
+[node name="SlopArea" type="Area2D" parent="." unique_id=898337586]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlopArea" unique_id=650935386]
+position = Vector2(-1, -17.5)
+shape = SubResource("RectangleShape2D_j3f13")

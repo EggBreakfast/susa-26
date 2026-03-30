@@ -5,6 +5,15 @@ class_name Pot extends Node2D
 @export var ladle_area: Area2D
 @export var sprite_slop: Sprite2D
 
+@export var slop_color: Vector3
+
+var slop_transparency:
+	get:
+		sprite_slop.get_transparency()
+	set(slop_transparency):
+		sprite_slop.get_transparency()
+
+
 
 var ingredients: Array[Ingredient]
 
@@ -12,6 +21,9 @@ var ingredients: Array[Ingredient]
 func _ready() -> void:
 	ingredient_area.area_entered.connect(_on_ingredient_area_entered)
 	ingredient_area.area_exited.connect(_on_ingredient_area_exited)
+	
+	ladle_area.area_entered.connect(_on_ladle_area_entered)
+	ladle_area.area_exited.connect(_on_ladle_area_exited)
 
 func _exit_tree() -> void:
 	ingredient_area.area_entered.disconnect(_on_ingredient_area_entered)
@@ -31,7 +43,6 @@ func _on_ingredient_area_exited(other: Area2D) -> void:
 	
 	ingredient.dropped.disconnect(_on_ingredient_dropped)
 
-
 func _on_ingredient_dropped(ingredient: Ingredient) -> void: 
 	ingredient.get_parent().remove_child(ingredient)
 	ingredients.append(ingredient)
@@ -39,4 +50,25 @@ func _on_ingredient_dropped(ingredient: Ingredient) -> void:
 	sprite_slop.modulate.g += ingredient.data.color_shift.y
 	sprite_slop.modulate.b += ingredient.data.color_shift.x
 	sprite_slop.modulate.a = 0.89
+	 
+	color_shift = sprite_slop.texture.get_color()
+	
 	# r, g, b, a
+
+
+func _on_ladle_area_entered(other: Area2D) -> void:
+	if other.get_parent() is not Ladle:
+		return
+	
+	ladle.slopped.connect(_on_ladle_slopped)
+
+func _on_ladle_area_exited(other: Area2D) -> void:
+	var ladle: Ladle = other.get_parent() as Ladle
+	if not ladle:
+		return
+	
+	ladle.slopped.disconnect(_on_ladle_slopped)
+
+
+func _on_ladle_slopped(ladle: Ladle) -> void:
+	pass

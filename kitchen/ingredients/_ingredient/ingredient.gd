@@ -18,7 +18,6 @@ var is_raw: bool:
 var is_prepped: bool:
 	get:
 		return prep_percentage >= 1.0 and prep_percentage < data.overprep_percentage
-	
 var is_overprepped: bool:
 	get:
 		return prep_percentage >= data.overprep_percentage

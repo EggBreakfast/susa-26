@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b1lhn8p764gh7" path="res://kitchen/ingredients/patty/patty.tscn" id="4_fqane"]
 [ext_resource type="PackedScene" uid="uid://bj3d6viuhnsb7" path="res://kitchen/cooktop/skillet.tscn" id="5_io4qn"]
 [ext_resource type="PackedScene" uid="uid://bwrglqxqfolxv" path="res://kitchen/pot/pot.tscn" id="7_l8nfa"]
+[ext_resource type="PackedScene" uid="uid://dom2rjpg3jf7t" path="res://kitchen/ladle/ladle.tscn" id="8_vnblt"]
 
 [sub_resource type="Gradient" id="Gradient_oh1dw"]
 colors = PackedColorArray(0, 0, 0, 1, 0.15269855, 0.31810722, 0.40012613, 1)
@@ -112,3 +113,6 @@ shape = SubResource("RectangleShape2D_vnblt")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Dishpit/InsideSinkArea" unique_id=1286362849]
 position = Vector2(190, 250)
 shape = SubResource("RectangleShape2D_ewy8k")
+
+[node name="Ladle" parent="." unique_id=1242583197 instance=ExtResource("8_vnblt")]
+position = Vector2(236, 207)
