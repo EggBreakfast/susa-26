@@ -13,8 +13,6 @@ static var instance: Customer
 var timer_duration: float
 @export var customer_timer: CustomerTimer
 
-var order
-
 
 # @export var sprite_face: Sprite2D
 
@@ -26,7 +24,7 @@ var order
 		#if sprite_face:
 			#sprite_face.texture = facial_expressions.get(facial_expression)
 
-
+var current_order: Order
 func _ready() -> void:
 	if instance:
 		push_error("Singleton violation!!")
@@ -34,14 +32,19 @@ func _ready() -> void:
 	
 	SignalBroker.bowl_delivered_to_customer.connect(_on_bowl_delivered)
 	
-	#facial_expression = &"smile"
-	
 	timer_duration = randf_range(data.min_timer_duration, data.max_timer_duration)
 	customer_timer.max_value = timer_duration
 	customer_timer.value = timer_duration
 	
 	sprite_body.sprite_frames = data.sprite_frames
 	
+	if data.orders.size() < 1:
+		return
+	else:
+		current_order = data.orders.pick_random()
+		print_debug(current_order.dialogue)
+	
+	print_debug("Current Order" + current_order.ingredients[1].to_string())
 	#order = data.order.pick_random()
 	#SignalBroker.customer.order.pick_random()
 	
@@ -59,4 +62,29 @@ func _exit_tree() -> void:
 
 
 func _on_bowl_delivered(bowl: Bowl) -> void:
-	print_debug(bowl.ingredients)
+	var order_size = current_order.ingredients.size()
+	
+	bowl.ingredients.sort_custom(sort_ascending)
+	current_order.ingredients.sort_custom(sort_ascending)
+	
+	var order_accurate: bool = true
+	if order_size == bowl.ingredients.size():
+		for i in range(bowl.ingredients.size()):
+			if current_order.ingredients[i] != bowl.ingredients[i]:
+				order_accurate = false
+				break # breaks out of the for loop earlier !
+			else:
+				continue
+	else: 
+		order_accurate = false
+	
+	if order_accurate == false:
+		print_debug("Go Die. 0 Stars.")
+	elif order_accurate == true:
+		print_debug("Awesome Food")
+
+
+func sort_ascending(a: IngredientData, b: IngredientData) -> bool: 
+	if a.ingredient_id < b.ingredient_id: # if sort_descending, then a > b
+		return true
+	return false

@@ -7,6 +7,7 @@
 [resource]
 script = ExtResource("1_l6bwj")
 color_shift = Vector3(0.5, 0, 0)
+ingredient_id = 1
 texture_raw = ExtResource("3_3lh66")
 texture_prepped = ExtResource("2_tfxbs")
 texture_overprepped = ExtResource("2_tfxbs")

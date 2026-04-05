@@ -8,7 +8,7 @@ signal dropped(bowl: Bowl)
 
 
 var bowl_filled: bool = false
-var ingredients: Array[Ingredient]
+var ingredients: Array[IngredientData]
 
 var current_cursor: Cursor
 var cursor_offset: Vector2
@@ -56,6 +56,7 @@ func _on_ladle_entered(ladle: Ladle) -> void:
 	bowl_filled = true
 	sprite_slop.modulate = ladle.sprite_slop.modulate
 	ingredients = ladle.ingredients
+	print_debug(ingredients)
 	
 	# clear out ladle's contents!
 	ladle.ladle_filled = false

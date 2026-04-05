@@ -9,7 +9,7 @@ signal dropped(ladle: Ladle)
 
 var current_cursor: Cursor
 var cursor_offset: Vector2
-var ingredients: Array[Ingredient]
+var ingredients: Array[IngredientData]
 
 var ladle_filled: bool = false
 

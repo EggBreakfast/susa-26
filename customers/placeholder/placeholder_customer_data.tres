@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://t40qpvbwnk7f" path="res://customers/_customer/customer_data.gd" id="1_07xba"]
 [ext_resource type="Texture2D" uid="uid://uq2wdpi1x0a2" path="res://sprites/characters/placeholder/PlaceHolder-Eating.png" id="1_ssf51"]
+[ext_resource type="Script" uid="uid://dnpo11vl2vg6l" path="res://orders/order.gd" id="1_vx4dh"]
 [ext_resource type="Texture2D" uid="uid://c8nsar1mmjd55" path="res://sprites/characters/placeholder/PlaceHolder-Idle.png" id="2_07xba"]
 [ext_resource type="Texture2D" uid="uid://bfdsygnywvl6n" path="res://sprites/characters/placeholder/PlaceHolder-Talking.png" id="3_vx4dh"]
 

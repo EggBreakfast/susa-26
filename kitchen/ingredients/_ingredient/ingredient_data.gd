@@ -1,11 +1,15 @@
 class_name IngredientData 
 extends Resource
 
-
+## The way the slop colors will shift when the ingredient is added, sorted by RGB
 @export var color_shift: Vector3
 # OR: 
 # @export var color_shift: Color
 # But you can't do negatives, in that scenario
+
+## The set ID of this specific ingredient
+@export var ingredient_id: int
+# Patty = 1
 
 
 ##How long (in seconds) it should take for this ingredient to be fully "prepped" (cooked, blended, etc.)

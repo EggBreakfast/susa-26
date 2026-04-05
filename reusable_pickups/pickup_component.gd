@@ -14,6 +14,8 @@ func _get_configuration_warnings() -> PackedStringArray:
 	if not pickup_area: 
 		warnings.append("PickupComponent requires an Area2D for cursor interaction.")
 	return warnings
+func _process(delta: float) -> void:
+	pass
 
 
 func _ready() -> void: 
@@ -32,7 +34,7 @@ func _on_area_entered(other: Node) -> void:
 	cursor.interaction_started.connect(_on_cursor_interaction_started)
 	cursor.interaction_stopped.connect(_on_cursor_interaction_stopped)
 
-func _on_area_exted(other: Node) -> void:
+func _on_area_exited(other: Node) -> void:
 	var cursor: Cursor = other.get_parent() as Cursor
 	if not Cursor:
 		return
@@ -40,13 +42,8 @@ func _on_area_exted(other: Node) -> void:
 	cursor.interaction_stopped.disconnect(_on_cursor_interaction_stopped)
 
 
-func _on_cursor_interaction_started(cursor: Cursor) -> void:
-	if active_cursor:
-		return
-	
-	active_cursor = cursor
-	cursor_offset = activ
+func _on_cursor_interaction_started(cursor: Cursor) -> void: 
+	pass
 
-func _on_cursor_interaction_stopped(cursor: Cursor) -> void:
-	
-	#if 
+func _on_cursor_interaction_stopped(cursor: Cursor) -> void: 
+	pass

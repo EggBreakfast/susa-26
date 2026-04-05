@@ -3,12 +3,10 @@ class_name Pot extends Node2D
 
 @export var ingredient_area: Area2D
 @export var ladle_area: Area2D
-@export var collision_area: Area2D
 @export var sprite_slop: Sprite2D
 
 
-
-var ingredients: Array[Ingredient]
+var ingredients: Array[IngredientData]
 
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
@@ -43,11 +41,12 @@ func _on_ingredient_area_exited(other: Area2D) -> void:
 
 func _on_ingredient_dropped(ingredient: Ingredient) -> void: 
 	ingredient.get_parent().remove_child(ingredient)
-	ingredients.append(ingredient)
+	ingredients.append(ingredient.data)
 	sprite_slop.modulate.r = clampf(sprite_slop.modulate.r + ingredient.data.color_shift.x, 0.0, 1.0)
 	sprite_slop.modulate.g = clampf(sprite_slop.modulate.g + ingredient.data.color_shift.y, 0.0, 1.0)
 	sprite_slop.modulate.b = clampf(sprite_slop.modulate.b + ingredient.data.color_shift.z, 0.0, 1.0)
 	sprite_slop.modulate.a = 0.89
+	print_debug("Pot Ingredients: "+ ingredient.data.to_string())
 	
 	# r, g, b, a
 
