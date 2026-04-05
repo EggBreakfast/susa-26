@@ -15,14 +15,14 @@ var cursor_offset: Vector2
 
 
 func _ready() -> void:
-	SignalHolder.bowl_delivered_to_customer.connect(_on_bowl_delivered)
+	SignalBroker.bowl_delivered_to_customer.connect(_on_bowl_delivered)
 	
 	area.area_entered.connect(_on_area_entered)
 	area.area_exited.connect(_on_area_exited)
 
 
 func _exit_tree() -> void:
-	SignalHolder.bowl_delivered_to_customer.disconnect(_on_bowl_delivered)
+	SignalBroker.bowl_delivered_to_customer.disconnect(_on_bowl_delivered)
 	
 	area.area_entered.disconnect(_on_area_entered)
 	area.area_exited.disconnect(_on_area_exited)

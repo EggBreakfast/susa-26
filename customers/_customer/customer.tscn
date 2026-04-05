@@ -2,11 +2,13 @@
 
 [ext_resource type="Script" uid="uid://dpv734nq1d6y8" path="res://customers/_customer/customer.gd" id="1_dqoax"]
 [ext_resource type="Script" uid="uid://t40qpvbwnk7f" path="res://customers/_customer/customer_data.gd" id="2_apnb8"]
+[ext_resource type="Script" uid="uid://dnpo11vl2vg6l" path="res://orders/order.gd" id="2_hdwui"]
 [ext_resource type="Texture2D" uid="uid://c8nsar1mmjd55" path="res://sprites/characters/placeholder/PlaceHolder-Idle.png" id="2_p7q25"]
 [ext_resource type="Script" uid="uid://byis007s41k1w" path="res://customers/_customer/customer_timer.gd" id="4_v2qqs"]
 
 [sub_resource type="Resource" id="Resource_v2qqs"]
 script = ExtResource("2_apnb8")
+orders = Array[ExtResource("2_hdwui")]([null])
 metadata/_custom_type_script = "uid://t40qpvbwnk7f"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p7q25"]

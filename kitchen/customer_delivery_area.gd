@@ -25,4 +25,4 @@ func _on_area_exited(other: Area2D) -> void:
 		bowl.dropped.disconnect(_on_bowl_dropped)
 
 func _on_bowl_dropped(bowl: Bowl) -> void:
-	SignalHolder.bowl_delivered_to_customer.emit(bowl)
+	SignalBroker.bowl_delivered_to_customer.emit(bowl)

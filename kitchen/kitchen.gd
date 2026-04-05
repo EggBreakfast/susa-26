@@ -1,15 +1,17 @@
 class_name Kitchen extends Node2D
 
-
+@export_group("Customers")
 @export var debug_customer: StringName
 @export var customers: Array[PackedScene]
-
 @export var customer_spawn_point: Marker2D
 
+@export_group("Cursors")
 @export var cursor_scene: PackedScene
 @export var cursor_colors: PackedColorArray
 
+@export_group("Node References")
 @export var cursor_canvas_layer: CanvasLayer
+@export var customer_container: Control
 
 var cursors: Dictionary [int, Cursor]
 

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://ccvqlv4kn1umb"]
+
+[ext_resource type="Script" uid="uid://hu8rorctk2if" path="res://reusable_pickups/pickup_component.gd" id="1_o62mo"]
+[ext_resource type="Texture2D" uid="uid://shsvpvcswlni" path="res://sprites/icon.svg" id="1_vubrl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vubrl"]
+
+[node name="ReusablePickups" type="Node2D" unique_id=2043354504]
+
+[node name="Node2D" type="Node2D" parent="." unique_id=66786494]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D" unique_id=1658682530]
+texture = ExtResource("1_vubrl")
+
+[node name="PickupComponent" type="Node" parent="Node2D" unique_id=1934623273 node_paths=PackedStringArray("pickup_area")]
+script = ExtResource("1_o62mo")
+pickup_area = NodePath("../PickupArea")
+
+[node name="PickupArea" type="Area2D" parent="Node2D" unique_id=758220320]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/PickupArea" unique_id=1001421080]
+shape = SubResource("RectangleShape2D_vubrl")

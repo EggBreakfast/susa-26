@@ -13,6 +13,7 @@ static var instance: Customer
 var timer_duration: float
 @export var customer_timer: CustomerTimer
 
+var order
 
 
 # @export var sprite_face: Sprite2D
@@ -31,7 +32,7 @@ func _ready() -> void:
 		push_error("Singleton violation!!")
 	instance = self
 	
-	SignalHolder.bowl_delivered_to_customer.connect(_on_bowl_delivered)
+	SignalBroker.bowl_delivered_to_customer.connect(_on_bowl_delivered)
 	
 	#facial_expression = &"smile"
 	
@@ -40,6 +41,9 @@ func _ready() -> void:
 	customer_timer.value = timer_duration
 	
 	sprite_body.sprite_frames = data.sprite_frames
+	
+	#order = data.order.pick_random()
+	#SignalBroker.customer.order.pick_random()
 	
 	#position.y -= sprite_body.get_rect().size.y
 
@@ -51,7 +55,7 @@ func _process(delta: float) -> void:
 func _exit_tree() -> void:
 	instance = null # When customer leaves scene, make it so we're no longer thinking about it
 	
-	SignalHolder.bowl_delivered_to_customer.disconnect(_on_bowl_delivered)
+	SignalBroker.bowl_delivered_to_customer.disconnect(_on_bowl_delivered)
 
 
 func _on_bowl_delivered(bowl: Bowl) -> void:

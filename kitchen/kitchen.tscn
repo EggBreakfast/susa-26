@@ -12,15 +12,17 @@
 [ext_resource type="Script" uid="uid://br8iom01ew43n" path="res://kitchen/customer_delivery_area.gd" id="8_4fetp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4fetp"]
+size = Vector2(592, 80)
 
-[node name="Kitchen" type="Node2D" unique_id=1082625060 node_paths=PackedStringArray("customer_spawn_point", "cursor_canvas_layer")]
+[node name="Kitchen" type="Node2D" unique_id=1082625060 node_paths=PackedStringArray("customer_spawn_point", "cursor_canvas_layer", "customer_container")]
 script = ExtResource("1_lwc1s")
-debug_customer = &"missceo"
+debug_customer = &"eyeguy"
 customers = Array[PackedScene]([ExtResource("4_o8vxq"), ExtResource("5_ts44q"), ExtResource("2_apelb"), ExtResource("2_qsv0g"), ExtResource("6_ts44q")])
 customer_spawn_point = NodePath("CustomerSpawnPoint")
 cursor_scene = ExtResource("6_2r452")
 cursor_colors = PackedColorArray(1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1)
 cursor_canvas_layer = NodePath("CursorCanvasLayer")
+customer_container = NodePath("CanvasLayer/VBoxContainer/TopHalfContainer/MarginContainer/CustomerContainer")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=346622203]
 layer = -1
@@ -41,15 +43,9 @@ theme_override_constants/separation = 0
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Customer" type="Control" parent="CanvasLayer/VBoxContainer/TopHalfContainer/MarginContainer" unique_id=762043553]
+[node name="CustomerContainer" type="Control" parent="CanvasLayer/VBoxContainer/TopHalfContainer/MarginContainer" unique_id=762043553]
 layout_mode = 2
 size_flags_horizontal = 3
-
-[node name="CustomerDeliveryArea" type="Area2D" parent="CanvasLayer/VBoxContainer/TopHalfContainer/MarginContainer/Customer" unique_id=1476697598]
-script = ExtResource("8_4fetp")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/VBoxContainer/TopHalfContainer/MarginContainer/Customer/CustomerDeliveryArea" unique_id=1796254608]
-shape = SubResource("RectangleShape2D_4fetp")
 
 [node name="DrawingArea" type="MarginContainer" parent="CanvasLayer/VBoxContainer/TopHalfContainer" unique_id=154867783]
 layout_mode = 2
@@ -75,4 +71,13 @@ layout_mode = 2
 [node name="CustomerSpawnPoint" type="Marker2D" parent="." unique_id=20959887]
 position = Vector2(300, 358)
 
+[node name="CustomerDeliveryArea" type="Area2D" parent="." unique_id=1476697598]
+position = Vector2(300, 334)
+script = ExtResource("8_4fetp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CustomerDeliveryArea" unique_id=1796254608]
+position = Vector2(-4, -14)
+shape = SubResource("RectangleShape2D_4fetp")
+
 [node name="CursorCanvasLayer" type="CanvasLayer" parent="." unique_id=1334972846]
+layer = 10
