@@ -8,11 +8,6 @@ class_name Pot extends Node2D
 
 var ingredients: Array[IngredientData]
 
-@warning_ignore("unused_parameter")
-func _process(delta: float) -> void:
-	
-	pass
-
 
 func _ready() -> void:
 	ingredient_area.area_entered.connect(_on_ingredient_area_entered)

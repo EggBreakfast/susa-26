@@ -2,21 +2,25 @@
 
 [ext_resource type="Script" uid="uid://hu8rorctk2if" path="res://reusable_pickups/pickup_component.gd" id="1_o62mo"]
 [ext_resource type="Texture2D" uid="uid://shsvpvcswlni" path="res://sprites/icon.svg" id="1_vubrl"]
+[ext_resource type="PackedScene" uid="uid://du8toy0kcqkyr" path="res://kitchen/cursor/cursor.tscn" id="1_w7dr1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vubrl"]
 
 [node name="ReusablePickups" type="Node2D" unique_id=2043354504]
 
-[node name="Node2D" type="Node2D" parent="." unique_id=66786494]
+[node name="Cursor1" parent="." unique_id=913670594 instance=ExtResource("1_w7dr1")]
 
-[node name="Sprite2D" type="Sprite2D" parent="Node2D" unique_id=1658682530]
+[node name="Entity" type="Node2D" parent="." unique_id=66786494]
+
+[node name="Sprite2D" type="Sprite2D" parent="Entity" unique_id=1658682530]
 texture = ExtResource("1_vubrl")
 
-[node name="PickupComponent" type="Node" parent="Node2D" unique_id=1934623273 node_paths=PackedStringArray("pickup_area")]
+[node name="PickupComponent" type="Node" parent="Entity" unique_id=1934623273 node_paths=PackedStringArray("entity", "pickup_area")]
 script = ExtResource("1_o62mo")
+entity = NodePath("..")
 pickup_area = NodePath("../PickupArea")
 
-[node name="PickupArea" type="Area2D" parent="Node2D" unique_id=758220320]
+[node name="PickupArea" type="Area2D" parent="Entity" unique_id=758220320]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/PickupArea" unique_id=1001421080]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entity/PickupArea" unique_id=1001421080]
 shape = SubResource("RectangleShape2D_vubrl")

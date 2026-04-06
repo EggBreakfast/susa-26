@@ -81,3 +81,5 @@ shape = SubResource("RectangleShape2D_4fetp")
 
 [node name="CursorCanvasLayer" type="CanvasLayer" parent="." unique_id=1334972846]
 layer = 10
+
+[node name="Cursor1" parent="CursorCanvasLayer" unique_id=913670594 instance=ExtResource("6_2r452")]

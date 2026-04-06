@@ -19,7 +19,7 @@ extends Resource
 
 
 @export_group ("Textures", "texture_")
-
+ 
 ##The texture to show when this ingredient has not yet been prepped.
 @export var texture_raw: Texture2D
 ##The texture to show when this ingredient has been prepped adequately.

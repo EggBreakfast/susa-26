@@ -2,7 +2,13 @@
 class_name PickupComponent extends Node
 
 
-var cursor_offset: Cursor
+signal grabbed(node: Node)
+signal dropped(node: Node)
+
+var cursor_offset: Vector2
+var current_cursor: Cursor ## The cursor that is currently holding the ingredient.
+
+@export var entity: Node
 @export var pickup_area: Area2D:
 	set(value):
 		pickup_area = value
@@ -14,8 +20,6 @@ func _get_configuration_warnings() -> PackedStringArray:
 	if not pickup_area: 
 		warnings.append("PickupComponent requires an Area2D for cursor interaction.")
 	return warnings
-func _process(delta: float) -> void:
-	pass
 
 
 func _ready() -> void: 
@@ -29,21 +33,33 @@ func _exit_tree() -> void:
 
 func _on_area_entered(other: Node) -> void:
 	var cursor: Cursor = other.get_parent() as Cursor
-	if not Cursor:
+	if not cursor:
 		return
 	cursor.interaction_started.connect(_on_cursor_interaction_started)
 	cursor.interaction_stopped.connect(_on_cursor_interaction_stopped)
 
 func _on_area_exited(other: Node) -> void:
 	var cursor: Cursor = other.get_parent() as Cursor
-	if not Cursor:
+	if not cursor:
 		return
 	cursor.interaction_started.disconnect(_on_cursor_interaction_started)
 	cursor.interaction_stopped.disconnect(_on_cursor_interaction_stopped)
 
 
 func _on_cursor_interaction_started(cursor: Cursor) -> void: 
-	pass
+	if current_cursor:
+		return
+	
+	current_cursor = cursor
+	cursor_offset = current_cursor.global_position - get_parent().global_position
+	grabbed.emit(self)
 
+@warning_ignore_start("unused_parameter")
 func _on_cursor_interaction_stopped(cursor: Cursor) -> void: 
-	pass
+	current_cursor = null
+	dropped.emit(self)
+
+
+func _process(delta: float) -> void:
+	if current_cursor:
+		entity.global_position = current_cursor.global_position + cursor_offset

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dom2rjpg3jf7t"]
 
 [ext_resource type="Script" uid="uid://dthb3veoo17rd" path="res://kitchen/ladle/ladle.gd" id="1_t7dmj"]
+[ext_resource type="Script" uid="uid://hu8rorctk2if" path="res://reusable_pickups/pickup_component.gd" id="2_j3f13"]
 
 [sub_resource type="Gradient" id="Gradient_dt7g3"]
 offsets = PackedFloat32Array(0)
@@ -62,3 +63,9 @@ polygon = PackedVector2Array(-33, -31, -34, 18, 33, 18, 33, -163, 15, -163, 16, 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SlopArea" unique_id=650935386]
 position = Vector2(-1, -17.5)
 shape = SubResource("RectangleShape2D_j3f13")
+
+[node name="PickupComponent" type="Node" parent="." unique_id=1929910901 node_paths=PackedStringArray("entity", "pickup_area")]
+script = ExtResource("2_j3f13")
+entity = NodePath("..")
+pickup_area = NodePath("../PickupArea")
+metadata/_custom_type_script = "uid://hu8rorctk2if"
