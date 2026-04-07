@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://duckk80rrj2yw"]
 
 [ext_resource type="Script" uid="uid://bqhmnakpvbphk" path="res://kitchen/bowl/bowl.gd" id="1_tqrfs"]
+[ext_resource type="Script" uid="uid://hu8rorctk2if" path="res://reusable_pickups/pickup_component.gd" id="2_6x5lh"]
 
 [sub_resource type="Gradient" id="Gradient_jprcn"]
 offsets = PackedFloat32Array(0)
@@ -51,3 +52,9 @@ texture = SubResource("GradientTexture2D_sj2ee")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1801275017]
 position = Vector2(-0.5, 7)
 shape = SubResource("RectangleShape2D_6x5lh")
+
+[node name="PickupComponent" type="Node" parent="." unique_id=978200028 node_paths=PackedStringArray("entity", "pickup_area")]
+script = ExtResource("2_6x5lh")
+entity = NodePath("..")
+pickup_area = NodePath("../Area2D")
+metadata/_custom_type_script = "uid://hu8rorctk2if"

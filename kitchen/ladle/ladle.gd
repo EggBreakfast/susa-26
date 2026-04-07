@@ -75,5 +75,3 @@ func _on_slop_area_entered(other: Area2D) -> void:
 func _on_slop_area_exited(other: Area2D) -> void:
 	if other.get_parent() is not Pot:
 		return
-	
-	

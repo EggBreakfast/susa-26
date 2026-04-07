@@ -7,10 +7,19 @@ extends Resource
 # @export var color_shift: Color
 # But you can't do negatives, in that scenario
 
+
+## The name of the ingredient which will display int he UI (i.e. GroceryStore)
+@export var display_name: String
+
+## The price it costs to purchase this ingredient from the store in pennies.
+@export var price: int
+
 ## The set ID of this specific ingredient
 @export var ingredient_id: int
 # Patty = 1
 
+## The resource path to this ingredient's instantiable scene.
+@export var scene_path: String
 
 ##How long (in seconds) it should take for this ingredient to be fully "prepped" (cooked, blended, etc.)
 @export var prep_time: float = 5.0

@@ -59,7 +59,7 @@ _data = {
 &"slide_to_store": SubResource("Animation_8mctn")
 }
 
-[node name="Kitchen" type="Node2D" unique_id=1082625060 node_paths=PackedStringArray("customer_spawn_point", "cursor_canvas_layer", "customer_container", "animation_player", "store_button", "grocery_store")]
+[node name="Kitchen" type="Node2D" unique_id=1082625060 node_paths=PackedStringArray("customer_spawn_point", "cursor_canvas_layer", "customer_container", "animation_player", "store_button")]
 script = ExtResource("1_lwc1s")
 debug_customer = &"eyeguy"
 customers = Array[PackedScene]([ExtResource("4_o8vxq"), ExtResource("5_ts44q"), ExtResource("2_apelb"), ExtResource("2_qsv0g"), ExtResource("6_ts44q")])
@@ -70,7 +70,6 @@ cursor_canvas_layer = NodePath("CursorCanvasLayer")
 customer_container = NodePath("CanvasLayer/HBoxContainer/VBoxContainer/TopHalfContainer/MarginContainer/CustomerContainer")
 animation_player = NodePath("AnimationPlayer")
 store_button = NodePath("CanvasLayer/StoreButtonMargin/StoreButton")
-grocery_store = NodePath("CanvasLayer/HBoxContainer/GroceryStore")
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="." unique_id=825694285]
 layer = -5

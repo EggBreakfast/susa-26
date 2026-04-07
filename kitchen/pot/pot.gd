@@ -25,14 +25,16 @@ func _on_ingredient_area_entered(other: Area2D) -> void:
 	if not ingredient: 
 		return
 	
-	ingredient.dropped.connect(_on_ingredient_dropped)
+	var draggable_component = Helpers.find_node_of_type(ingredient, PickupComponent)
+	draggable_component.dropped.connect(_on_ingredient_dropped)
 
 func _on_ingredient_area_exited(other: Area2D) -> void:
 	var ingredient: Ingredient = other.get_parent() as Ingredient
 	if not ingredient: 
 		return
 	
-	ingredient.dropped.disconnect(_on_ingredient_dropped)
+	var draggable_component = Helpers.find_node_of_type(ingredient, PickupComponent)
+	draggable_component.dropped.disconnect(_on_ingredient_dropped)
 
 func _on_ingredient_dropped(ingredient: Ingredient) -> void: 
 	ingredient.get_parent().remove_child(ingredient)

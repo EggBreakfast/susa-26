@@ -16,6 +16,8 @@ func _ready() -> void:
 	for spawnpt: Marker2D in Helpers.find_nodes_of_type(self, Marker2D):
 		spawn_points.append(spawnpt)
 	
+	await get_tree().process_frame
+	
 	for i: int in range(count_patties):
 		var patty: Ingredient = patty_scene.instantiate()
 		add_child(patty)

@@ -23,8 +23,9 @@ func _on_area_entered(other: Area2D) -> void:
 	if not ingredient:
 		return
 	
-	ingredient.grabbed.connect(_on_ingredient_grabbed)
-	ingredient.dropped.connect(_on_ingredient_dropped)
+	var pickup_component: PickupComponent = Helpers.find_node_of_type(ingredient, PickupComponent)
+	pickup_component.grabbed.connect(_on_ingredient_grabbed)
+	pickup_component.dropped.connect(_on_ingredient_dropped)
 
 
 func _on_area_exited(other: Area2D) -> void:
@@ -32,8 +33,9 @@ func _on_area_exited(other: Area2D) -> void:
 	if not ingredient:
 		return
 	
-	ingredient.grabbed.disconnect(_on_ingredient_grabbed)
-	ingredient.dropped.disconnect(_on_ingredient_dropped)
+	var pickup_component: PickupComponent = Helpers.find_node_of_type(ingredient, PickupComponent)
+	pickup_component.grabbed.disconnect(_on_ingredient_grabbed)
+	pickup_component.dropped.disconnect(_on_ingredient_dropped)
 
 
 func _on_ingredient_dropped(ingredient: Ingredient) -> void:

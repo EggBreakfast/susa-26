@@ -62,29 +62,82 @@ func _exit_tree() -> void:
 
 
 func _on_bowl_delivered(bowl: Bowl) -> void:
-	var order_size = current_order.ingredients.size()
-	
-	bowl.ingredients.sort_custom(sort_ascending)
-	current_order.ingredients.sort_custom(sort_ascending)
+	var bowl_ingredients: Array[IngredientData] = bowl.ingredients.slice(0) # slice makes a copy of a slice of the array! Since we start from 0, we basically just get a copy.
+	#print_debug("Ingredients in bowl: ", bowl_ingredients.map(func (data: IngredientData): return data.ingredient_id))
+	#print_debug("Order to check against: ", current_order.ingredients.map(func (data: IngredientData): return data.ingredient_id))
 	
 	var order_accurate: bool = true
-	if order_size == bowl.ingredients.size():
-		for i in range(bowl.ingredients.size()):
-			if current_order.ingredients[i] != bowl.ingredients[i]:
-				order_accurate = false
-				break # breaks out of the for loop earlier !
-			else:
-				continue
-	else: 
+	for order_ingredient: IngredientData in current_order.ingredients:
+		var bowl_ingredient: IngredientData = _get_ingredient_in_bowl(order_ingredient, bowl_ingredients)
+		if not bowl_ingredient:
+			order_accurate = false
+			break
+		
+	if bowl_ingredients.size() > 0:
 		order_accurate = false
-	
-	if order_accurate == false:
-		print_debug("Go Die. 0 Stars.")
-	elif order_accurate == true:
-		print_debug("Awesome Food")
+	# TODO: Do something with 'is_order_accurate'
 
 
-func sort_ascending(a: IngredientData, b: IngredientData) -> bool: 
-	if a.ingredient_id < b.ingredient_id: # if sort_descending, then a > b
-		return true
-	return false
+func _get_ingredient_in_bowl(order_ingredient: IngredientData, bowl_ingredients: Array[IngredientData]) -> IngredientData:
+	for i: int in range(bowl_ingredients.size()):
+		if order_ingredient.ingredient_id == bowl_ingredients[i].ingredient_id:
+			var found_ingredient: IngredientData = bowl_ingredients.pop_at(i)
+			print_debug("Bowl Ingredients ", bowl_ingredients)
+			return found_ingredient
+	return null
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	# CODE I HAVE BECOME ATTACHED TO:
+	# --------------------------------------------
+	#var order_size = current_order.ingredients.size()
+	#
+	#bowl.ingredients.sort_custom(sort_ascending)
+	#current_order.ingredients.sort_custom(sort_ascending)
+	#
+	#var order_accurate: bool = true
+	#if order_size == bowl.ingredients.size():
+		#for i in range(bowl.ingredients.size()):
+			#if current_order.ingredients[i] != bowl.ingredients[i]:
+				#order_accurate = false
+				#break # breaks out of the for loop earlier !
+			#else:
+				#continue
+	#else: 
+		#order_accurate = false
+	#
+	#if order_accurate == false:
+		#print_debug("Go Die. 0 Stars.")
+	#elif order_accurate == true:
+		#print_debug("Awesome Food")
+#
+#
+#func sort_ascending(a: IngredientData, b: IngredientData) -> bool: 
+	#if a.ingredient_id < b.ingredient_id: # if sort_descending, then a > b
+		#return true
+	#return false

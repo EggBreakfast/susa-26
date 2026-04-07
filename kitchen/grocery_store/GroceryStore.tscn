@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://dmk3jfgvg7b5l"]
+
+[ext_resource type="Script" uid="uid://cefchwa12t1vc" path="res://kitchen/grocery_store/grocery_store.gd" id="1_n6kbe"]
+[ext_resource type="Script" uid="uid://by7bhnjxfdwk1" path="res://kitchen/ingredients/_ingredient/ingredient_data.gd" id="2_7t4ho"]
+[ext_resource type="Texture2D" uid="uid://defdvgn2rgcti" path="res://sprites/kitchen/patty_raw.png" id="2_utu78"]
+[ext_resource type="Resource" uid="uid://b0twc5ldid185" path="res://kitchen/ingredients/patty/patty_data.tres" id="3_8id2r"]
+
+[sub_resource type="Gradient" id="Gradient_bbhq2"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.17339435, 0.1705383, 0.21913949, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_n6kbe"]
+gradient = SubResource("Gradient_bbhq2")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_whrrc"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.23492244, 0.5174453, 0.7861294, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7t4ho"]
+size = Vector2(233, 83)
+
+[node name="GroceryStore" type="Control" unique_id=894010579]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n6kbe")
+ingredients = Array[ExtResource("2_7t4ho")]([ExtResource("3_8id2r")])
+
+[node name="Background" type="TextureRect" parent="." unique_id=1280045014]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_n6kbe")
+expand_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=507606460]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer" unique_id=1457473565]
+layout_mode = 2
+columns = 3
+
+[node name="TemplateItem" type="PanelContainer" parent="MarginContainer/GridContainer" unique_id=506163042]
+unique_name_in_owner = true
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_whrrc")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/GridContainer/TemplateItem" unique_id=1893261788]
+layout_mode = 2
+
+[node name="ItemImage" type="TextureRect" parent="MarginContainer/GridContainer/TemplateItem/VBoxContainer" unique_id=1399631404]
+layout_mode = 2
+texture = ExtResource("2_utu78")
+stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/GridContainer/TemplateItem/VBoxContainer" unique_id=1370233184]
+layout_mode = 2
+
+[node name="Price" type="Label" parent="MarginContainer/GridContainer/TemplateItem/VBoxContainer/HBoxContainer" unique_id=1621644305]
+layout_mode = 2
+text = "$0.00"
+
+[node name="Dash" type="Label" parent="MarginContainer/GridContainer/TemplateItem/VBoxContainer/HBoxContainer" unique_id=2066866089]
+layout_mode = 2
+text = "–"
+
+[node name="Name" type="Label" parent="MarginContainer/GridContainer/TemplateItem/VBoxContainer/HBoxContainer" unique_id=1209510591]
+layout_mode = 2
+text = "Example Ingredient"
+
+[node name="HitArea" type="Area2D" parent="MarginContainer/GridContainer/TemplateItem" unique_id=681157055]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MarginContainer/GridContainer/TemplateItem/HitArea" unique_id=1404293830]
+position = Vector2(116.5, 41.5)
+shape = SubResource("RectangleShape2D_7t4ho")

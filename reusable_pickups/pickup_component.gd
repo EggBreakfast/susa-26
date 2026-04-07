@@ -51,13 +51,13 @@ func _on_cursor_interaction_started(cursor: Cursor) -> void:
 		return
 	
 	current_cursor = cursor
-	cursor_offset = current_cursor.global_position - get_parent().global_position
-	grabbed.emit(self)
+	cursor_offset = get_parent().global_position - current_cursor.global_position 
+	grabbed.emit(entity)
 
 @warning_ignore_start("unused_parameter")
 func _on_cursor_interaction_stopped(cursor: Cursor) -> void: 
 	current_cursor = null
-	dropped.emit(self)
+	dropped.emit(entity)
 
 
 func _process(delta: float) -> void:
