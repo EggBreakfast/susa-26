@@ -3,7 +3,7 @@ extends Control
 @onready var lines: Node2D = $Lines
 
 @export var color: Color = Color()
-@export var radius := 5
+@export var radius := 5.0
 @export var area: Area2D
 
 var is_pressed: bool = false

@@ -22,6 +22,9 @@ fill = 1
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oh1dw"]
 texture = ExtResource("1_oh1dw")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ey7r"]
+size = Vector2(376, 121)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_io4qn"]
 texture = ExtResource("2_hsghg")
 
@@ -84,6 +87,12 @@ gizmo_extents = 24.0
 [node name="BowlSpawnPoint" type="Marker2D" parent="HBoxContainer/Countertop" unique_id=1988532954]
 position = Vector2(100, 180)
 gizmo_extents = 24.0
+
+[node name="CountertopCollisionArea" type="Area2D" parent="HBoxContainer/Countertop" unique_id=885986432]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Countertop/CountertopCollisionArea" unique_id=1651581958]
+position = Vector2(192, 191.5)
+shape = SubResource("RectangleShape2D_6ey7r")
 
 [node name="Stovetop" type="PanelContainer" parent="HBoxContainer" unique_id=908588678]
 layout_mode = 2

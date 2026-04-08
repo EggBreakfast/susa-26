@@ -56,6 +56,7 @@ func _on_area_exited(other: Node, ingredient: IngredientData) -> void:
 	
 	cursor.interaction_stopped.disconnect(_on_cursor_interaction_stopped.bind(ingredient))
 
+@warning_ignore("unused_parameter")
 func _on_cursor_interaction_stopped(cursor: Cursor, ingredient: IngredientData) -> void:
 	ingredient_purchased.emit(ingredient)
 	print_debug(ingredient.display_name)

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ccvqlv4kn1umb"]
 
-[ext_resource type="Script" uid="uid://hu8rorctk2if" path="res://reusable_pickups/pickup_component.gd" id="1_o62mo"]
+[ext_resource type="Script" uid="uid://hu8rorctk2if" path="res://tools/reusable_pickups/pickup_component.gd" id="1_o62mo"]
 [ext_resource type="Texture2D" uid="uid://shsvpvcswlni" path="res://sprites/icon.svg" id="1_vubrl"]
 [ext_resource type="PackedScene" uid="uid://du8toy0kcqkyr" path="res://kitchen/cursor/cursor.tscn" id="1_w7dr1"]
 

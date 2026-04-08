@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://duckk80rrj2yw"]
 
 [ext_resource type="Script" uid="uid://bqhmnakpvbphk" path="res://kitchen/bowl/bowl.gd" id="1_tqrfs"]
-[ext_resource type="Script" uid="uid://hu8rorctk2if" path="res://reusable_pickups/pickup_component.gd" id="2_6x5lh"]
+[ext_resource type="Script" uid="uid://hu8rorctk2if" path="res://tools/reusable_pickups/pickup_component.gd" id="2_6x5lh"]
 
 [sub_resource type="Gradient" id="Gradient_jprcn"]
 offsets = PackedFloat32Array(0)

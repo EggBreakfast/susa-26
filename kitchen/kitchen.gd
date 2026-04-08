@@ -43,7 +43,7 @@ func _exit_tree() -> void:
 
 
 func _on_save_system_loaded(save_data: SaveData) -> void:
-	#print_debug("Current save slot: ", save_data.current_round)
+	print_debug("Current save slot: ", save_data.current_round)
 	pass
 
 
@@ -56,6 +56,7 @@ func _on_store_button_pressed() -> void:
 		store_button.text = "Store"
 		animation_player.play_backwards(&"slide_to_store")
 
+@warning_ignore("unused_parameter")
 func _on_ingredient_purchased(ingredient_data: IngredientData) -> void:
 	# TODO: Create a new instance of the given ingredient and spawn it in its appropriate sp.
 	var ingredient_scene: PackedScene = load(ingredient_data.scene_path)

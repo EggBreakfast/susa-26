@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://byve5ghli1i8x"]
+
+[ext_resource type="Texture2D" uid="uid://shsvpvcswlni" path="res://sprites/icon.svg" id="1_co16r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ymml"]
+
+[node name="IngredientCollision" type="Node2D" unique_id=1933455873]
+
+[node name="Entity" type="Node2D" parent="." unique_id=237168313]
+
+[node name="Sprite2D" type="Sprite2D" parent="Entity" unique_id=574504484]
+texture = ExtResource("1_co16r")
+
+[node name="PickupArea" type="Area2D" parent="Entity" unique_id=983355467]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entity/PickupArea" unique_id=1945845374]
+shape = SubResource("RectangleShape2D_4ymml")
