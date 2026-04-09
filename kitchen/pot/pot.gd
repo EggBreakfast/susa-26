@@ -57,4 +57,3 @@ func _on_ladle_area_exited(other: Area2D) -> void:
 	var ladle: Ladle = other.get_parent() as Ladle
 	if not ladle:
 		return
-	

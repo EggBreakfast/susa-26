@@ -13,9 +13,12 @@ class_name Kitchen extends Node2D
 @export var cursor_canvas_layer: CanvasLayer
 @export var customer_container: Control
 @export var animation_player: AnimationPlayer
-@export var store_button: Button
-@export var grocery_store: GroceryStore
 
+
+@export_group("Grocery Variables", "grocery_")
+@export var grocery_store_button: Button
+@export var grocery_store_button_area: Area2D
+@export var grocery_store: GroceryStore
 
 var is_in_store: bool = false
 
@@ -31,14 +34,16 @@ func _ready() -> void:
 	Input.joy_connection_changed.connect(_on_joy_connection_changed)
 	SaveSystem.save_loaded.connect(_on_save_system_loaded)
 	
-	store_button.pressed.connect(_on_store_button_pressed)
+	grocery_store_button.pressed.connect(_on_grocery_store_button_pressed)
+	grocery_store_button_area.area_entered.connect(_on_grocery_store_button_area_entered)
 	grocery_store.ingredient_purchased.connect(_on_ingredient_purchased)
 
 func _exit_tree() -> void:
 	Input.joy_connection_changed.disconnect(_on_joy_connection_changed)
 	SaveSystem.save_loaded.disconnect(_on_save_system_loaded)
 	
-	store_button.pressed.connect(_on_store_button_pressed)
+	grocery_store_button.pressed.disconnect(_on_grocery_store_button_pressed)
+	grocery_store_button_area.area_entered.disconnect(_on_grocery_store_button_area_entered)
 	grocery_store.ingredient_purchased.disconnect(_on_ingredient_purchased)
 
 
@@ -46,14 +51,24 @@ func _on_save_system_loaded(save_data: SaveData) -> void:
 	print_debug("Current save slot: ", save_data.current_round)
 	pass
 
-
-func _on_store_button_pressed() -> void:
+func _on_grocery_store_button_area_entered(other: Node, event: InputEvent) -> void:
+	var cursor: Cursor = other.get_parent() as Cursor
+	if not cursor:
+		return
+	
+	elif cursor and event.is_action_pressed(cursor.input_interact):
+		_on_grocery_store_button_pressed()
+	
+	else:
+		return
+	
+func _on_grocery_store_button_pressed() -> void:
 	is_in_store = !is_in_store
 	if is_in_store: 
-		store_button.text = "Back to Kitchen"
+		grocery_store_button.text = "Back to Kitchen"
 		animation_player.play(&"slide_to_store")
 	else:
-		store_button.text = "Store"
+		grocery_store_button.text = "Store"
 		animation_player.play_backwards(&"slide_to_store")
 
 @warning_ignore("unused_parameter")

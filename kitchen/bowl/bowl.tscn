@@ -28,6 +28,7 @@ gradient = SubResource("Gradient_3mv7b")
 size = Vector2(69, 62)
 
 [node name="Bowl" type="Node2D" unique_id=1838452528 node_paths=PackedStringArray("sprite_slop", "area")]
+visibility_layer = 5
 script = ExtResource("1_tqrfs")
 sprite_slop = NodePath("SpriteSlop")
 area = NodePath("Area2D")

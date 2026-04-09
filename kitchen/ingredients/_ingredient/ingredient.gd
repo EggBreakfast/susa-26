@@ -25,9 +25,6 @@ var is_overprepped: bool:
 
 @warning_ignore ("unused_parameter")
 func _process(delta: float) -> void:
-	#if current_cursor:
-		#global_position = current_cursor.global_position + cursor_offset
-	
 	if prep_percentage >= 1.0 and prep_percentage < data.overprep_percentage:
 		sprite.texture = data.texture_prepped
 		sprite.modulate = data.modulate_prepped

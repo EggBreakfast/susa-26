@@ -2,8 +2,6 @@
 
 [ext_resource type="Script" uid="uid://c0pkqdsf51s0x" path="res://kitchen/pot/pot.gd" id="1_32n0i"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_32n0i"]
-
 [sub_resource type="Gradient" id="Gradient_7y775"]
 offsets = PackedFloat32Array(0)
 colors = PackedColorArray(0.122252025, 0.12225232, 0.12225216, 1)
@@ -41,8 +39,9 @@ size = Vector2(128, 61)
 size = Vector2(110, 85.5)
 
 [node name="Pot" type="RigidBody2D" unique_id=1422529284 node_paths=PackedStringArray("ingredient_area", "ladle_area", "sprite_slop")]
-physics_material_override = SubResource("PhysicsMaterial_32n0i")
-gravity_scale = 0.0
+gravity_scale = 0.001
+sleeping = true
+freeze = true
 script = ExtResource("1_32n0i")
 ingredient_area = NodePath("IngredientArea")
 ladle_area = NodePath("LadleArea")

@@ -138,6 +138,11 @@ quick_load={
 
 [layer_names]
 
+2d_render/layer_1="Background"
+2d_render/layer_2="Surfaces"
+2d_render/layer_3="Ingredients/Items"
+2d_render/layer_4="Tools"
+2d_render/layer_10="UI"
 2d_physics/layer_1="surfaces"
 2d_physics/layer_2="ingredients"
 

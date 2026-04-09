@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://shsvpvcswlni" path="res://sprites/icon.svg" id="2_wsrbc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eb673"]
-size = Vector2(5, 5)
+size = Vector2(22.5, 18.5)
 
 [node name="Cursor1" type="Control" unique_id=913670594]
 layout_mode = 3
@@ -28,5 +28,5 @@ texture = ExtResource("2_wsrbc")
 [node name="Area2D" type="Area2D" parent="." unique_id=1579805816]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1951527034]
-position = Vector2(-1, -1)
+position = Vector2(7.75, 5.75)
 shape = SubResource("RectangleShape2D_eb673")

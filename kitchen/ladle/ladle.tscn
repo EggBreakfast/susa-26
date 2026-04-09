@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dom2rjpg3jf7t"]
 
 [ext_resource type="Script" uid="uid://dthb3veoo17rd" path="res://kitchen/ladle/ladle.gd" id="1_t7dmj"]
-[ext_resource type="Script" uid="uid://hu8rorctk2if" path="res://tools/reusable_pickups/pickup_component.gd" id="2_j3f13"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_j3f13"]
 
@@ -30,8 +29,10 @@ gradient = SubResource("Gradient_ovxj6")
 size = Vector2(64, 29)
 
 [node name="Ladle" type="RigidBody2D" unique_id=2121551260 node_paths=PackedStringArray("pickup_area", "slop_area", "collision_area", "sprite_slop")]
+visibility_layer = 8
 physics_material_override = SubResource("PhysicsMaterial_j3f13")
 gravity_scale = 0.0
+freeze = true
 script = ExtResource("1_t7dmj")
 pickup_area = NodePath("PickupArea")
 slop_area = NodePath("SlopArea")
@@ -67,9 +68,3 @@ polygon = PackedVector2Array(-41, -38, -34, 24, 41, 24, 44, -172, 5, -173, 3, -4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SlopArea" unique_id=650935386]
 position = Vector2(-1, -17.5)
 shape = SubResource("RectangleShape2D_j3f13")
-
-[node name="PickupComponent" type="Node" parent="." unique_id=1929910901 node_paths=PackedStringArray("entity", "pickup_area")]
-script = ExtResource("2_j3f13")
-entity = NodePath("..")
-pickup_area = NodePath("../PickupArea")
-metadata/_custom_type_script = "uid://hu8rorctk2if"

@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://l37dx4ga6ok4" path="res://kitchen/cooktop/cooktop.tscn" id="7_3dl54"]
 [ext_resource type="Script" uid="uid://br8iom01ew43n" path="res://kitchen/customer_delivery_area.gd" id="8_4fetp"]
 [ext_resource type="PackedScene" uid="uid://dmk3jfgvg7b5l" path="res://kitchen/grocery_store/GroceryStore.tscn" id="11_akmjk"]
+[ext_resource type="Script" uid="uid://cocfw8jkla2p4" path="res://kitchen/store_button.gd" id="12_8mctn"]
 
 [sub_resource type="Gradient" id="Gradient_akmjk"]
 colors = PackedColorArray(0, 0, 0, 1, 0.15319237, 0.17758855, 0.41482395, 1)
@@ -23,12 +24,14 @@ fill_to = Vector2(0.491453, 0)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4fetp"]
 size = Vector2(592, 80)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_akmjk"]
+
 [sub_resource type="Animation" id="Animation_akmjk"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/HBoxContainer:position:x")
+tracks/0/path = NodePath("MainScreen/TransitionHBoxContainer:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -43,7 +46,7 @@ resource_name = "slide_to_store"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/HBoxContainer:position:x")
+tracks/0/path = NodePath("MainScreen/TransitionHBoxContainer:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -59,18 +62,19 @@ _data = {
 &"slide_to_store": SubResource("Animation_8mctn")
 }
 
-[node name="Kitchen" type="Node2D" unique_id=1082625060 node_paths=PackedStringArray("customer_spawn_point", "cursor_canvas_layer", "customer_container", "animation_player", "store_button", "grocery_store")]
+[node name="Kitchen" type="Node2D" unique_id=1082625060 node_paths=PackedStringArray("customer_spawn_point", "cursor_canvas_layer", "customer_container", "animation_player", "grocery_store_button", "grocery_store_button_area", "grocery_store")]
 script = ExtResource("1_lwc1s")
 debug_customer = &"eyeguy"
 customers = Array[PackedScene]([ExtResource("4_o8vxq"), ExtResource("5_ts44q"), ExtResource("2_apelb"), ExtResource("2_qsv0g"), ExtResource("6_ts44q")])
-customer_spawn_point = NodePath("CanvasLayer/HBoxContainer/VBoxContainer/TopHalfContainer/CustomerMargin/CustomerContainer/CustomerSpawnPoint")
+customer_spawn_point = NodePath("MainScreen/TransitionHBoxContainer/KitchenVBoxContainer/TopHalfContainer/CustomerMargin/CustomerContainer/CustomerSpawnPoint")
 cursor_scene = ExtResource("6_2r452")
 cursor_colors = PackedColorArray(1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1)
 cursor_canvas_layer = NodePath("CursorCanvasLayer")
-customer_container = NodePath("CanvasLayer/HBoxContainer/VBoxContainer/TopHalfContainer/CustomerMargin/CustomerContainer")
-animation_player = NodePath("AnimationPlayer")
-store_button = NodePath("CanvasLayer/StoreButtonMargin/StoreButton")
-grocery_store = NodePath("CanvasLayer/HBoxContainer/GroceryStore")
+customer_container = NodePath("MainScreen/TransitionHBoxContainer/KitchenVBoxContainer/TopHalfContainer/CustomerMargin/CustomerContainer")
+animation_player = NodePath("TransitionPlayer")
+grocery_store_button = NodePath("MainScreen/StoreButtonMargin/StoreButton")
+grocery_store_button_area = NodePath("MainScreen/StoreButtonMargin/StoreButton/Control/ButtonArea")
+grocery_store = NodePath("MainScreen/TransitionHBoxContainer/GroceryStore")
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="." unique_id=825694285]
 layer = -5
@@ -80,10 +84,10 @@ offset_right = 2304.0
 offset_bottom = 648.0
 texture = SubResource("GradientTexture2D_8mctn")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=346622203]
+[node name="MainScreen" type="CanvasLayer" parent="." unique_id=346622203]
 layer = -1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=198574201]
+[node name="TransitionHBoxContainer" type="HBoxContainer" parent="MainScreen" unique_id=198574201]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -92,36 +96,36 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer" unique_id=2064428098]
+[node name="KitchenVBoxContainer" type="VBoxContainer" parent="MainScreen/TransitionHBoxContainer" unique_id=2064428098]
 clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TopHalfContainer" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer" unique_id=1272091866]
+[node name="TopHalfContainer" type="HBoxContainer" parent="MainScreen/TransitionHBoxContainer/KitchenVBoxContainer" unique_id=1272091866]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 0
 
-[node name="CustomerMargin" type="MarginContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer/TopHalfContainer" unique_id=372999488]
+[node name="CustomerMargin" type="MarginContainer" parent="MainScreen/TransitionHBoxContainer/KitchenVBoxContainer/TopHalfContainer" unique_id=372999488]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CustomerContainer" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer/TopHalfContainer/CustomerMargin" unique_id=762043553]
+[node name="CustomerContainer" type="Control" parent="MainScreen/TransitionHBoxContainer/KitchenVBoxContainer/TopHalfContainer/CustomerMargin" unique_id=762043553]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CustomerSpawnPoint" type="Marker2D" parent="CanvasLayer/HBoxContainer/VBoxContainer/TopHalfContainer/CustomerMargin/CustomerContainer" unique_id=20959887]
+[node name="CustomerSpawnPoint" type="Marker2D" parent="MainScreen/TransitionHBoxContainer/KitchenVBoxContainer/TopHalfContainer/CustomerMargin/CustomerContainer" unique_id=20959887]
 position = Vector2(300, 358)
 
-[node name="CustomerDeliveryArea" type="Area2D" parent="CanvasLayer/HBoxContainer/VBoxContainer/TopHalfContainer/CustomerMargin/CustomerContainer" unique_id=1476697598]
+[node name="CustomerDeliveryArea" type="Area2D" parent="MainScreen/TransitionHBoxContainer/KitchenVBoxContainer/TopHalfContainer/CustomerMargin/CustomerContainer" unique_id=1476697598]
 position = Vector2(300, 334)
 script = ExtResource("8_4fetp")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/HBoxContainer/VBoxContainer/TopHalfContainer/CustomerMargin/CustomerContainer/CustomerDeliveryArea" unique_id=1796254608]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MainScreen/TransitionHBoxContainer/KitchenVBoxContainer/TopHalfContainer/CustomerMargin/CustomerContainer/CustomerDeliveryArea" unique_id=1796254608]
 position = Vector2(-4, -14)
 shape = SubResource("RectangleShape2D_4fetp")
 
-[node name="DrawingMargin" type="MarginContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer/TopHalfContainer" unique_id=154867783]
+[node name="DrawingMargin" type="MarginContainer" parent="MainScreen/TransitionHBoxContainer/KitchenVBoxContainer/TopHalfContainer" unique_id=154867783]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 16
@@ -129,24 +133,24 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer/TopHalfContainer/DrawingMargin" unique_id=1920019375]
+[node name="PanelContainer" type="PanelContainer" parent="MainScreen/TransitionHBoxContainer/KitchenVBoxContainer/TopHalfContainer/DrawingMargin" unique_id=1920019375]
 layout_mode = 2
 
-[node name="DrawingSystem" parent="CanvasLayer/HBoxContainer/VBoxContainer/TopHalfContainer/DrawingMargin/PanelContainer" unique_id=470064038 instance=ExtResource("4_2r452")]
+[node name="DrawingSystem" parent="MainScreen/TransitionHBoxContainer/KitchenVBoxContainer/TopHalfContainer/DrawingMargin/PanelContainer" unique_id=470064038 instance=ExtResource("4_2r452")]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer" unique_id=1855454143]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainScreen/TransitionHBoxContainer/KitchenVBoxContainer" unique_id=1855454143]
 layout_mode = 2
 
-[node name="Cooktop" parent="CanvasLayer/HBoxContainer/VBoxContainer" unique_id=1392814311 instance=ExtResource("7_3dl54")]
+[node name="Cooktop" parent="MainScreen/TransitionHBoxContainer/KitchenVBoxContainer" unique_id=1392814311 instance=ExtResource("7_3dl54")]
 z_index = 10
 layout_mode = 2
 
-[node name="GroceryStore" parent="CanvasLayer/HBoxContainer" unique_id=894010579 instance=ExtResource("11_akmjk")]
+[node name="GroceryStore" parent="MainScreen/TransitionHBoxContainer" unique_id=894010579 instance=ExtResource("11_akmjk")]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="StoreButtonMargin" type="MarginContainer" parent="CanvasLayer" unique_id=1752141342]
+[node name="StoreButtonMargin" type="MarginContainer" parent="MainScreen" unique_id=1752141342]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -158,12 +162,27 @@ theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
-[node name="StoreButton" type="Button" parent="CanvasLayer/StoreButtonMargin" unique_id=590981107]
+[node name="StoreButton" type="Button" parent="MainScreen/StoreButtonMargin" unique_id=590981107]
 layout_mode = 2
 text = "Store "
+script = ExtResource("12_8mctn")
+
+[node name="Control" type="Control" parent="MainScreen/StoreButtonMargin/StoreButton" unique_id=381785648]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ButtonArea" type="Area2D" parent="MainScreen/StoreButtonMargin/StoreButton/Control" unique_id=1727268480]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MainScreen/StoreButtonMargin/StoreButton/Control/ButtonArea" unique_id=516537564]
+position = Vector2(54, 31)
+shape = SubResource("RectangleShape2D_akmjk")
 
 [node name="CursorCanvasLayer" type="CanvasLayer" parent="." unique_id=1334972846]
 layer = 10
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=56278612]
+[node name="TransitionPlayer" type="AnimationPlayer" parent="." unique_id=56278612]
 libraries/ = SubResource("AnimationLibrary_h4ymb")

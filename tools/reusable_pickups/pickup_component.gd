@@ -14,6 +14,7 @@ var current_cursor: Cursor ## The cursor that is currently holding the ingredien
 		pickup_area = value
 		update_configuration_warnings()
 
+@export var physics_collision_area: CollisionPolygon2D
 
 func _get_configuration_warnings() -> PackedStringArray:
 	var warnings: PackedStringArray
@@ -63,3 +64,6 @@ func _on_cursor_interaction_stopped(cursor: Cursor) -> void:
 func _process(delta: float) -> void:
 	if current_cursor:
 		entity.global_position = current_cursor.global_position + cursor_offset
+	#elif current_cursor:
+		#physics_collision_area.move_and_collide(((current_cursor.global_position + cursor_offset) - entity.global_position) * 64.0 * delta)
+		#move_and_collide(((current_cursor.global_position + cursor_offset) - entity.global_position) * 64.0 * delta)
