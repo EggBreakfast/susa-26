@@ -51,16 +51,15 @@ func _on_save_system_loaded(save_data: SaveData) -> void:
 	print_debug("Current save slot: ", save_data.current_round)
 	pass
 
-func _on_grocery_store_button_area_entered(other: Node, event: InputEvent) -> void:
+func _on_grocery_store_button_area_entered(other: Node) -> void:
+	print_debug("Area entered with cursor")
 	var cursor: Cursor = other.get_parent() as Cursor
 	if not cursor:
 		return
-	
-	elif cursor and event.is_action_pressed(cursor.input_interact):
+	elif Input.is_action_just_released(&"%s_cursor_interact" % cursor.id):
+		print_debug("Button Pressed with Key")
 		_on_grocery_store_button_pressed()
 	
-	else:
-		return
 	
 func _on_grocery_store_button_pressed() -> void:
 	is_in_store = !is_in_store
@@ -80,6 +79,8 @@ func _on_ingredient_purchased(ingredient_data: IngredientData) -> void:
 
 
 func _spawn_customer() -> void:
+	SignalBroker.customer_animation_entered.emit()
+	
 	if not Customer.instance:
 		var customer: Customer
 		if OS.is_debug_build() and debug_customer.length() > 0:
