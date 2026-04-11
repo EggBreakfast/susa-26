@@ -5,6 +5,7 @@ class_name PickupComponent extends Node
 signal grabbed(node: Node)
 signal dropped(node: Node)
 
+
 var cursor_offset: Vector2
 var current_cursor: Cursor ## The cursor that is currently holding the ingredient.
 

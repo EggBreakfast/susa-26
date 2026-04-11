@@ -20,6 +20,11 @@ signal interaction_stopped
 var is_grabbing: bool = false
 var max_grab_distance: float = 320.0
 var draggable: Draggable
+var entered_button_area: bool = false
+
+
+func _ready() -> void:
+	SignalBroker.cursor_spawned.emit(self)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed(input_interact):
@@ -64,3 +69,4 @@ func _physics_process(delta: float) -> void:
 	
 	if is_grabbing and draggable != null:
 		draggable.global_position = global_position
+	

@@ -162,10 +162,11 @@ theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
-[node name="StoreButton" type="Button" parent="MainScreen/StoreButtonMargin" unique_id=590981107]
+[node name="StoreButton" type="Button" parent="MainScreen/StoreButtonMargin" unique_id=590981107 node_paths=PackedStringArray("button_area")]
 layout_mode = 2
 text = "Store "
 script = ExtResource("12_8mctn")
+button_area = NodePath("Control/ButtonArea")
 
 [node name="Control" type="Control" parent="MainScreen/StoreButtonMargin/StoreButton" unique_id=381785648]
 layout_mode = 1

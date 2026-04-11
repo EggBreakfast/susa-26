@@ -35,7 +35,6 @@ func _ready() -> void:
 	SaveSystem.save_loaded.connect(_on_save_system_loaded)
 	
 	grocery_store_button.pressed.connect(_on_grocery_store_button_pressed)
-	grocery_store_button_area.area_entered.connect(_on_grocery_store_button_area_entered)
 	grocery_store.ingredient_purchased.connect(_on_ingredient_purchased)
 
 func _exit_tree() -> void:
@@ -43,7 +42,6 @@ func _exit_tree() -> void:
 	SaveSystem.save_loaded.disconnect(_on_save_system_loaded)
 	
 	grocery_store_button.pressed.disconnect(_on_grocery_store_button_pressed)
-	grocery_store_button_area.area_entered.disconnect(_on_grocery_store_button_area_entered)
 	grocery_store.ingredient_purchased.disconnect(_on_ingredient_purchased)
 
 
@@ -51,20 +49,11 @@ func _on_save_system_loaded(save_data: SaveData) -> void:
 	print_debug("Current save slot: ", save_data.current_round)
 	pass
 
-func _on_grocery_store_button_area_entered(other: Node) -> void:
-	print_debug("Area entered with cursor")
-	var cursor: Cursor = other.get_parent() as Cursor
-	if not cursor:
-		return
-	elif Input.is_action_just_released(&"%s_cursor_interact" % cursor.id):
-		print_debug("Button Pressed with Key")
-		_on_grocery_store_button_pressed()
-	
-	
+
 func _on_grocery_store_button_pressed() -> void:
 	is_in_store = !is_in_store
 	if is_in_store: 
-		grocery_store_button.text = "Back to Kitchen"
+		grocery_store_button.text = "Return"
 		animation_player.play(&"slide_to_store")
 	else:
 		grocery_store_button.text = "Store"
