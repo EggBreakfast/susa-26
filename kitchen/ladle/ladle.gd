@@ -1,9 +1,14 @@
-class_name Ladle extends RigidBody2D
+class_name Ladle extends CharacterBody2D
 
+@export_group("Node References")
 @export var pickup_area: Area2D
 @export var slop_area: Area2D
 @export var collision_area: CollisionPolygon2D
 @export var sprite_slop: Sprite2D
+
+@export_group("Movement Settings")
+@export var movement_speed: float = 5.0
+@export var min_cursor_distance: float = 8.0
 
 signal grabbed(ladle: Ladle)
 signal dropped(ladle: Ladle)
@@ -53,8 +58,18 @@ func _on_pickup_area_exited(other: Area2D) -> void:
 
 func _physics_process(delta: float) -> void:
 	if current_cursor:
-		move_and_collide((((current_cursor.global_position + cursor_offset) - global_position) * 64.0 * delta))
-	
+		#Old system for RigidBody2D
+		#move_and_collide((((current_cursor.global_position + cursor_offset) - global_position) * 64.0 * delta))
+		var distance: Vector2 = (current_cursor.global_position + cursor_offset) - global_position
+		if distance.length() >= min_cursor_distance:
+			var direction: Vector2 = global_position.direction_to(current_cursor.global_position + cursor_offset)
+			velocity = direction * movement_speed
+			move_and_slide()
+		
+		else:
+			move_and_collide(distance * (movement_speed * 0.1) * delta)
+			# HEY! You there! If you want to make it super jittery, move the movement_speed * 0.5
+			#global_position = current_cursor.global_position + cursor_offset
 
 func _on_cursor_interaction_started(cursor: Cursor) -> void:
 	current_cursor = cursor

@@ -42,9 +42,9 @@ func _ready() -> void:
 		return
 	else:
 		current_order = data.orders.pick_random()
-		print_debug(current_order.dialogue)
-	
-	print_debug("Current Order" + current_order.ingredients[1].to_string())
+		#print_debug(current_order.dialogue)
+	#
+	#print_debug("Current Order" + current_order.ingredients[1].to_string())
 	#order = data.order.pick_random()
 	#SignalBroker.customer.order.pick_random()
 	

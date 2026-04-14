@@ -138,7 +138,7 @@ func redo() -> void:
 		return
 	
 	var line_redone := undone_lines.pop_at(-1) as Line2D
-	print_debug(line_redone)
+	#print_debug(line_redone)
 	lines.add_child(line_redone)
 	
 

@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://l37dx4ga6ok4" path="res://kitchen/cooktop/cooktop.tscn" id="7_3dl54"]
 [ext_resource type="Script" uid="uid://br8iom01ew43n" path="res://kitchen/customer_delivery_area.gd" id="8_4fetp"]
 [ext_resource type="PackedScene" uid="uid://dmk3jfgvg7b5l" path="res://kitchen/grocery_store/GroceryStore.tscn" id="11_akmjk"]
-[ext_resource type="Script" uid="uid://cocfw8jkla2p4" path="res://kitchen/store_button.gd" id="12_8mctn"]
+[ext_resource type="Script" uid="uid://cocfw8jkla2p4" path="res://kitchen/grocery_store/store_button.gd" id="12_8mctn"]
 
 [sub_resource type="Gradient" id="Gradient_akmjk"]
 colors = PackedColorArray(0, 0, 0, 1, 0.15319237, 0.17758855, 0.41482395, 1)

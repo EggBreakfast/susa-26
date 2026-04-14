@@ -1,4 +1,4 @@
-class_name Bowl extends Node2D
+class_name Bowl extends CharacterBody2D
 
 @export var sprite_slop: Sprite2D
 @export var area: Area2D
@@ -13,11 +13,11 @@ var cursor_offset: Vector2
 
 func _ready() -> void:
 	SignalBroker.bowl_delivered_to_customer.connect(_on_bowl_delivered)
-
+	area.area_entered.connect(_on_area_entered)
 
 func _exit_tree() -> void:
 	SignalBroker.bowl_delivered_to_customer.disconnect(_on_bowl_delivered)
-
+	area.area_entered.disconnect(_on_area_entered)
 
 func _on_area_entered(other: Node) -> void:
 	var parent: Node = other.get_parent()

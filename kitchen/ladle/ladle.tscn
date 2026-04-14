@@ -2,8 +2,6 @@
 
 [ext_resource type="Script" uid="uid://dthb3veoo17rd" path="res://kitchen/ladle/ladle.gd" id="1_t7dmj"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_j3f13"]
-
 [sub_resource type="Gradient" id="Gradient_dt7g3"]
 offsets = PackedFloat32Array(0)
 colors = PackedColorArray(0.3328807, 0.33288068, 0.33288068, 1)
@@ -28,19 +26,18 @@ gradient = SubResource("Gradient_ovxj6")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j3f13"]
 size = Vector2(64, 29)
 
-[node name="Ladle" type="RigidBody2D" unique_id=2121551260 node_paths=PackedStringArray("pickup_area", "slop_area", "collision_area", "sprite_slop")]
+[node name="Ladle" type="CharacterBody2D" unique_id=344356098 node_paths=PackedStringArray("pickup_area", "slop_area", "collision_area", "sprite_slop")]
 visibility_layer = 8
-physics_material_override = SubResource("PhysicsMaterial_j3f13")
-gravity_scale = 0.0
-freeze = true
 script = ExtResource("1_t7dmj")
 pickup_area = NodePath("PickupArea")
 slop_area = NodePath("SlopArea")
 collision_area = NodePath("LadleCollisionPolygon")
 sprite_slop = NodePath("SpriteSlop")
+movement_speed = 500.0
+min_cursor_distance = 3.0
 
 [node name="LadleCollisionPolygon" type="CollisionPolygon2D" parent="." unique_id=1998178995]
-polygon = PackedVector2Array(-38, -34, -35, 18, 36, 18, 34, -164, 13, -163, 14, -35)
+polygon = PackedVector2Array(-32, -29, -32, 16, 32, 15, 32, -161, 17, -161, 17, -30)
 
 [node name="SpriteBack" type="Sprite2D" parent="." unique_id=1350703503]
 position = Vector2(24.5, -75.00001)
@@ -59,11 +56,13 @@ scale = Vector2(1, 0.703125)
 texture = SubResource("GradientTexture2D_c31l0")
 
 [node name="PickupArea" type="Area2D" parent="." unique_id=382080989]
+visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PickupArea" unique_id=130780566]
 polygon = PackedVector2Array(-41, -38, -34, 24, 41, 24, 44, -172, 5, -173, 3, -45)
 
 [node name="SlopArea" type="Area2D" parent="." unique_id=898337586]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SlopArea" unique_id=650935386]
 position = Vector2(-1, -17.5)

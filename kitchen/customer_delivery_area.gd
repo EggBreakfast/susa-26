@@ -14,15 +14,17 @@ func _on_area_entered(other: Area2D) -> void:
 	if not bowl or not bowl.bowl_filled:
 		return
 	
-	bowl.dropped.connect(_on_bowl_dropped)
+	var pickup_component: PickupComponent = Helpers.find_node_of_type(bowl, PickupComponent)
+	pickup_component.dropped.connect(_on_bowl_dropped)
 
 func _on_area_exited(other: Area2D) -> void:
 	var bowl: Bowl = other.get_parent() as Bowl
 	if not bowl:
 		return
 	
-	if bowl.dropped.is_connected(_on_bowl_dropped):
-		bowl.dropped.disconnect(_on_bowl_dropped)
+	var pickup_component: PickupComponent = Helpers.find_node_of_type(bowl, PickupComponent)
+	if pickup_component.dropped.is_connected(_on_bowl_dropped):
+		pickup_component.dropped.disconnect(_on_bowl_dropped)
 
 func _on_bowl_dropped(bowl: Bowl) -> void:
 	SignalBroker.bowl_delivered_to_customer.emit(bowl)

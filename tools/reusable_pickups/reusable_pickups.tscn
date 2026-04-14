@@ -4,8 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://shsvpvcswlni" path="res://sprites/icon.svg" id="1_vubrl"]
 [ext_resource type="PackedScene" uid="uid://du8toy0kcqkyr" path="res://kitchen/cursor/cursor.tscn" id="1_w7dr1"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vubrl"]
-
 [node name="ReusablePickups" type="Node2D" unique_id=2043354504]
 
 [node name="Cursor1" parent="." unique_id=913670594 instance=ExtResource("1_w7dr1")]
@@ -19,8 +17,9 @@ texture = ExtResource("1_vubrl")
 script = ExtResource("1_o62mo")
 entity = NodePath("..")
 pickup_area = NodePath("../PickupArea")
+movement_speed = null
+min_cursor_distance = null
 
 [node name="PickupArea" type="Area2D" parent="Entity" unique_id=758220320]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Entity/PickupArea" unique_id=1001421080]
-shape = SubResource("RectangleShape2D_vubrl")

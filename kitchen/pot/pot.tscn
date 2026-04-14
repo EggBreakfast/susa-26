@@ -36,7 +36,7 @@ fill_to = Vector2(0.982906, 1)
 size = Vector2(128, 61)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jylah"]
-size = Vector2(110, 85.5)
+size = Vector2(110, 100.5)
 
 [node name="Pot" type="RigidBody2D" unique_id=1422529284 node_paths=PackedStringArray("ingredient_area", "ladle_area", "sprite_slop")]
 gravity_scale = 0.001
@@ -48,7 +48,7 @@ ladle_area = NodePath("LadleArea")
 sprite_slop = NodePath("SpriteSlop")
 
 [node name="PotCollisionPolygon" type="CollisionPolygon2D" parent="." unique_id=1083141979]
-polygon = PackedVector2Array(-71, -63, -70, 88, 70, 86, 68, -67, 58, -67, 58, 76, -58, 76, -61, -65)
+polygon = PackedVector2Array(-67, -9, -64, 88, 64, 88, 64, -24, 56, -40, 58, 76, -58, 76, -64, -48)
 
 [node name="SpriteBack" type="Sprite2D" parent="." unique_id=2114813691]
 texture = SubResource("GradientTexture2D_32n0i")
@@ -75,5 +75,5 @@ shape = SubResource("RectangleShape2D_a6frh")
 [node name="LadleArea" type="Area2D" parent="." unique_id=1826474688]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LadleArea" unique_id=1499880343]
-position = Vector2(-1, 33.75)
+position = Vector2(-1, 26.25)
 shape = SubResource("RectangleShape2D_jylah")
