@@ -12,5 +12,4 @@ position = Vector2(0, 0)
 scale = Vector2(1.1, 1.1)
 sprite_frames = ExtResource("3_xjuq5")
 animation = &"eating"
-frame_progress = 0.16920504
 offset = Vector2(0, -64)

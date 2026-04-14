@@ -67,6 +67,24 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_nj40g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4eivx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1sfgr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nj40g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4eivx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1sfgr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nj40g")
 }],
 "loop": true,
 "name": &"eating",

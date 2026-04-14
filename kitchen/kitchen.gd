@@ -68,8 +68,6 @@ func _on_ingredient_purchased(ingredient_data: IngredientData) -> void:
 
 
 func _spawn_customer() -> void:
-	SignalBroker.customer_animation_entered.emit()
-	
 	if not Customer.instance:
 		var customer: Customer
 		if OS.is_debug_build() and debug_customer.length() > 0:

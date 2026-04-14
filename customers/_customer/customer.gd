@@ -42,6 +42,11 @@ func _ready() -> void:
 		return
 	else:
 		current_order = data.orders.pick_random()
+		await get_tree().create_timer(0.5).timeout
+		SignalBroker.customer_spoke.emit(current_order.dialogue_order)
+		sprite_body.play(&"talking")
+		await SignalBroker.dialogue_finished
+		sprite_body.play(&"idle")
 		#print_debug(current_order.dialogue)
 	#
 	#print_debug("Current Order" + current_order.ingredients[1].to_string())
@@ -72,10 +77,25 @@ func _on_bowl_delivered(bowl: Bowl) -> void:
 		if not bowl_ingredient:
 			order_accurate = false
 			break
-		
+	
 	if bowl_ingredients.size() > 0:
 		order_accurate = false
-	# TODO: Do something with 'is_order_accurate'
+	
+	sprite_body.play(&"eating")
+	await sprite_body.animation_looped
+	get_tree().create_timer(0.5)
+	sprite_body.play(&"idle")
+	
+	var dialogue_source: PackedStringArray
+	var dialogue: String
+	if order_accurate:
+		dialogue_source = current_order.dialogue_success
+	else:
+		dialogue_source = current_order.dialogue_fail
+	
+	for line: String in dialogue_source:
+			SignalBroker.customer_spoke.emit(line)
+			await SignalBroker.dialogue_finished
 
 
 func _get_ingredient_in_bowl(order_ingredient: IngredientData, bowl_ingredients: Array[IngredientData]) -> IngredientData:

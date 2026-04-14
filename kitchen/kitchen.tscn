@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://l7j145144py8" path="res://customers/spcat/spcat.tscn" id="6_ts44q"]
 [ext_resource type="PackedScene" uid="uid://l37dx4ga6ok4" path="res://kitchen/cooktop/cooktop.tscn" id="7_3dl54"]
 [ext_resource type="Script" uid="uid://br8iom01ew43n" path="res://kitchen/customer_delivery_area.gd" id="8_4fetp"]
+[ext_resource type="PackedScene" uid="uid://cst67dkmvv6pk" path="res://customers/_customer/dialogue/dialogue.tscn" id="9_h4ymb"]
 [ext_resource type="PackedScene" uid="uid://dmk3jfgvg7b5l" path="res://kitchen/grocery_store/GroceryStore.tscn" id="11_akmjk"]
 [ext_resource type="Script" uid="uid://cocfw8jkla2p4" path="res://kitchen/grocery_store/store_button.gd" id="12_8mctn"]
 
@@ -124,6 +125,10 @@ script = ExtResource("8_4fetp")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MainScreen/TransitionHBoxContainer/KitchenVBoxContainer/TopHalfContainer/CustomerMargin/CustomerContainer/CustomerDeliveryArea" unique_id=1796254608]
 position = Vector2(-4, -14)
 shape = SubResource("RectangleShape2D_4fetp")
+
+[node name="Dialogue" parent="MainScreen/TransitionHBoxContainer/KitchenVBoxContainer/TopHalfContainer/CustomerMargin/CustomerContainer" unique_id=988074216 instance=ExtResource("9_h4ymb")]
+visible = false
+layout_mode = 1
 
 [node name="DrawingMargin" type="MarginContainer" parent="MainScreen/TransitionHBoxContainer/KitchenVBoxContainer/TopHalfContainer" unique_id=154867783]
 layout_mode = 2

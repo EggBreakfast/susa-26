@@ -18,8 +18,24 @@ var _text: String
 
 
 func _ready() -> void:
+	SignalBroker.customer_spoke.connect(_on_customer_spoke)
 	set_process(false)
 
 
+func _exit_tree() -> void:
+	SignalBroker.customer_spoke.disconnect(_on_customer_spoke)
+
+
 func _process(delta: float) -> void:
-	pass
+	time_elapsed += delta
+	%DialogueText.text = text.substr(0, ceili(time_elapsed * speed))
+	if %DialogueText.text == text:
+		set_process(false)
+		await get_tree().create_timer(1.0).timeout
+		visible = false
+		SignalBroker.dialogue_finished.emit()
+
+
+func _on_customer_spoke(text_spoken: String) -> void:
+	visible = true
+	text = text_spoken
