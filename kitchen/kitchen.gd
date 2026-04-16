@@ -85,7 +85,9 @@ func _spawn_customer() -> void:
 		#customer.modulate.a = 0.0
 		customer_spawn_point.add_child.call_deferred(customer)
 		# customer.exited.connect(_on_customer_exited)
-
+#
+#func _on_customer_enter() -> void:
+	#var 
 
 func _on_joy_connection_changed(device_id: int, is_connection: Variant) -> void:
 	# print_debug(device_id, " ::", is_connection, "::", Input.get_connected_joypads())

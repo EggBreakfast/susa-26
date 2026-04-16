@@ -30,7 +30,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_n6kbe")
-ingredients = Array[ExtResource("2_7t4ho")]([ExtResource("3_8id2r")])
+ingredients = Array[ExtResource("2_7t4ho")]([ExtResource("3_8id2r"), ExtResource("3_8id2r"), ExtResource("3_8id2r")])
 
 [node name="Background" type="TextureRect" parent="." unique_id=1280045014]
 layout_mode = 1

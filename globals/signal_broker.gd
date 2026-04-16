@@ -18,3 +18,4 @@ signal button_pressed (button: Button)
 signal cursor_spawned (cursor: Cursor)
 
 signal customer_enters_kitchen ()
+signal customer_leaves_kitchen ()

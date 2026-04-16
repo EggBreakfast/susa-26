@@ -13,6 +13,7 @@ static var instance: Customer
 var timer_duration: float
 @export var customer_timer: CustomerTimer
 
+var dialogue_source: PackedStringArray
 
 # @export var sprite_face: Sprite2D
 
@@ -41,7 +42,6 @@ func _ready() -> void:
 	if data.orders.size() < 1:
 		return
 	else:
-		sprite_body.set_frame(3)
 		begin_customer_order()
 	
 	#
@@ -95,7 +95,6 @@ func _on_bowl_delivered(bowl: Bowl) -> void:
 	get_tree().create_timer(0.5)
 	sprite_body.play(&"idle")
 	
-	var dialogue_source: PackedStringArray
 	var dialogue: String
 	if order_accurate:
 		dialogue_source = current_order.dialogue_success
@@ -103,8 +102,11 @@ func _on_bowl_delivered(bowl: Bowl) -> void:
 		dialogue_source = current_order.dialogue_fail
 	
 	for line: String in dialogue_source:
+			sprite_body.play(&"talking")
 			SignalBroker.customer_spoke.emit(line)
 			await SignalBroker.dialogue_finished
+			sprite_body.play(&"idle")
+			
 
 
 func _get_ingredient_in_bowl(order_ingredient: IngredientData, bowl_ingredients: Array[IngredientData]) -> IngredientData:
