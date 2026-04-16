@@ -177,29 +177,25 @@ _data = {
 }
 
 [sub_resource type="Gradient" id="Gradient_hdwui"]
-offsets = PackedFloat32Array(0, 0.38271606, 0.9876543)
-colors = PackedColorArray(0.7254902, 0, 0, 1, 0.30114284, 0.4930592, 0.5314847, 1, 0.10617245, 0.7195999, 0.77568036, 1)
+offsets = PackedFloat32Array(0, 0.5414508)
+colors = PackedColorArray(0.7254902, 0, 0, 1, 0.30114284, 0.4930592, 0.5314847, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_52bdj"]
 gradient = SubResource("Gradient_hdwui")
 width = 1156
 
 [sub_resource type="Gradient" id="Gradient_x7o7u"]
-offsets = PackedFloat32Array(0)
+offsets = PackedFloat32Array(0.02849741)
 colors = PackedColorArray(0.105882354, 0.7176471, 0.7764706, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_1xdbc"]
 gradient = SubResource("Gradient_x7o7u")
+width = 1156
 
 [node name="Customer" type="Node2D" unique_id=159484568 node_paths=PackedStringArray("sprite_body", "customer_timer")]
 scale = Vector2(2.5, 2.5)
 script = ExtResource("1_dqoax")
 data = SubResource("Resource_v2qqs")
-facial_expressions = Dictionary[StringName, Texture2D]({
-&"anger": null,
-&"scowl": null,
-&"smile": null
-})
 sprite_body = NodePath("Body")
 customer_timer = NodePath("CanvasLayer/CustomerTimer")
 

@@ -28,11 +28,11 @@ func _exit_tree() -> void:
 
 func _process(delta: float) -> void:
 	time_elapsed += delta
-	if %DialogueText.text:#.length() <+  47.0 :
-		%DialogueText.text = text.substr(0, ceili(time_elapsed * speed))
+	#if %DialogueText.text.length() <+  47.0 :
+	%DialogueText.text = text.substr(0, ceili(time_elapsed * speed))
 	#elif %DialogueText.text.length() > 10.0:
 		#%DialogueText.text.indent
-	elif %DialogueText.text == text:
+	if %DialogueText.text == text:
 		set_process(false)
 		await get_tree().create_timer(1.0).timeout
 		visible = false

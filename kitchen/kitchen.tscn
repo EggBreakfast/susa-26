@@ -65,7 +65,7 @@ _data = {
 
 [node name="Kitchen" type="Node2D" unique_id=1082625060 node_paths=PackedStringArray("customer_spawn_point", "cursor_canvas_layer", "customer_container", "animation_player", "grocery_store_button", "grocery_store_button_area", "grocery_store")]
 script = ExtResource("1_lwc1s")
-debug_customer = &"missceo"
+debug_customer = &"eyeguy"
 customers = Array[PackedScene]([ExtResource("4_o8vxq"), ExtResource("5_ts44q"), ExtResource("2_apelb"), ExtResource("2_qsv0g"), ExtResource("6_ts44q")])
 customer_spawn_point = NodePath("MainScreen/TransitionHBoxContainer/KitchenVBoxContainer/TopHalfContainer/CustomerMargin/CustomerContainer/CustomerSpawnPoint")
 cursor_scene = ExtResource("6_2r452")
@@ -184,7 +184,7 @@ grow_vertical = 2
 [node name="ButtonArea" type="Area2D" parent="MainScreen/StoreButtonMargin/StoreButton/Control" unique_id=1727268480]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MainScreen/StoreButtonMargin/StoreButton/Control/ButtonArea" unique_id=516537564]
-position = Vector2(54, 31)
+position = Vector2(30, 16)
 shape = SubResource("RectangleShape2D_akmjk")
 
 [node name="CursorCanvasLayer" type="CanvasLayer" parent="." unique_id=1334972846]

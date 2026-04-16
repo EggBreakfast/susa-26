@@ -15,15 +15,13 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1, 1.0000004)
 script = ExtResource("1_japat")
-speed = null
-text = null
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1283828116]
 modulate = Color(1, 1, 1, 0.65882355)
 layout_mode = 0
 offset_top = 31.999989
 offset_right = 408.0
-offset_bottom = 268.3636
+offset_bottom = 219.0519
 scale = Vector2(0.97925323, 0.51322633)
 texture = ExtResource("2_japat")
 patch_margin_left = 48

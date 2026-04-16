@@ -70,7 +70,6 @@ func begin_customer_order() -> void:
 		SignalBroker.customer_spoke.emit(line)
 		await SignalBroker.dialogue_finished
 	
-	
 	await SignalBroker.dialogue_finished
 	sprite_body.play(&"idle")
 	#print_debug(current_order.dialogue)

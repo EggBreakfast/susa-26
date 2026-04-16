@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://t40qpvbwnk7f" path="res://customers/_customer/customer_data.gd" id="1_jqq52"]
 [ext_resource type="Script" uid="uid://dnpo11vl2vg6l" path="res://orders/order.gd" id="1_kkj2g"]
 [ext_resource type="Script" uid="uid://by7bhnjxfdwk1" path="res://kitchen/ingredients/_ingredient/ingredient_data.gd" id="2_1k7rh"]
-[ext_resource type="SpriteFrames" uid="uid://bcyuk12e8vleb" path="res://customers/eyeguy/eyeguy_frames.tres" id="2_kkj2g"]
 [ext_resource type="Resource" uid="uid://b0twc5ldid185" path="res://kitchen/ingredients/patty/patty_data.tres" id="3_70s0v"]
+[ext_resource type="SpriteFrames" uid="uid://dii6es1bqddkg" path="res://customers/placeholder/placeholder_frames.tres" id="5_1k7rh"]
 
 [sub_resource type="Resource" id="Resource_8g2yu"]
 script = ExtResource("1_kkj2g")
@@ -17,9 +17,9 @@ metadata/_custom_type_script = "uid://dnpo11vl2vg6l"
 [resource]
 script = ExtResource("1_jqq52")
 display_name = "The End of the World"
-sprite_frames = ExtResource("2_kkj2g")
+sprite_frames = ExtResource("5_1k7rh")
 min_timer_duration = 1.0
-max_timer_duration = 20.0
+max_timer_duration = 600.0
 customer_id = 1
 orders = Array[ExtResource("1_kkj2g")]([SubResource("Resource_8g2yu")])
 metadata/_custom_type_script = "uid://t40qpvbwnk7f"
