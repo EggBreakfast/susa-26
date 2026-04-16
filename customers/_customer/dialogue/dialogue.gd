@@ -1,8 +1,9 @@
 class_name Dialogue extends Control
 
-
 ## The speed at which text appears, measured in Letters Per Second
 @export var speed: int = 8 #Change to be influenced by customer data later?
+
+@export var customer_detect_area: Area2D
 
 static var dialogue_scene: PackedScene = preload("res://customers/_customer/dialogue/dialogue.tscn")
 
@@ -19,11 +20,13 @@ var time_elapsed: float = 0.0
 
 func _ready() -> void:
 	SignalBroker.customer_spoke.connect(_on_customer_spoke)
+	customer_detect_area.area_entered.connect(_on_area_entered)
 	set_process(false)
 
 
 func _exit_tree() -> void:
 	SignalBroker.customer_spoke.disconnect(_on_customer_spoke)
+	customer_detect_area.area_entered.disconnect(_on_area_entered)
 
 
 func _process(delta: float) -> void:
@@ -37,6 +40,18 @@ func _process(delta: float) -> void:
 		await get_tree().create_timer(1.0).timeout
 		visible = false
 		SignalBroker.dialogue_finished.emit()
+
+
+func _on_area_entered(other: Node) -> void:
+	print_debug("Function runs")
+	var current_customer: Customer = other.get_parent() as Customer
+	print_debug("Function runs2")
+	if not current_customer: 
+		return
+	else:
+		print_debug("Function runs3")
+		speed = current_customer.data.talking_speed
+
 
 
 func _on_customer_spoke(text_spoken: String) -> void:

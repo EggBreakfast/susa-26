@@ -76,10 +76,12 @@ func _spawn_customer() -> void:
 				push_error("Attempted to fetch invalid customer from registry.")
 				return
 			customer = customer_scene.instantiate()
+			SignalBroker.customer_enters_kitchen.emit(customer)
 		else: 
 			#var customer: Customer = Customer.new()
 			customer = customers.pick_random().instantiate()
-			customer.modulate.a = 0.0
+			#customer.modulate.a = 0.0
+			SignalBroker.customer_enters_kitchen.emit(customer)
 			
 		
 		#customer.modulate.a = 0.0

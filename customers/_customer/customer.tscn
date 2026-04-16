@@ -226,3 +226,7 @@ step = 0.001
 texture_under = SubResource("GradientTexture2D_52bdj")
 texture_progress = SubResource("GradientTexture2D_1xdbc")
 script = ExtResource("4_v2qqs")
+
+[node name="CustomerArea" type="Area2D" parent="." unique_id=1172257048]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CustomerArea" unique_id=1344566446]

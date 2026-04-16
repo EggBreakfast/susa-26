@@ -20,6 +20,7 @@ display_name = "The End of the World"
 sprite_frames = ExtResource("5_1k7rh")
 min_timer_duration = 1.0
 max_timer_duration = 600.0
+talking_speed = 8
 customer_id = 1
 orders = Array[ExtResource("1_kkj2g")]([SubResource("Resource_8g2yu")])
 metadata/_custom_type_script = "uid://t40qpvbwnk7f"
