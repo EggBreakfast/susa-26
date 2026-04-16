@@ -3,10 +3,21 @@
 [ext_resource type="Script" uid="uid://dnpo11vl2vg6l" path="res://orders/order.gd" id="1_2rb6l"]
 [ext_resource type="Script" uid="uid://t40qpvbwnk7f" path="res://customers/_customer/customer_data.gd" id="1_xfnvx"]
 [ext_resource type="SpriteFrames" uid="uid://jxxcu77ryekw" path="res://customers/missceo/missceo_frames.tres" id="2_2rb6l"]
+[ext_resource type="Script" uid="uid://by7bhnjxfdwk1" path="res://kitchen/ingredients/_ingredient/ingredient_data.gd" id="2_5hrki"]
+[ext_resource type="Resource" uid="uid://b0twc5ldid185" path="res://kitchen/ingredients/patty/patty_data.tres" id="3_cnu84"]
+
+[sub_resource type="Resource" id="Resource_oyora"]
+script = ExtResource("1_2rb6l")
+dialogue_order = PackedStringArray("What a cute and petite resturant you have here! The stains and chipped counter are... Adorable!", "Well if you wouldn\'t mind, I\'m feeling particularly parched today and would quite enjoy a stew of those seeing spheres and that meat cube you have there.")
+dialogue_success = PackedStringArray("Quite good!", "Excellent work, little furry creature!")
+dialogue_fail = PackedStringArray("I suppose it was too much to ask...", "It is alright, do not worry yourself, small furry creature.")
+ingredients = Array[ExtResource("2_5hrki")]([ExtResource("3_cnu84")])
+metadata/_custom_type_script = "uid://dnpo11vl2vg6l"
 
 [resource]
 script = ExtResource("1_xfnvx")
 display_name = "SHE-E-O"
 sprite_frames = ExtResource("2_2rb6l")
 customer_id = 3
+orders = Array[ExtResource("1_2rb6l")]([SubResource("Resource_oyora")])
 metadata/_custom_type_script = "uid://t40qpvbwnk7f"

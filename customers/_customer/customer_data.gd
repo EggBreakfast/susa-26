@@ -12,4 +12,6 @@ class_name CustomerData extends Resource
 
 @export var customer_id: int
 
+@export_group ("Order Information", "order_")
 @export var orders: Array[Order]
+@export var order_wait_time: float

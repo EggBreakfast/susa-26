@@ -7,7 +7,7 @@ class_name Dialogue extends Control
 static var dialogue_scene: PackedScene = preload("res://customers/_customer/dialogue/dialogue.tscn")
 
 var time_elapsed: float = 0.0
-var _text: String
+#var _text: String
 @export var text: String: 
 	get:
 		return text
@@ -28,8 +28,11 @@ func _exit_tree() -> void:
 
 func _process(delta: float) -> void:
 	time_elapsed += delta
-	%DialogueText.text = text.substr(0, ceili(time_elapsed * speed))
-	if %DialogueText.text == text:
+	if %DialogueText.text:#.length() <+  47.0 :
+		%DialogueText.text = text.substr(0, ceili(time_elapsed * speed))
+	#elif %DialogueText.text.length() > 10.0:
+		#%DialogueText.text.indent
+	elif %DialogueText.text == text:
 		set_process(false)
 		await get_tree().create_timer(1.0).timeout
 		visible = false

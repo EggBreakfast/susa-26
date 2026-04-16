@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://dnpo11vl2vg6l" path="res://orders/order.gd" id="2_hdwui"]
 [ext_resource type="Texture2D" uid="uid://c8nsar1mmjd55" path="res://sprites/characters/placeholder/PlaceHolder-Idle.png" id="2_p7q25"]
 [ext_resource type="Script" uid="uid://byis007s41k1w" path="res://customers/_customer/customer_timer.gd" id="4_v2qqs"]
-[ext_resource type="Script" uid="uid://dtd0he0htrgbq" path="res://customers/_customer/animation_handler.gd" id="6_52bdj"]
 
 [sub_resource type="Resource" id="Resource_v2qqs"]
 script = ExtResource("2_apnb8")
@@ -177,6 +176,21 @@ _data = {
 &"exit": SubResource("Animation_q7d20")
 }
 
+[sub_resource type="Gradient" id="Gradient_hdwui"]
+offsets = PackedFloat32Array(0, 0.38271606, 0.9876543)
+colors = PackedColorArray(0.7254902, 0, 0, 1, 0.30114284, 0.4930592, 0.5314847, 1, 0.10617245, 0.7195999, 0.77568036, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_52bdj"]
+gradient = SubResource("Gradient_hdwui")
+width = 1156
+
+[sub_resource type="Gradient" id="Gradient_x7o7u"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.105882354, 0.7176471, 0.7764706, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1xdbc"]
+gradient = SubResource("Gradient_x7o7u")
+
 [node name="Customer" type="Node2D" unique_id=159484568 node_paths=PackedStringArray("sprite_body", "customer_timer")]
 scale = Vector2(2.5, 2.5)
 script = ExtResource("1_dqoax")
@@ -207,12 +221,12 @@ custom_minimum_size = Vector2(0, 32)
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 0.049000002
-offset_bottom = -30.752
+offset_left = -2.0
+offset_right = 2.0
+offset_bottom = 33.248
 grow_horizontal = 2
+scale = Vector2(1, 0.19428457)
 step = 0.001
+texture_under = SubResource("GradientTexture2D_52bdj")
+texture_progress = SubResource("GradientTexture2D_1xdbc")
 script = ExtResource("4_v2qqs")
-
-[node name="AnimationHandlerComponent" type="Node" parent="." unique_id=1658407583 node_paths=PackedStringArray("animated_sprite", "animation_player")]
-script = ExtResource("6_52bdj")
-animated_sprite = NodePath("../Body")
-animation_player = NodePath("../AnimationPlayer")

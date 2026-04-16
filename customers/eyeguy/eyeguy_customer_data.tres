@@ -8,7 +8,7 @@
 
 [sub_resource type="Resource" id="Resource_8g2yu"]
 script = ExtResource("1_kkj2g")
-dialogue_order = "Yo, gimme a patty"
+dialogue_order = PackedStringArray("The weather was pretty dreary outside", "I\'d say I find myself with quite the craving for a stew", "Perhaps a stew with a patty? Or maybe onions would be better. Or maybe two patties...", "Though three patties does sound quite nice.", "Well, give me your best, human.")
 dialogue_success = PackedStringArray("Excellent burger, human", "I commend you")
 dialogue_fail = PackedStringArray("Absolutely horrid burger, human", "This is the worst slop I have ever had the displeasure of tasting")
 ingredients = Array[ExtResource("2_1k7rh")]([ExtResource("3_70s0v"), ExtResource("3_70s0v"), ExtResource("3_70s0v")])

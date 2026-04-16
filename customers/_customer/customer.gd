@@ -6,7 +6,7 @@ static var instance: Customer
 @export var data: CustomerData
 
 @export var offset: Vector2
-@export var facial_expressions: Dictionary[StringName, Texture2D]
+#@export var facial_expressions: Dictionary[StringName, Texture2D]
 
 @export var sprite_body: AnimatedSprite2D
 
@@ -41,29 +41,39 @@ func _ready() -> void:
 	if data.orders.size() < 1:
 		return
 	else:
-		current_order = data.orders.pick_random()
-		await get_tree().create_timer(0.5).timeout
-		SignalBroker.customer_spoke.emit(current_order.dialogue_order)
-		sprite_body.play(&"talking")
-		await SignalBroker.dialogue_finished
-		sprite_body.play(&"idle")
-		#print_debug(current_order.dialogue)
+		sprite_body.set_frame(3)
+		begin_customer_order()
+	
 	#
 	#print_debug("Current Order" + current_order.ingredients[1].to_string())
 	#order = data.order.pick_random()
 	#SignalBroker.customer.order.pick_random()
-	
 	#position.y -= sprite_body.get_rect().size.y
 
 func _process(delta: float) -> void:
 	timer_duration -= delta
 	customer_timer.value = timer_duration
-	
+
 
 func _exit_tree() -> void:
 	instance = null # When customer leaves scene, make it so we're no longer thinking about it
 	
 	SignalBroker.bowl_delivered_to_customer.disconnect(_on_bowl_delivered)
+
+
+func begin_customer_order() -> void:
+	current_order = data.orders.pick_random()
+	await get_tree().create_timer(0.5).timeout
+	SignalBroker.customer_spoke.emit(current_order.dialogue_order)
+	sprite_body.play(&"talking")
+	for line: String in current_order.dialogue_order:
+		SignalBroker.customer_spoke.emit(line)
+		await SignalBroker.dialogue_finished
+	
+	
+	await SignalBroker.dialogue_finished
+	sprite_body.play(&"idle")
+	#print_debug(current_order.dialogue)
 
 
 func _on_bowl_delivered(bowl: Bowl) -> void:

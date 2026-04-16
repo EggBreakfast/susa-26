@@ -79,6 +79,8 @@ func _spawn_customer() -> void:
 		else: 
 			#var customer: Customer = Customer.new()
 			customer = customers.pick_random().instantiate()
+			customer.modulate.a = 0.0
+			
 		
 		#customer.modulate.a = 0.0
 		customer_spawn_point.add_child.call_deferred(customer)
