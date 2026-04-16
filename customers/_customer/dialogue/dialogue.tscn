@@ -7,6 +7,9 @@
 font_size = 24
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_japat"]
+size = Vector2(392, 284.9999)
+
 [node name="Dialogue" type="Control" unique_id=988074216]
 layout_mode = 3
 anchors_preset = 15
@@ -53,3 +56,9 @@ size_flags_stretch_ratio = 0.0
 label_settings = SubResource("LabelSettings_japat")
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="CustomerDetectionArea2D" type="Area2D" parent="." unique_id=709129334]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CustomerDetectionArea2D" unique_id=337940552]
+position = Vector2(294, 191.99992)
+shape = SubResource("RectangleShape2D_japat")

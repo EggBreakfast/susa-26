@@ -1,8 +1,10 @@
 class_name Dialogue extends Control
 
 
+#@export var
+
 ## The speed at which text appears, measured in Letters Per Second
-@export var speed: int = 8 #Change to be influenced by customer data later?
+@export var speed: int = 8
 
 static var dialogue_scene: PackedScene = preload("res://customers/_customer/dialogue/dialogue.tscn")
 

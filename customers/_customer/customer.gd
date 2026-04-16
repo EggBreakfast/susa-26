@@ -43,6 +43,7 @@ func _ready() -> void:
 		return
 	else:
 		begin_customer_order()
+		data.customer_active = true
 	
 	#
 	#print_debug("Current Order" + current_order.ingredients[1].to_string())
@@ -107,6 +108,10 @@ func _on_bowl_delivered(bowl: Bowl) -> void:
 			await SignalBroker.dialogue_finished
 			sprite_body.play(&"idle")
 			
+
+
+
+
 
 
 func _get_ingredient_in_bowl(order_ingredient: IngredientData, bowl_ingredients: Array[IngredientData]) -> IngredientData:
