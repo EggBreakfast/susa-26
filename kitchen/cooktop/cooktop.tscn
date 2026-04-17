@@ -123,6 +123,15 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_l8nfa")
 
+[node name="SinkSprites" type="Control" parent="HBoxContainer/Dishpit" unique_id=511130198]
+layout_mode = 2
+
+[node name="SinkBack" type="Sprite2D" parent="HBoxContainer/Dishpit/SinkSprites" unique_id=52030893]
+
+[node name="SinkBack2" type="Sprite2D" parent="HBoxContainer/Dishpit/SinkSprites" unique_id=383135604]
+
+[node name="SinkBack3" type="Sprite2D" parent="HBoxContainer/Dishpit/SinkSprites" unique_id=2026935381]
+
 [node name="OutsideSinkArea" type="Area2D" parent="HBoxContainer/Dishpit" unique_id=393178950]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Dishpit/OutsideSinkArea" unique_id=999092436]
