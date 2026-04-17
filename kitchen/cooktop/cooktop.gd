@@ -1,32 +1,30 @@
 class_name Cooktop 
 extends Control
 
+@export var plate_scene: PackedScene
+@export var patty_scene: PackedScene
+
+@export var count_plates: int = 3
+@export var count_patties: int = 3
 
 var spawn_points: Array[Marker2D]
-
-@export var plate_scene: PackedScene
-@export var count_plates: int = 3
-
-@export var ingredient_scene: Array[PackedScene]
-
-@export_group("Ingredient Counts", "count_")
-@export var count_patties: int = 3
-@export var count_carrots: int = 1
-
+# What do square brackets do? A lot of things. This one is a nested type. It specifies the kind of array this is. Same for dictionaries!
 
 func _ready() -> void:
 	SignalBroker.bowl_delivered_to_customer.connect(_on_bowl_delivered)
 	
-	await get_tree().process_frame
-	
 	for spawnpt: Marker2D in Helpers.find_nodes_of_type(self, Marker2D):
 		spawn_points.append(spawnpt)
 	
-	#for i: int in range(count_patties):
-		#var patty: Ingredient = ingredient_scene..instantiate()
-		#add_child(patty)
-		#patty.global_position = spawn_points[0].global_position
-		#patty.global_position.y -= (i * 8.0)
+	await get_tree().process_frame
+	
+	for i: int in range(count_patties):
+		var patty: Ingredient = patty_scene.instantiate()
+		add_child(patty)
+		patty.global_position = spawn_points[1].global_position
+		print_debug(patty.global_position, spawn_points[1].global_position)
+		patty.global_position.y -= (i * 5.0)
+	
 	#for i: int in range(count_plates):
 		#var plate: Plate = plate_scene.instantiate()
 		#add_child(plate)

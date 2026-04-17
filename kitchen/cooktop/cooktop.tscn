@@ -1,15 +1,14 @@
 [gd_scene format=3 uid="uid://l37dx4ga6ok4"]
 
+[ext_resource type="Script" uid="uid://cyn8k8q78v56m" path="res://kitchen/cooktop/cooktop.gd" id="1_hsghg"]
 [ext_resource type="Texture2D" uid="uid://qk2q6hr5sk4n" path="res://sprites/kitchen/countertop.png" id="1_oh1dw"]
 [ext_resource type="Texture2D" uid="uid://dankj0jkceiav" path="res://sprites/kitchen/stove.png" id="2_hsghg"]
+[ext_resource type="PackedScene" uid="uid://0s8oaewwkphp" path="res://kitchen/plates/plate.tscn" id="2_qxnpu"]
+[ext_resource type="PackedScene" uid="uid://b1lhn8p764gh7" path="res://kitchen/ingredients/patty/patty.tscn" id="4_fqane"]
 [ext_resource type="PackedScene" uid="uid://bj3d6viuhnsb7" path="res://kitchen/cooktop/skillet.tscn" id="5_io4qn"]
 [ext_resource type="PackedScene" uid="uid://bwrglqxqfolxv" path="res://kitchen/pot/pot.tscn" id="7_l8nfa"]
 [ext_resource type="PackedScene" uid="uid://dom2rjpg3jf7t" path="res://kitchen/ladle/ladle.tscn" id="8_vnblt"]
 [ext_resource type="PackedScene" uid="uid://duckk80rrj2yw" path="res://kitchen/bowl/bowl.tscn" id="9_ewy8k"]
-
-[sub_resource type="GDScript" id="GDScript_qxnpu"]
-script/source = "extends Cooktop
-"
 
 [sub_resource type="Gradient" id="Gradient_oh1dw"]
 colors = PackedColorArray(0, 0, 0, 1, 0.15269855, 0.31810722, 0.40012613, 1)
@@ -61,7 +60,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
-script = SubResource("GDScript_qxnpu")
+script = ExtResource("1_hsghg")
+plate_scene = ExtResource("2_qxnpu")
+patty_scene = ExtResource("4_fqane")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1781747532]
 layout_mode = 0

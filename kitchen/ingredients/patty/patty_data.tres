@@ -9,6 +9,7 @@ script = ExtResource("1_l6bwj")
 color_shift = Vector3(0.5, 0, 0)
 display_name = "Burger Patty"
 price = 1000
+ingredient_id = 1
 scene_path = "res://kitchen/ingredients/patty/patty.tscn"
 texture_raw = ExtResource("3_3lh66")
 texture_prepped = ExtResource("2_tfxbs")
