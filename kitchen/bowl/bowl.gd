@@ -47,4 +47,5 @@ func _on_bowl_delivered(bowl: Bowl) -> void:
 	
 	await get_tree().process_frame
 	ingredients = []
+	sprite_slop.modulate = Color.WHITE
 	bowl_filled = false

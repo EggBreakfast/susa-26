@@ -11,7 +11,7 @@ const SAVE_DIRECTORY = "user://saves"
 
 
 ## The saved file that is loaded (if any!)
-var current_save_data: SaveData
+var current_save_data: SaveData = SaveData.new()
 
 
 @warning_ignore_start("unused_parameter")

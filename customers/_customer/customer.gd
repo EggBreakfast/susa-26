@@ -9,6 +9,7 @@ static var instance: Customer
 #@export var facial_expressions: Dictionary[StringName, Texture2D]
 
 @export var sprite_body: AnimatedSprite2D
+@export var sprite_frames: SpriteFrames 
 
 var timer_duration: float
 @export var customer_timer: CustomerTimer
@@ -65,7 +66,6 @@ func _exit_tree() -> void:
 func begin_customer_order() -> void:
 	current_order = data.orders.pick_random()
 	await get_tree().create_timer(0.5).timeout
-	SignalBroker.customer_spoke.emit(current_order.dialogue_order)
 	sprite_body.play(&"talking")
 	for line: String in current_order.dialogue_order:
 		SignalBroker.customer_spoke.emit(line)
@@ -96,9 +96,9 @@ func _on_bowl_delivered(bowl: Bowl) -> void:
 	get_tree().create_timer(0.5)
 	sprite_body.play(&"idle")
 	
-	var dialogue: String
 	if order_accurate:
 		dialogue_source = current_order.dialogue_success
+		SignalBroker.currency_earned.emit(current_order.cost)
 	else:
 		dialogue_source = current_order.dialogue_fail
 	

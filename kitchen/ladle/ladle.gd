@@ -71,12 +71,13 @@ func _physics_process(delta: float) -> void:
 			# HEY! You there! If you want to make it super jittery, move the movement_speed * 0.5
 			#global_position = current_cursor.global_position + cursor_offset
 
-func _on_cursor_interaction_started(cursor: Cursor) -> void:
-	current_cursor = cursor
-	cursor_offset = global_position - current_cursor.global_position
-	grabbed.emit(self)
+func _on_cursor_interaction_started(cursor: Cursor, node: Node) -> void:
+	if node and (node == self or node.get_parent() == self):
+		current_cursor = cursor
+		cursor_offset = global_position - current_cursor.global_position
+		grabbed.emit(self)
 
-func _on_cursor_interaction_stopped(cursor: Cursor) -> void:
+func _on_cursor_interaction_stopped(cursor: Cursor, _node: Node) -> void:
 	if current_cursor == cursor:
 		current_cursor = null 
 	dropped.emit(self)

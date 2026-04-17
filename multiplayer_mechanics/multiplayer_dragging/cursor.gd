@@ -1,8 +1,8 @@
 class_name Cursor extends Control
 
 
-signal interaction_started
-signal interaction_stopped
+signal interaction_started(cursor: Cursor, node: Node)
+signal interaction_stopped(ucrsor: Cursor, node: Node)
 
 
 @export var id: StringName = &"p1"
@@ -17,6 +17,11 @@ signal interaction_stopped
 @onready var input_grab: StringName = &"%s_grab" % id
 @onready var input_interact: StringName = &"%s_cursor_interact" % id
 
+@export_group("Node References")
+@export var area: Area2D
+@export var hit_point: Marker2D
+
+
 var is_grabbing: bool = false
 var max_grab_distance: float = 320.0
 var draggable: Draggable
@@ -27,11 +32,14 @@ func _ready() -> void:
 	SignalBroker.cursor_spawned.emit(self)
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed(input_interact):
-		interaction_started.emit(self)
-	
-	if event.is_action_released(input_interact):
-		interaction_stopped.emit(self)
+	if event.is_action_pressed(input_interact) or event.is_action_released(input_interact):
+		for canvas_layer: CanvasLayer in Helpers.find_nodes_of_type(get_tree().root, CanvasLayer):
+			if canvas_layer.name == "MainScreen":
+				var node: Node = Helpers.get_node_at_position(hit_point.global_position, canvas_layer.get_instance_id())
+				if event.is_action_pressed(input_interact):
+					interaction_started.emit(self, node)
+				else:
+					interaction_stopped.emit(self, node)
 	
 	
 	if event.is_action_pressed(input_grab): 

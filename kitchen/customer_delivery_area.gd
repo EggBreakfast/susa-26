@@ -3,10 +3,12 @@ class_name CustomerDelivaryArea extends Area2D
 
 func _ready() -> void:
 	area_entered.connect(_on_area_entered)
+	area_exited.connect(_on_area_exited)
 
 
 func _exit_tree() -> void:
 	area_entered.disconnect(_on_area_entered)
+	area_exited.disconnect(_on_area_exited)
 	
 
 func _on_area_entered(other: Area2D) -> void:

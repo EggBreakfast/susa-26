@@ -5,6 +5,7 @@ class_name CustomerData extends Resource
 
 @export var min_timer_duration: float
 @export var max_timer_duration: float
+@export var talking_speed: int
 
 @export var sprite_scale: float
 
@@ -17,4 +18,3 @@ class_name CustomerData extends Resource
 
 @export_group ("Order Information", "order_")
 @export var orders: Array[Order]
-@export var order_wait_time: float

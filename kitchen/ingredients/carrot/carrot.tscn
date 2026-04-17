@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://crdlvpm66v85j"]
+
+[ext_resource type="PackedScene" uid="uid://cfrg7o6ah1g2u" path="res://kitchen/ingredients/_ingredient/ingredient.tscn" id="1_42umm"]
+[ext_resource type="Resource" uid="uid://c1urnmgjp74ep" path="res://kitchen/ingredients/carrot/carrot_data.tres" id="2_4vwby"]
+
+[node name="Carrot" unique_id=1325366191 instance=ExtResource("1_42umm")]
+data = ExtResource("2_4vwby")

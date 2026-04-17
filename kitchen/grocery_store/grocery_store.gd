@@ -10,8 +10,18 @@ signal ingredient_purchased(ingredient: Ingredient)
 func _ready() -> void:
 	%TemplateItem.visible = false
 	
+	SignalBroker.currency_updated.connect(_on_currency_updated)
+	_on_currency_updated(SaveSystem.current_save_data.currency)
+	
 	for ingredient: IngredientData in ingredients:
 		_create_ingredient_button(ingredient)
+
+func _exit_tree() -> void:
+	SignalBroker.currency_updated.disconnect(_on_currency_updated)
+
+
+func _on_currency_updated(currency: int) -> void:
+	%CurrentMoney.text = "Money: $%0.2f" % (float(currency) / 100.0)
 
 
 func _create_ingredient_button(ingredient: IngredientData) -> void:
@@ -57,6 +67,8 @@ func _on_area_exited(other: Node, ingredient: IngredientData) -> void:
 	cursor.interaction_stopped.disconnect(_on_cursor_interaction_stopped.bind(ingredient))
 
 @warning_ignore("unused_parameter")
-func _on_cursor_interaction_stopped(cursor: Cursor, ingredient: IngredientData) -> void:
-	ingredient_purchased.emit(ingredient)
-	print_debug(ingredient.display_name)
+func _on_cursor_interaction_stopped(cursor: Cursor, _node: Node, ingredient: IngredientData) -> void:
+	if SaveSystem.current_save_data.currency >= ingredient.price:
+		SignalBroker.currency_lost.emit(ingredient.price)
+		ingredient_purchased.emit(ingredient)
+		print_debug(ingredient.display_name)

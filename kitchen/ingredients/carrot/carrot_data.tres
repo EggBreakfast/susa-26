@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="IngredientData" format=3 uid="uid://c1urnmgjp74ep"]
+
+[ext_resource type="Script" uid="uid://by7bhnjxfdwk1" path="res://kitchen/ingredients/_ingredient/ingredient_data.gd" id="1_blfe8"]
+[ext_resource type="Texture2D" uid="uid://bypja61pf1ptg" path="res://sprites/kitchen/carrot.png" id="2_4n0ky"]
+
+[resource]
+script = ExtResource("1_blfe8")
+color_shift = Vector3(1, 0.73, 0)
+display_name = "Carrot"
+price = 300
+ingredient_id = 1
+prep_time = 9.0
+overprep_percentage = 3.0
+texture_raw = ExtResource("2_4n0ky")
+texture_prepped = ExtResource("2_4n0ky")
+texture_overprepped = ExtResource("2_4n0ky")
+modulate_prepped = Color(0.88135827, 0.60211617, 0.48940647, 0.7764706)
+modulate_overprepped = Color(0.40784314, 0.11372549, 0.15294118, 0.8)
+metadata/_custom_type_script = "uid://by7bhnjxfdwk1"

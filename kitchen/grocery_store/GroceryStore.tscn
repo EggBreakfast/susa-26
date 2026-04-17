@@ -20,7 +20,7 @@ content_margin_bottom = 12.0
 bg_color = Color(0.23492244, 0.5174453, 0.7861294, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7t4ho"]
-size = Vector2(233, 83)
+size = Vector2(374, 83)
 
 [node name="GroceryStore" type="Control" unique_id=894010579]
 layout_mode = 3
@@ -30,7 +30,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_n6kbe")
-ingredients = Array[ExtResource("2_7t4ho")]([ExtResource("3_8id2r"), ExtResource("3_8id2r"), ExtResource("3_8id2r")])
+ingredients = Array[ExtResource("2_7t4ho")]([ExtResource("3_8id2r")])
 
 [node name="Background" type="TextureRect" parent="." unique_id=1280045014]
 layout_mode = 1
@@ -44,12 +44,19 @@ expand_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=507606460]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1152.0
+offset_bottom = 648.0
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
+
+[node name="CurrentMoney" type="Label" parent="MarginContainer" unique_id=1671041055]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "Money: $0.00"
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer" unique_id=1457473565]
 layout_mode = 2
@@ -72,6 +79,7 @@ stretch_mode = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/GridContainer/TemplateItem/VBoxContainer" unique_id=1370233184]
 layout_mode = 2
+alignment = 1
 
 [node name="Price" type="Label" parent="MarginContainer/GridContainer/TemplateItem/VBoxContainer/HBoxContainer" unique_id=1621644305]
 layout_mode = 2
@@ -88,5 +96,5 @@ text = "Example Ingredient"
 [node name="HitArea" type="Area2D" parent="MarginContainer/GridContainer/TemplateItem" unique_id=681157055]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MarginContainer/GridContainer/TemplateItem/HitArea" unique_id=1404293830]
-position = Vector2(116.5, 41.5)
+position = Vector2(187, 41.5)
 shape = SubResource("RectangleShape2D_7t4ho")

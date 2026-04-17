@@ -14,12 +14,27 @@ dialogue_fail = PackedStringArray("Absolutely horrid burger, human", "This is th
 ingredients = Array[ExtResource("2_1k7rh")]([ExtResource("3_70s0v"), ExtResource("3_70s0v"), ExtResource("3_70s0v")])
 metadata/_custom_type_script = "uid://dnpo11vl2vg6l"
 
+[sub_resource type="Resource" id="Resource_1k7rh"]
+script = ExtResource("1_kkj2g")
+dialogue_order = PackedStringArray("Good afternoon Human Eye\'m craving a delicous ________ today and Eye hope you can satisfy.", "Eye would like a side of ______ with that actually, and hold the _______.", "Eye\'m not in a rush so no need to be hasty Human. Rushing brings nothing but flaws.", "Don\'t dissapoint, Human.")
+dialogue_success = PackedStringArray("Well done Human, Eye\'d expect nothing less of you.")
+dialogue_fail = PackedStringArray("Pathetic.")
+metadata/_custom_type_script = "uid://dnpo11vl2vg6l"
+
+[sub_resource type="Resource" id="Resource_70s0v"]
+script = ExtResource("1_kkj2g")
+dialogue_order = PackedStringArray("Hello, Human.", "Eye saw your shop here yesterday as Eye was perceiving the area. It looked interesting Eye might say.", "Eye would like to try your _______ with _______ on top.", "Good luck, Human.")
+dialogue_success = PackedStringArray("Precicely what Eye had expected. This looks...", "Tasty.", "Eye will return.")
+dialogue_fail = PackedStringArray("Eye watched you fail the most simple of tasks Human.", "Eye don\'t know why Eye expected anything more from you.", "Goodbeye.")
+metadata/_custom_type_script = "uid://dnpo11vl2vg6l"
+
 [resource]
 script = ExtResource("1_jqq52")
 display_name = "The End of the World"
 sprite_frames = ExtResource("5_1k7rh")
 min_timer_duration = 1.0
 max_timer_duration = 600.0
+talking_speed = 8
 customer_id = 1
-orders = Array[ExtResource("1_kkj2g")]([SubResource("Resource_8g2yu")])
+orders = Array[ExtResource("1_kkj2g")]([SubResource("Resource_8g2yu"), SubResource("Resource_1k7rh"), SubResource("Resource_70s0v")])
 metadata/_custom_type_script = "uid://t40qpvbwnk7f"

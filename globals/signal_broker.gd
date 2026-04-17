@@ -19,3 +19,8 @@ signal cursor_spawned (cursor: Cursor)
 
 signal customer_enters_kitchen ()
 signal customer_leaves_kitchen ()
+
+signal ingredient_purchased(ingredient: Ingredient)
+signal currency_earned(amount: int)
+signal currency_lost(amount: int)
+signal currency_updated(amount: int)

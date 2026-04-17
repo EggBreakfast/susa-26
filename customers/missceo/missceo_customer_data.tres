@@ -8,17 +8,32 @@
 
 [sub_resource type="Resource" id="Resource_oyora"]
 script = ExtResource("1_2rb6l")
-dialogue_order = PackedStringArray("What a cute and petite resturant you have here!\nThe stains and chipped counter are... Adorable!", "Well if you wouldn\'t mind, I\'m feeling particularly parched today and would quite enjoy a stew of those seeing spheres and that meat cube you have there.")
+dialogue_order = PackedStringArray("What a cute and petite restaurant you have here!\nThe stains and chipped counter are... Adorable!", "Well if you wouldn\'t mind, I\'m feeling particularly parched today", "I would quite enjoy a stew of those seeing spheres and that meat cube you have there.")
+dialogue_success = PackedStringArray("Ah! How delightful mortal food!", "Thank you! Furry creature! I hope you have a nice day.")
 dialogue_fail = PackedStringArray("I suppose it was too much to ask...", "It is alright, do not worry yourself, small furry creature.")
 ingredients = Array[ExtResource("2_5hrki")]([ExtResource("3_cnu84")])
+metadata/_custom_type_script = "uid://dnpo11vl2vg6l"
+
+[sub_resource type="Resource" id="Resource_5hrki"]
+script = ExtResource("1_2rb6l")
+dialogue_order = PackedStringArray("Hello there creature you look like you have a pretty little selection of treats here. Oh I wonder what I\'ll choose!", "Oh I know I\'ll have some of your ________ with lovely little _____ on the side.", "Oh I\'m soo excited to try some Dearie.")
+dialogue_success = PackedStringArray("This looks soo beautiful I\'m soo proud of you!", "If you keep making food like this I may have to keep you in our office.", "Thank you for the food dearie have a great day!")
+dialogue_fail = PackedStringArray("Oh no what happend! Dont cry dearie its ok I\'ll just have Jerry from accounting check it for poison before I eat it so I\'ll be ok alright.", "Good luck for next time dearie.")
+metadata/_custom_type_script = "uid://dnpo11vl2vg6l"
+
+[sub_resource type="Resource" id="Resource_cnu84"]
+script = ExtResource("1_2rb6l")
+dialogue_order = PackedStringArray("Hello dearie I would like a -TELL SAM FROM MARKETING I DONT GIVE A CARPATHIANS LEFT KNUCKLE IF HE HAS A FAMILY I NEEDED THE PAPERS IN BY YESTERDAY!!!-", "A _______ with a side of __-STACY IF YOU ASK FOR LEAVE ONE MORE TIME I\'M SENDING YOU TO THE GULAG-___", "Oh also could you add some __- just a moment - MICHEAL IF YOU WASTE ONE MORE SECOND OF MY TIME YOUR LOSING YOUR PRINTER PRIVILEGES- ___", "Thank you dearie oh and please be quick I have some urgent issues to attend to.", "[delete this afterwards but i think it would be cool if the orders were split up into segments so its hard to tell whats what between the work calls]")
+dialogue_success = PackedStringArray("Thank you sweetie- JEFF IF YOU LET THAT DOG IN THE OFFICE I SWEAR TO GOD")
+dialogue_fail = PackedStringArray("Um dearie this doesnt look quite ri-... ", "Ugh whatever I dont have the time for this have a great day furry creature!")
 metadata/_custom_type_script = "uid://dnpo11vl2vg6l"
 
 [resource]
 script = ExtResource("1_xfnvx")
 display_name = "SHE-E-O"
 sprite_frames = ExtResource("2_2rb6l")
-max_timer_duration = 1000.0
+max_timer_duration = 60.0
+talking_speed = 50
 customer_id = 3
-talking_speed = 6
-orders = Array[ExtResource("1_2rb6l")]([SubResource("Resource_oyora")])
+orders = Array[ExtResource("1_2rb6l")]([SubResource("Resource_oyora"), SubResource("Resource_5hrki"), SubResource("Resource_cnu84")])
 metadata/_custom_type_script = "uid://t40qpvbwnk7f"
