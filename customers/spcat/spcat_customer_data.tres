@@ -1,10 +1,34 @@
 [gd_resource type="Resource" script_class="CustomerData" format=3 uid="uid://demfjoelctrxd"]
 
 [ext_resource type="Script" uid="uid://t40qpvbwnk7f" path="res://customers/_customer/customer_data.gd" id="1_5p4sr"]
+[ext_resource type="Script" uid="uid://dnpo11vl2vg6l" path="res://orders/order.gd" id="1_djrrr"]
 [ext_resource type="SpriteFrames" uid="uid://cnbx1gm22yto" path="res://customers/spcat/spcat_frames.tres" id="2_0rchd"]
+[ext_resource type="Script" uid="uid://by7bhnjxfdwk1" path="res://kitchen/ingredients/_ingredient/ingredient_data.gd" id="2_ae3w5"]
+
+[sub_resource type="Resource" id="Resource_3xp16"]
+script = ExtResource("1_djrrr")
+dialogue_order = PackedStringArray("Meow! Meow meow meow meow meow meow meow meow meow meow. Meeeow meow meow MEEOW *growl* meow meow meow.", "Meow meow meow meow _______ meow meow meow _______ meow meow meow meow.", "Meow meow meow meow meow meow meow meow meow meow meow.")
+dialogue_success = PackedStringArray("Thanks.")
+dialogue_fail = PackedStringArray("Meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow.", "Meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow..!", ">:[ Meow!")
+metadata/_custom_type_script = "uid://dnpo11vl2vg6l"
+
+[sub_resource type="Resource" id="Resource_sgldr"]
+script = ExtResource("1_djrrr")
+dialogue_order = PackedStringArray("Hey whatcha got here?", "Wow it all looks pretty ugly.", "I mean who would even eat a ______ anyways. YUCK!", "Eh on second thought who am I to judge I\'ll have like 40 ______(this should match the ingrediant above)")
+dialogue_success = PackedStringArray("Wow my plate of expensive branded slop MY FAVORITEEEEEEE!", "Oh and all the ______ is intact YUMMM!", "Welp imma go feed this to mah dog BYE.")
+dialogue_fail = PackedStringArray("Somehow you actually managed too make it look better than if you did it right. Congratulations.", "I wonder if the micropigeons will like it.", "Thanks I guess.")
+metadata/_custom_type_script = "uid://dnpo11vl2vg6l"
+
+[sub_resource type="Resource" id="Resource_rhye5"]
+script = ExtResource("1_djrrr")
+dialogue_order = PackedStringArray("Hey guys I\'m starting my livestream of giving food to the homeless. Today we\'re at this place and are gonna get a huge meal for all those in need.", "Hey bruv the homeless want uhh a _______ and a _______ and uhhh a lot of _______ yeah thanks! Oh! Make sure you hold the ________ tho.", "Thanks bruv!")
+dialogue_success = PackedStringArray("Thanks Bruv this is free right cuz-cuz imma give it to the homeless and stuff ya know.", "Just so ya know I\'m recording you j-just so you can answer properly ya know.", "~10mil followerssssss~ What was that gosh must have been the wind. ehhem. Imma take this. ", "Seeya!")
+dialogue_fail = PackedStringArray("Dang chat it looks like this createn just hates the homeless gosh its such a shame. ", "Mods cancel them on all social media.")
+metadata/_custom_type_script = "uid://dnpo11vl2vg6l"
 
 [resource]
 script = ExtResource("1_5p4sr")
 display_name = "SP Cat"
 sprite_frames = ExtResource("2_0rchd")
+orders = Array[ExtResource("1_djrrr")]([SubResource("Resource_3xp16"), SubResource("Resource_sgldr"), SubResource("Resource_rhye5")])
 metadata/_custom_type_script = "uid://t40qpvbwnk7f"

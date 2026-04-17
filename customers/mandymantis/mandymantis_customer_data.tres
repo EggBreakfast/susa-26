@@ -1,11 +1,35 @@
 [gd_resource type="Resource" script_class="CustomerData" format=3 uid="uid://dp8wmn3cjwdva"]
 
 [ext_resource type="Script" uid="uid://t40qpvbwnk7f" path="res://customers/_customer/customer_data.gd" id="1_4nwvk"]
+[ext_resource type="Script" uid="uid://dnpo11vl2vg6l" path="res://orders/order.gd" id="1_rhkhr"]
 [ext_resource type="SpriteFrames" uid="uid://b3ntgfoy0cw4t" path="res://customers/mandymantis/mandymantis_frames.tres" id="2_ca2bt"]
+[ext_resource type="Script" uid="uid://by7bhnjxfdwk1" path="res://kitchen/ingredients/_ingredient/ingredient_data.gd" id="2_vorum"]
+
+[sub_resource type="Resource" id="Resource_j751w"]
+script = ExtResource("1_rhkhr")
+dialogue_order = PackedStringArray("Hello ssssweetie! I heard from the lovely cicadas roaming about the night sssssssky that I sssssshouldd try your food. I hope it doessssssn\'t dissssappoint.", "Your menu looksssss delicousssss! Hmm sssssso many optionsssss I wonder what I sssssshould choosssssse. Ah I know!", "I would like a ______ with a sssssweet _________ and a __________.", "Make hassssste sssssweetie I can\'t wait to get home to my husssssband. I\'m pretty sssssshure he expiressssss ssssoon.")
+dialogue_success = PackedStringArray("Thank you ssssssssso much it looksssss wonderful! I can\'t wait to enjoy thissssssss with my husssssband! He\'ll make the greatesssssst of ssssaucesssss for my meal!", "I will definitely return again ssssssssweetie! Oh and heressss your pay for the meal. Goodbye now!")
+dialogue_fail = PackedStringArray("Thissssss issss HORRIBLE! It\'ssssss not at all what I assssked for you lowlife degenerate. Your cooking sssssssskills are worsssssse than my dead husssssband\'ssss. ", "God I wissssssh I went sssssomewhere elssssse, mabye I would have gotten competent ssssssservice there. Now I have to deal with lugging around a ssssstupid excusssse for a meal. I bet you\'d make a better meal than the sssssssslop you put into otherrsssss mouthssssss.", "You\'re a disssssgusssssting lossssser of a lifeform and I hope you perissssh in the mantisssss uprissssing.")
+metadata/_custom_type_script = "uid://dnpo11vl2vg6l"
+
+[sub_resource type="Resource" id="Resource_gmb86"]
+script = ExtResource("1_rhkhr")
+dialogue_order = PackedStringArray("Hello sssssweetie! All thosssssse pesssssky wormssssss are getting under my nervesssssss. No matter how much I tell them off they keep ssssstealing my cropssssssss. I need ssssssome food to help me sssstay full and energized while I build an electric dome around my garden.", "Your menu looks ssssso refresssshing right now I wonder what will be the bessssst for the tassssk ahead? Ah! I know!", "I\'ll have sssssome ______ with a little bit of _______ and a bit of _______ to keep me full for a while.", "Hop to it sssssweettie I\'ll be waiting for my tassssty meal. Try not to dissssapoint.")
+dialogue_success = PackedStringArray("Oh thank you ssssssweetie thisssss looksssss delightful!\nIt\'sssssss sssssure to give me the energy I need to ssssstop thosssse pesky wormssssss.", "Once I eat thissssss I\'ll become unsssssstoppable! Muahahaha! MUAHAHAHAHAHA! ENJOY THE ELECTRIC CAGE WORMSSSSS!!!", "...", "Ehhem Thank you ssssweetie.")
+dialogue_fail = PackedStringArray("What issss thisssss ugh it looksssss dissssgussssssting! What issssssss wrong with you you vile creature. Your jussssst like thossssse degenerate wormsssssss!", "I hope your resssssturaunt failsssss you atrociousssss ssssscum of earth. I hope every ounce of energy you ssssspent making thissssss meal makessssss you ruin your own gardenssssssss.", "Bye lossssssser!")
+metadata/_custom_type_script = "uid://dnpo11vl2vg6l"
+
+[sub_resource type="Resource" id="Resource_qp3mq"]
+script = ExtResource("1_rhkhr")
+dialogue_order = PackedStringArray("Hello ssssweetie your food lookssssss ssssso tassssty! I need a meal to fatten up my new husssssband for dinner tomorow! Hesssss ssssuch a ssssweetheart. It\'ssss grosssss. Sssssso letsssss make it ssssavory.", "I want a lot of food to have the bessssst chance of changing that. Thisssss will be a big order sssso be ready! ", "I would like a _______ with a _______ and a sssssside of _______ with extra extra _________!", "Mmm that ssssoundssss deliciousssss I\'m already ssssalivating. Make sssssure you don\'t take too long sssssweetie my hussssssbandsssss waiting!")
+dialogue_success = PackedStringArray("Thank you sssssso much thissss looksssssss perfect. My husssssssband isssss going to have the greatesssssst meal of hisssss life.", "I will make ssssure to come back here whenever I need to ssssssstock up on sssssssome more husssssband padding sssssweetie! The caloriesssss alone are killer.", "Take care.")
+dialogue_fail = PackedStringArray("What in the world isssss thisssss ssssslop! If I asssssked for a mediocre performance I would have assssssked my hussssband to do it! Thisssss lookssssss like a pile of usssselesssss sssssslop you would feed to literal boat sssscum.", "You are the worsssssst chef that hassssss ever beeen born and you couldn\'t follow directionssssss if they were branded onto your sssssskulll. Thisssss cooking makessssss me want to ssssstarve myssssssself to death.", "You\'re a failure you maggot sssssslime! I hope you end up a rotting messsssss in a pile of ussssselessssss husssskssss of hussssssbandsssss!")
+metadata/_custom_type_script = "uid://dnpo11vl2vg6l"
 
 [resource]
 script = ExtResource("1_4nwvk")
 display_name = "Mandy Mantis"
 sprite_frames = ExtResource("2_ca2bt")
 customer_id = 2
+orders = Array[ExtResource("1_rhkhr")]([SubResource("Resource_j751w"), SubResource("Resource_gmb86"), SubResource("Resource_qp3mq")])
 metadata/_custom_type_script = "uid://t40qpvbwnk7f"
