@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://cclih156u50o3" path="res://kitchen/ingredients/_ingredient/ingredient.gd" id="1_xyk0e"]
 [ext_resource type="Script" uid="uid://hu8rorctk2if" path="res://tools/reusable_pickups/pickup_component.gd" id="2_ptn7t"]
+[ext_resource type="Script" uid="uid://c8invgwedkpuy" path="res://kitchen/ingredients/ingredient_spawner.gd" id="3_01o0t"]
+[ext_resource type="PackedScene" uid="uid://b1lhn8p764gh7" path="res://kitchen/ingredients/patty/patty.tscn" id="4_e0xxn"]
+[ext_resource type="PackedScene" uid="uid://crdlvpm66v85j" path="res://kitchen/ingredients/carrot/carrot.tscn" id="5_wxcoa"]
 
 [node name="Ingredient" type="AnimatableBody2D" unique_id=1325366191 node_paths=PackedStringArray("area", "sprite")]
 z_index = 30
@@ -23,3 +26,7 @@ script = ExtResource("2_ptn7t")
 entity = NodePath("..")
 pickup_area = NodePath("../Area2D")
 metadata/_custom_type_script = "uid://hu8rorctk2if"
+
+[node name="IngredientSpawner" type="Node" parent="." unique_id=1829347417]
+script = ExtResource("3_01o0t")
+ingredient_scene = Array[PackedScene]([ExtResource("4_e0xxn"), ExtResource("5_wxcoa")])
