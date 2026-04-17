@@ -56,13 +56,11 @@ scale = Vector2(1, 0.703125)
 texture = SubResource("GradientTexture2D_c31l0")
 
 [node name="PickupArea" type="Area2D" parent="." unique_id=382080989]
-visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PickupArea" unique_id=130780566]
 polygon = PackedVector2Array(-41, -38, -34, 24, 41, 24, 44, -172, 5, -173, 3, -45)
 
 [node name="SlopArea" type="Area2D" parent="." unique_id=898337586]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SlopArea" unique_id=650935386]
 position = Vector2(-1, -17.5)

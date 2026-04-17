@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eb673"]
 size = Vector2(30, 30)
 
-[node name="Cursor1" type="Control" unique_id=913670594]
+[node name="Cursor1" type="Control" unique_id=913670594 node_paths=PackedStringArray("area", "hit_point")]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 10.0
@@ -16,6 +16,8 @@ offset_bottom = 41.0
 script = ExtResource("1_vnbg0")
 movement_speed = 500.0
 screen_peek = 8.0
+area = NodePath("Area2D")
+hit_point = NodePath("HitArea")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1212094212]
 layout_mode = 0
@@ -30,3 +32,6 @@ texture = ExtResource("2_wsrbc")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1951527034]
 position = Vector2(14, 13)
 shape = SubResource("RectangleShape2D_eb673")
+
+[node name="HitArea" type="Marker2D" parent="." unique_id=873806539]
+position = Vector2(2, 2)

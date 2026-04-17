@@ -45,7 +45,8 @@ func _on_area_exited(other: Area2D) -> void:
 		return
 	
 	var cursor: Cursor = other.get_parent()
-	_on_cursor_interaction_stopped(cursor)
+	var node: Node
+	_on_cursor_interaction_stopped(cursor, node)
 	
 	#var index: int = active_cursors.find(other.get_parent())
 	#if index >= 0:
@@ -54,7 +55,7 @@ func _on_area_exited(other: Area2D) -> void:
 	cursor.interaction_started.disconnect(_on_cursor_interaction_started)
 	cursor.interaction_stopped.disconnect(_on_cursor_interaction_stopped)
 
-func _on_cursor_interaction_started (cursor: Cursor) -> void:
+func _on_cursor_interaction_started (cursor: Cursor, _node: Node) -> void:
 	is_pressed = true
 	active_cursors.append(cursor)
 	
@@ -67,7 +68,7 @@ func _on_cursor_interaction_started (cursor: Cursor) -> void:
 	cursor_lines.set(cursor, line)
 
 
-func _on_cursor_interaction_stopped (cursor: Cursor) -> void:
+func _on_cursor_interaction_stopped (cursor: Cursor, _node: Node) -> void:
 	is_pressed = false
 	var index: int = active_cursors.find(cursor)
 	if index >= 0:

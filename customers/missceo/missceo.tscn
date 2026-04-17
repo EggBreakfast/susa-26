@@ -10,12 +10,12 @@ size = Vector2(67.600006, 139.19998)
 [node name="Customer" unique_id=159484568 instance=ExtResource("1_y4ktp")]
 data = ExtResource("2_yy8md")
 offset = Vector2(0, -100)
+sprite_frames = ExtResource("3_4eclv")
 
 [node name="Body" parent="." index="0" unique_id=371614508]
 position = Vector2(0, 5.9604645e-08)
 scale = Vector2(0.07, 0.07)
 sprite_frames = ExtResource("3_4eclv")
-animation = &"eating"
 offset = Vector2(-9.536743e-07, -1024)
 
 [node name="CustomerArea" parent="." index="4" unique_id=1172257048]

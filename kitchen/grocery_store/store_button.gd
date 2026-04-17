@@ -21,10 +21,11 @@ func resize_button_area() -> void:
 func _on_cursor_spawned(cursor: Cursor) -> void:
 	cursor.interaction_started.connect(_on_cursor_interact)
 
-func _on_cursor_interact(cursor: Cursor) -> void:
+func _on_cursor_interact(cursor: Cursor, _node: Node) -> void:
 	if(button_area.overlaps_area(Helpers.find_node_of_type(cursor, Area2D))):
 		self.pressed.emit()
 	
+	await get_tree().process_frame
 	resize_button_area()
 
 

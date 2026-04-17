@@ -61,18 +61,20 @@ func _on_area_exited(other: Node) -> void:
 	cursor.interaction_stopped.disconnect(_on_cursor_interaction_stopped)
 
 
-func _on_cursor_interaction_started(cursor: Cursor) -> void: 
+func _on_cursor_interaction_started(cursor: Cursor, node: Node) -> void: 
 	if current_cursor:
 		return
 	
-	current_cursor = cursor
-	cursor_offset = get_parent().global_position - current_cursor.global_position 
-	grabbed.emit(entity)
+	if node and (node == entity or node.get_parent() == entity):
+		current_cursor = cursor
+		cursor_offset = get_parent().global_position - current_cursor.global_position 
+		grabbed.emit(entity)
 
 @warning_ignore_start("unused_parameter")
-func _on_cursor_interaction_stopped(cursor: Cursor) -> void: 
-	current_cursor = null
-	dropped.emit(entity)
+func _on_cursor_interaction_stopped(cursor: Cursor, node: Node) -> void: 
+	if current_cursor == cursor:
+		current_cursor = null
+		dropped.emit(entity)
 
 
 func _process(delta: float) -> void:

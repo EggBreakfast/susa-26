@@ -43,13 +43,10 @@ func _process(delta: float) -> void:
 
 
 func _on_area_entered(other: Node) -> void:
-	print_debug("Function runs")
 	var current_customer: Customer = other.get_parent() as Customer
-	print_debug("Function runs2")
 	if not current_customer: 
 		return
 	else:
-		print_debug("Function runs3")
 		speed = current_customer.data.talking_speed
 
 
