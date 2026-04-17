@@ -12,7 +12,6 @@ class_name CustomerData extends Resource
 #@export var body_texture: Texture2D
 
 @export var customer_id: int
-@export var talking_speed: int
 
 @export var customer_active: bool
 

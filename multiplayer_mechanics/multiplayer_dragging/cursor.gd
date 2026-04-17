@@ -21,6 +21,8 @@ signal interaction_stopped(ucrsor: Cursor, node: Node)
 @export var area: Area2D
 @export var hit_point: Marker2D
 
+@export var cursor_sprite: AnimatedSprite2D
+
 
 var is_grabbing: bool = false
 var max_grab_distance: float = 320.0
@@ -47,6 +49,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		#if is_grabbing and draggable != null:
 			#is_grabbing = false
 			#draggable = null 
+		cursor_sprite.play(&"grab")
 		var space_state: PhysicsDirectSpaceState2D = get_world_2d().direct_space_state
 		var query: PhysicsPointQueryParameters2D = PhysicsPointQueryParameters2D.new()
 		query.position = global_position
@@ -65,6 +68,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if draggable:
 			draggable.dragged = null
 		draggable = null
+		cursor_sprite.play(&"idle")
 
 func _physics_process(delta: float) -> void:
 	var movement_input: Vector2 = Input.get_vector(input_left, input_right, input_up, input_down)

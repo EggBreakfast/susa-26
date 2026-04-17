@@ -1,0 +1,19 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://vtc8bebe0xp5"]
+
+[ext_resource type="Texture2D" uid="uid://beyyq4nwr8dt7" path="res://sprites/cursoridle.png" id="2_rarv7"]
+
+[resource]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"grab",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rarv7")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]

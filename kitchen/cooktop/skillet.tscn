@@ -3,7 +3,8 @@
 [ext_resource type="Script" uid="uid://dhexcxsuqawl6" path="res://kitchen/cooktop/skillet.gd" id="1_ym30v"]
 [ext_resource type="Texture2D" uid="uid://b375td4co786p" path="res://sprites/kitchen/skillet.png" id="2_8exkf"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8exkf"]
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_8exkf"]
+points = PackedVector2Array(-8.559782, 1.0869565, -6.521739, 5.570652, -9.646739, 8.831522, -5.7065215, 11.548913, -3.125, 8.423913, 4.076087, 8.423913, 9.646739, 3.125, 8.559782, -4.347826, 0.8152174, -8.016304, -4.7554345, -6.793478)
 
 [sub_resource type="Gradient" id="Gradient_ym30v"]
 colors = PackedColorArray(1, 1, 0, 1, 1, 1, 0, 1)
@@ -23,8 +24,9 @@ texture = ExtResource("2_8exkf")
 [node name="Area2D" type="Area2D" parent="." unique_id=853495393]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1663927538]
+position = Vector2(-1.5, 0)
 scale = Vector2(3.68, 3.68)
-shape = SubResource("RectangleShape2D_8exkf")
+shape = SubResource("ConvexPolygonShape2D_8exkf")
 
 [node name="ProgressBar" type="TextureProgressBar" parent="." unique_id=420119230]
 visible = false
