@@ -4,9 +4,17 @@
 [ext_resource type="Resource" uid="uid://c1urnmgjp74ep" path="res://kitchen/ingredients/carrot/carrot_data.tres" id="2_4vwby"]
 [ext_resource type="Texture2D" uid="uid://bypja61pf1ptg" path="res://sprites/kitchen/carrot.png" id="3_42umm"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_42umm"]
+radius = 24.999998
+height = 209.99998
+
 [node name="Carrot" unique_id=1325366191 instance=ExtResource("1_42umm")]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.2, 0.2)
 data = ExtResource("2_4vwby")
+
+[node name="PhysicsCollisionShape" parent="." index="0" unique_id=1974147017]
+scale = Vector2(2, 2)
+shape = SubResource("CapsuleShape2D_42umm")
 
 [node name="Sprite2D" parent="." index="2" unique_id=910218632]
 scale = Vector2(1, 1)

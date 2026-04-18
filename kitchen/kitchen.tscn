@@ -63,9 +63,8 @@ _data = {
 &"slide_to_store": SubResource("Animation_8mctn")
 }
 
-[node name="Kitchen" type="Node2D" unique_id=1082625060 node_paths=PackedStringArray("customer_spawn_point", "cursor_canvas_layer", "customer_container", "animation_player", "grocery_store_button", "grocery_store_button_area", "grocery_store")]
+[node name="Kitchen" type="Node2D" unique_id=1082625060 node_paths=PackedStringArray("customer_spawn_point", "cursor_canvas_layer", "customer_container", "animation_player", "cooktop", "grocery_store_button", "grocery_store_button_area", "grocery_store")]
 script = ExtResource("1_lwc1s")
-debug_customer = &"missceo"
 customers = Array[PackedScene]([ExtResource("4_o8vxq"), ExtResource("5_ts44q"), ExtResource("2_apelb"), ExtResource("2_qsv0g"), ExtResource("6_ts44q")])
 customer_spawn_point = NodePath("MainScreen/TransitionHBoxContainer/KitchenVBoxContainer/TopHalfContainer/CustomerMargin/CustomerContainer/CustomerSpawnPoint")
 cursor_scene = ExtResource("6_2r452")
@@ -73,6 +72,7 @@ cursor_colors = PackedColorArray(1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1)
 cursor_canvas_layer = NodePath("CursorCanvasLayer")
 customer_container = NodePath("MainScreen/TransitionHBoxContainer/KitchenVBoxContainer/TopHalfContainer/CustomerMargin/CustomerContainer")
 animation_player = NodePath("TransitionPlayer")
+cooktop = NodePath("MainScreen/TransitionHBoxContainer/KitchenVBoxContainer/Cooktop")
 grocery_store_button = NodePath("MainScreen/StoreButtonMargin/StoreButton")
 grocery_store_button_area = NodePath("MainScreen/StoreButtonMargin/StoreButton/Control/ButtonArea")
 grocery_store = NodePath("MainScreen/TransitionHBoxContainer/GroceryStore")
@@ -148,6 +148,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Cooktop" parent="MainScreen/TransitionHBoxContainer/KitchenVBoxContainer" unique_id=1392814311 instance=ExtResource("7_3dl54")]
+unique_name_in_owner = true
 z_index = 10
 layout_mode = 2
 
@@ -187,8 +188,8 @@ grow_vertical = 2
 position = Vector2(30, 16)
 shape = SubResource("RectangleShape2D_akmjk")
 
-[node name="CursorCanvasLayer" type="CanvasLayer" parent="." unique_id=1334972846]
-layer = 10
-
 [node name="TransitionPlayer" type="AnimationPlayer" parent="." unique_id=56278612]
 libraries/ = SubResource("AnimationLibrary_h4ymb")
+
+[node name="CursorCanvasLayer" type="CanvasLayer" parent="." unique_id=1334972846]
+layer = 20

@@ -4,6 +4,7 @@ extends Control
 #@export var plate_scene: PackedScene
 @export_group("Item Scenes")
 @export var patty_scene: PackedScene
+@export var carrot_scene: PackedScene
 @export var bowl_scene: PackedScene
 
 
@@ -17,6 +18,7 @@ var spawn_points: Array[Marker2D]
 
 func _ready() -> void:
 	SignalBroker.bowl_delivered_to_customer.connect(_on_bowl_delivered)
+	SignalBroker.ingredient_purchased.connect(_on_add_ingredient)
 	
 	for spawnpt: Marker2D in Helpers.find_nodes_of_type(self, Marker2D):
 		spawn_points.append(spawnpt)
@@ -49,3 +51,17 @@ func _exit_tree() -> void:
 
 func _on_bowl_delivered(bowl: Bowl) -> void:
 	bowl.global_position = spawn_points[1].global_position
+
+func _on_add_ingredient(ingredient: IngredientData) -> void:
+	print_debug("_on_add_ingredient")
+	if ingredient.display_name == "Burger Patty":		
+		var patty: Ingredient = patty_scene.instantiate()
+		add_child(patty)
+		patty.global_position = spawn_points[0].global_position
+		patty.global_position.y -= (5.0)
+	elif ingredient.display_name == "Carrot":		
+		var carrot: Ingredient = carrot_scene.instantiate()
+		add_child(carrot)
+		carrot.global_position = spawn_points[0].global_position
+		carrot.global_position.y -= (5.0)
+	pass

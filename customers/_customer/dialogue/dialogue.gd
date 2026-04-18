@@ -40,7 +40,7 @@ func _process(delta: float) -> void:
 	#if %DialogueText.text.length() <+  47.0 :
 	%DialogueText.text = text.substr(0, ceili(time_elapsed * speed))
 	#elif %DialogueText.text.length() > 10.0:
-		#%DialogueText.text.indent
+		#%DialogueText.text.indent	
 	if %DialogueText.text == text:
 		set_process(false)
 		await get_tree().create_timer(1.0).timeout

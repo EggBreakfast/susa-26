@@ -212,6 +212,7 @@ visible = false
 libraries/ = SubResource("AnimationLibrary_h0idb")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=458994866]
+layer = -1
 
 [node name="CustomerTimer" type="TextureProgressBar" parent="CanvasLayer" unique_id=1722508361]
 custom_minimum_size = Vector2(0, 32)

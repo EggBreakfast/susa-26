@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cyn8k8q78v56m" path="res://kitchen/cooktop/cooktop.gd" id="1_hsghg"]
 [ext_resource type="Texture2D" uid="uid://qk2q6hr5sk4n" path="res://sprites/kitchen/countertop.png" id="1_oh1dw"]
 [ext_resource type="Texture2D" uid="uid://dankj0jkceiav" path="res://sprites/kitchen/stove.png" id="2_hsghg"]
+[ext_resource type="PackedScene" uid="uid://crdlvpm66v85j" path="res://kitchen/ingredients/carrot/carrot.tscn" id="3_ewy8k"]
 [ext_resource type="PackedScene" uid="uid://b1lhn8p764gh7" path="res://kitchen/ingredients/patty/patty.tscn" id="4_fqane"]
 [ext_resource type="PackedScene" uid="uid://bj3d6viuhnsb7" path="res://kitchen/cooktop/skillet.tscn" id="5_io4qn"]
 [ext_resource type="PackedScene" uid="uid://bwrglqxqfolxv" path="res://kitchen/pot/pot.tscn" id="7_l8nfa"]
@@ -50,6 +51,9 @@ size = Vector2(384, 210)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ewy8k"]
 size = Vector2(384, 80)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fs0rg"]
+size = Vector2(382, 290)
+
 [node name="Cooktop" type="Control" unique_id=1392814311]
 custom_minimum_size = Vector2(1121, 290)
 layout_mode = 3
@@ -61,6 +65,7 @@ grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("1_hsghg")
 patty_scene = ExtResource("4_fqane")
+carrot_scene = ExtResource("3_ewy8k")
 bowl_scene = ExtResource("9_ewy8k")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1781747532]
@@ -83,11 +88,11 @@ size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_oh1dw")
 
 [node name="PattySpawnPoint" type="Marker2D" parent="HBoxContainer/Countertop" unique_id=1636793855]
-position = Vector2(315, 178)
+position = Vector2(349, 128)
 gizmo_extents = 24.0
 
 [node name="BowlSpawnPoint" type="Marker2D" parent="HBoxContainer/Countertop" unique_id=1988532954]
-position = Vector2(100, 180)
+position = Vector2(25, 133)
 gizmo_extents = 24.0
 
 [node name="CountertopCollisionArea" type="Area2D" parent="HBoxContainer/Countertop" unique_id=885986432]
@@ -134,18 +139,26 @@ layout_mode = 2
 [node name="SinkBack3" type="Sprite2D" parent="HBoxContainer/Dishpit/SinkSprites" unique_id=2026935381]
 
 [node name="OutsideSinkArea" type="Area2D" parent="HBoxContainer/Dishpit" unique_id=393178950]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Dishpit/OutsideSinkArea" unique_id=999092436]
 position = Vector2(190, 105)
 shape = SubResource("RectangleShape2D_vnblt")
 
 [node name="InsideSinkArea" type="Area2D" parent="HBoxContainer/Dishpit" unique_id=1650063855]
+visible = false
 position = Vector2(6, 36)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Dishpit/InsideSinkArea" unique_id=1286362849]
 position = Vector2(185, 214)
 shape = SubResource("RectangleShape2D_ewy8k")
 
+[node name="Area2D" type="Area2D" parent="HBoxContainer/Dishpit" unique_id=373523313]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Dishpit/Area2D" unique_id=1361371019]
+position = Vector2(191, 145)
+shape = SubResource("RectangleShape2D_fs0rg")
+
 [node name="Ladle" parent="." unique_id=1242583197 instance=ExtResource("8_vnblt")]
 light_mask = 8
-position = Vector2(236, 207)
+position = Vector2(123, 224)

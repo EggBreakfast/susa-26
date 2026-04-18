@@ -30,5 +30,7 @@ metadata/_custom_type_script = "uid://dnpo11vl2vg6l"
 script = ExtResource("1_5p4sr")
 display_name = "SP Cat"
 sprite_frames = ExtResource("2_0rchd")
+min_timer_duration = 5.0
+max_timer_duration = 11.0
 orders = Array[ExtResource("1_djrrr")]([SubResource("Resource_3xp16"), SubResource("Resource_sgldr"), SubResource("Resource_rhye5")])
 metadata/_custom_type_script = "uid://t40qpvbwnk7f"

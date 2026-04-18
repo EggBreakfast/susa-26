@@ -13,6 +13,8 @@ class_name Kitchen extends Node2D
 @export var cursor_canvas_layer: CanvasLayer
 @export var customer_container: Control
 @export var animation_player: AnimationPlayer
+@export var cooktop: Cooktop
+var spawn_points: Array[Marker2D] 
 
 
 @export_group("Grocery Variables", "grocery_")
@@ -30,6 +32,13 @@ func _ready() -> void:
 	
 	if Input.get_connected_joypads().size() <= 0:
 		_add_player(0)
+	
+	var cooktop: Cooktop = %Cooktop
+	for spawnpt: Marker2D in Helpers.find_nodes_of_type(cooktop, Marker2D):
+		spawn_points.append(spawnpt)
+	
+	await get_tree().process_frame
+	
 	
 	Input.joy_connection_changed.connect(_on_joy_connection_changed)
 	SaveSystem.save_loaded.connect(_on_save_system_loaded)
@@ -78,18 +87,15 @@ func _spawn_customer() -> void:
 			customer = customer_scene.instantiate()
 			SignalBroker.customer_enters_kitchen.emit(customer)
 		else: 
-			#var customer: Customer = Customer.new()
 			customer = customers.pick_random().instantiate()
-			#customer.modulate.a = 0.0
 			SignalBroker.customer_enters_kitchen.emit(customer)
 			
 		
-		#customer.modulate.a = 0.0
 		customer_spawn_point.add_child.call_deferred(customer)
-		# customer.exited.connect(_on_customer_exited)
+		SignalBroker.customer_leaves_kitchen.connect(_on_customer_exited)
 #
-#func _on_customer_enter() -> void:
-	#var 
+func _on_customer_exited() -> void:
+	_spawn_customer()
 
 func _on_joy_connection_changed(device_id: int, is_connection: Variant) -> void:
 	# print_debug(device_id, " ::", is_connection, "::", Input.get_connected_joypads())
