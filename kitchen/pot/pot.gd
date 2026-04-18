@@ -10,6 +10,8 @@ var ingredients: Array[IngredientData]
 
 
 func _ready() -> void:
+	SignalBroker.bowl_delivered_to_customer.connect(_on_bowl_delivered)
+	
 	ingredient_area.area_entered.connect(_on_ingredient_area_entered)
 	ingredient_area.area_exited.connect(_on_ingredient_area_exited)
 	
@@ -17,8 +19,15 @@ func _ready() -> void:
 	ladle_area.area_exited.connect(_on_ladle_area_exited)
 
 func _exit_tree() -> void:
+	SignalBroker.bowl_delivered_to_customer.disconnect(_on_bowl_delivered)
+	
 	ingredient_area.area_entered.disconnect(_on_ingredient_area_entered)
 	ingredient_area.area_exited.disconnect(_on_ingredient_area_exited)
+
+
+func _on_bowl_delivered() -> void:
+	ingredients = []
+
 
 func _on_ingredient_area_entered(other: Area2D) -> void:
 	var ingredient: Ingredient = other.get_parent() as Ingredient
