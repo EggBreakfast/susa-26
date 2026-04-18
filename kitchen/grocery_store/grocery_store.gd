@@ -83,7 +83,8 @@ func _on_area_exited(other: Node, ingredient: IngredientData) -> void:
 @warning_ignore("unused_parameter")
 func _on_cursor_interaction_stopped(cursor: Cursor, _node: Node) -> void:
 	if temp_ingredient:
-		if SaveSystem.current_save_data.currency >= temp_ingredient.price:
-			SignalBroker.currency_lost.emit(temp_ingredient.price)
-			SignalBroker.ingredient_purchased.emit(temp_ingredient)
-			print_debug(temp_ingredient.display_name)
+		#if SaveSystem.current_save_data.currency >= temp_ingredient.price:
+		SignalBroker.currency_lost.emit(temp_ingredient.price)
+		SignalBroker.ingredient_purchased.emit(temp_ingredient)
+		print_debug(temp_ingredient.display_name)
+		

@@ -7,6 +7,7 @@ class_name SaveData extends Resource
 ## The player's amount of currency, measured in Pennies.
 @export var currency: int = 5000
 
+var end_screen: String = "res://results_screen/ResultsScreen.tscn"
 
 func _init() -> void:
 	SignalBroker.currency_earned.connect(_on_currency_earned)
@@ -30,6 +31,7 @@ func _on_currency_lost(amount: int) -> void:
 	currency -= amount
 	if currency <= 0:
 		currency = 0
+		TransitionSystem.load_scene(end_screen)
 	SignalBroker.currency_updated.emit(currency)
 
 

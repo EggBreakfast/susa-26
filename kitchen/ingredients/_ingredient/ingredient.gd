@@ -28,6 +28,7 @@ func _process(delta: float) -> void:
 	if prep_percentage >= 1.0 and prep_percentage < data.overprep_percentage:
 		sprite.texture = data.texture_prepped
 		sprite.modulate = data.modulate_prepped
+		data.prepped = true;
 	
 	if prep_percentage >= data.overprep_percentage:
 		sprite.texture = data.texture_overprepped

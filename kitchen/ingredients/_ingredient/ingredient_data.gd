@@ -26,6 +26,8 @@ extends Resource
 ## How many multiples of the prep time lead to it being "ruined" (burnt, smushed, etc.)
 @export var overprep_percentage: float = 2.0
 
+## Track if ingredient is properly cooked
+@export var prepped: bool = false
 
 @export_group ("Textures", "texture_")
  

@@ -95,6 +95,12 @@ func _on_bowl_delivered(bowl: Bowl) -> void:
 			order_accurate = false
 			break
 	
+	for bowl_ingredient: IngredientData in bowl_ingredients:
+		print_debug("prep:" + str(bowl_ingredient.prepped))
+		if not bowl_ingredient.prepped:
+			order_accurate = false
+			print_debug("bowl_ingredient not prepped")
+	
 	if bowl_ingredients.size() > 0:
 		order_accurate = false
 	

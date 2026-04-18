@@ -52,9 +52,9 @@ theme_override_constants/margin_top = 64
 theme_override_constants/margin_right = 64
 theme_override_constants/margin_bottom = 64
 
-[node name="Label" type="Label" parent="MarginContainer" unique_id=1912650721]
+[node name="label_end_game" type="Label" parent="MarginContainer" unique_id=1912650721]
 layout_mode = 2
-text = " "
+text = " You ran out of money!"
 label_settings = SubResource("LabelSettings_2gucj")
 horizontal_alignment = 1
 vertical_alignment = 1
