@@ -77,12 +77,10 @@ func begin_customer_order() -> void:
 	await get_tree().create_timer(0.5).timeout
 	sprite_body.play(&"talking")
 	for line: String in current_order.dialogue_order:
-		print_debug("Customer spoke emitted")
 		SignalBroker.customer_spoke.emit(line)
 		await SignalBroker.dialogue_finished
 	
 	sprite_body.play(&"idle")
-	print_debug("sprite_body.play idle emitted")
 
 
 func _on_bowl_delivered(bowl: Bowl) -> void:

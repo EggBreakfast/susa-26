@@ -27,7 +27,6 @@ func _ready() -> void:
 		var patty: Ingredient = patty_scene.instantiate()
 		add_child(patty)
 		patty.global_position = spawn_points[0].global_position
-		print_debug(patty.global_position, spawn_points[0].global_position)
 		patty.global_position.y -= (i * 5.0)
 	
 	#for i: int in range(count_plates):
@@ -41,7 +40,6 @@ func _ready() -> void:
 		var bowl: Bowl = bowl_scene.instantiate()
 		add_child(bowl)
 		bowl.global_position = spawn_points[1].global_position
-		print_debug(bowl.global_position, spawn_points[1].global_position)
 		bowl.global_position.y -= (i * 5.0)
 
 

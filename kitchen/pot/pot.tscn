@@ -39,6 +39,7 @@ size = Vector2(128, 61)
 size = Vector2(110, 100.5)
 
 [node name="Pot" type="RigidBody2D" unique_id=1422529284 node_paths=PackedStringArray("ingredient_area", "ladle_area", "sprite_slop")]
+collision_layer = 3
 gravity_scale = 0.001
 sleeping = true
 freeze = true

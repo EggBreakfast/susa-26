@@ -6,15 +6,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eb673"]
 size = Vector2(39, 37)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_1xcaq"]
-radius = 14.015864
-
 [node name="Cursor1" type="Control" unique_id=913670594 node_paths=PackedStringArray("area", "hit_area", "cursor_sprite")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 39.0
 offset_bottom = 37.0
-scale = Vector2(1.5, 1.5)
 script = ExtResource("1_vnbg0")
 movement_speed = 500.0
 screen_peek = 8.0
@@ -24,20 +20,17 @@ cursor_sprite = NodePath("CursorSprite")
 
 [node name="CursorSprite" type="AnimatedSprite2D" parent="." unique_id=480449762]
 texture_filter = 3
-position = Vector2(19.000002, 19.000002)
+position = Vector2(11.000002, 14.333336)
 scale = Vector2(0.59375, 0.59375)
 sprite_frames = ExtResource("2_1xcaq")
 animation = &"idle"
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1579805816]
+position = Vector2(-8, -4.666667)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1951527034]
 position = Vector2(19.5, 18.5)
 shape = SubResource("RectangleShape2D_eb673")
 
-[node name="HitArea" type="Area2D" parent="." unique_id=583966677]
-position = Vector2(13.333333, 10)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea" unique_id=1656065432]
-position = Vector2(4, 4)
-shape = SubResource("CircleShape2D_1xcaq")
+[node name="HitArea" type="Marker2D" parent="." unique_id=1204328063]
+position = Vector2(8, 7.3333335)

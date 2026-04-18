@@ -19,7 +19,7 @@ signal interaction_stopped(ucrsor: Cursor, node: Node)
 
 @export_group("Node References")
 @export var area: Area2D
-@export var hit_area: Area2D
+@export var hit_area: Marker2D
 
 @export var cursor_sprite: AnimatedSprite2D
 

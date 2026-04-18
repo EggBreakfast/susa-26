@@ -1,9 +1,5 @@
 class_name GroceryStore extends Control
 
-
-signal ingredient_purchased(ingredient: Ingredient)
-
-
 @export var ingredients: Array[IngredientData]
 
 
@@ -66,9 +62,10 @@ func _on_area_exited(other: Node, ingredient: IngredientData) -> void:
 	
 	cursor.interaction_stopped.disconnect(_on_cursor_interaction_stopped.bind(ingredient))
 
+
 @warning_ignore("unused_parameter")
 func _on_cursor_interaction_stopped(cursor: Cursor, _node: Node, ingredient: IngredientData) -> void:
 	if SaveSystem.current_save_data.currency >= ingredient.price:
 		SignalBroker.currency_lost.emit(ingredient.price)
-		ingredient_purchased.emit(ingredient)
+		SignalBroker.ingredient_purchased.emit(ingredient)
 		print_debug(ingredient.display_name)

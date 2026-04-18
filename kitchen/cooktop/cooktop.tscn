@@ -147,4 +147,5 @@ position = Vector2(185, 214)
 shape = SubResource("RectangleShape2D_ewy8k")
 
 [node name="Ladle" parent="." unique_id=1242583197 instance=ExtResource("8_vnblt")]
+light_mask = 8
 position = Vector2(236, 207)

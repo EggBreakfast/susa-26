@@ -10,64 +10,32 @@ class_name Ladle extends CharacterBody2D
 @export var movement_speed: float = 5.0
 @export var min_cursor_distance: float = 8.0
 
-signal grabbed(ladle: Ladle)
-signal dropped(ladle: Ladle)
-
-var current_cursor: Cursor
-var cursor_offset: Vector2
 var ingredients: Array[IngredientData]
 
 var ladle_filled: bool = false
 
 
 func _ready() -> void:
-	#pickup_area.area_entered.connect(_on_pickup_area_entered)
-	#pickup_area.area_exited.connect(_on_pickup_area_exited)
-	#collision_area.area_entered.connect(_on_collision_area_entered)
-	#collision_area.area_exited.connect(_on_collision_area_exited)
-	
 	slop_area.area_entered.connect(_on_slop_area_entered)
 	slop_area.area_exited.connect(_on_slop_area_exited)
 
 func _exit_tree() -> void:
-	#pickup_area.area_entered.disconnect(_on_pickup_area_entered)
-	#pickup_area.area_exited.disconnect(_on_pickup_area_exited)
-	#collision_area.area_entered.disconnect(_on_collision_area_entered)
-	#collision_area.area_exited.disconnect(_on_collision_area_exited)
-	
 	slop_area.area_entered.disconnect(_on_slop_area_entered)
 	slop_area.area_exited.disconnect(_on_slop_area_exited)
 
 
-#func _on_pickup_area_entered(other: Area2D) -> void:
-	#if other.get_parent() is not Cursor:
-		#return
-	
-	#var cursor: Cursor = other.get_parent()
-	#cursor.interaction_started.connect(_on_cursor_interaction_started)
-	#cursor.interaction_stopped.connect(_on_cursor_interaction_stopped)
-
-#func _on_pickup_area_exited(other: Area2D) -> void:
-	#if other.get_parent() is not Cursor:
-		#return
-	#
-	#var cursor: Cursor = other.get_parent()
-	#cursor.interaction_started.disconnect(_on_cursor_interaction_started)
-	#cursor.interaction_stopped.disconnect(_on_cursor_interaction_stopped)
-
-
-func _physics_process(delta: float) -> void:
-	if current_cursor:
+#func _physics_process(delta: float) -> void:
+	#if current_cursor:
 		#Old system for RigidBody2D
 		#move_and_collide((((current_cursor.global_position + cursor_offset) - global_position) * 64.0 * delta))
-		var distance: Vector2 = (current_cursor.global_position + cursor_offset) - global_position
-		if distance.length() >= min_cursor_distance:
-			var direction: Vector2 = global_position.direction_to(current_cursor.global_position + cursor_offset)
-			velocity = direction * movement_speed
-			move_and_slide()
-		
-		else:
-			move_and_collide(distance * (movement_speed * 0.1) * delta)
+		#var distance: Vector2 = (current_cursor.global_position + cursor_offset) - global_position
+		#if distance.length() >= min_cursor_distance:
+			#var direction: Vector2 = global_position.direction_to(current_cursor.global_position + cursor_offset)
+			#velocity = direction * movement_speed
+			#move_and_slide()
+		#
+		#else:
+			#move_and_collide(distance * (movement_speed * 0.1) * delta)
 			# HEY! You there! If you want to make it super jittery, move the movement_speed * 0.5
 			#global_position = current_cursor.global_position + cursor_offset
 

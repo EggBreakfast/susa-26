@@ -35,14 +35,14 @@ func _ready() -> void:
 	SaveSystem.save_loaded.connect(_on_save_system_loaded)
 	
 	grocery_store_button.pressed.connect(_on_grocery_store_button_pressed)
-	grocery_store.ingredient_purchased.connect(_on_ingredient_purchased)
+	SignalBroker.ingredient_purchased.connect(_on_ingredient_purchased)
 
 func _exit_tree() -> void:
 	Input.joy_connection_changed.disconnect(_on_joy_connection_changed)
 	SaveSystem.save_loaded.disconnect(_on_save_system_loaded)
 	
 	grocery_store_button.pressed.disconnect(_on_grocery_store_button_pressed)
-	grocery_store.ingredient_purchased.disconnect(_on_ingredient_purchased)
+	SignalBroker.ingredient_purchased.disconnect(_on_ingredient_purchased)
 
 
 func _on_save_system_loaded(save_data: SaveData) -> void:

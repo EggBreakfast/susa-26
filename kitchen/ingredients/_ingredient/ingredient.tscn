@@ -5,6 +5,7 @@
 
 [node name="Ingredient" type="CharacterBody2D" unique_id=460396698 node_paths=PackedStringArray("area", "sprite")]
 z_index = 30
+collision_mask = 2
 script = ExtResource("1_xyk0e")
 area = NodePath("Area2D")
 sprite = NodePath("Sprite2D")
@@ -20,6 +21,7 @@ scale = Vector2(2, 2)
 
 [node name="PickupComponent" type="Node" parent="." unique_id=1082544871 node_paths=PackedStringArray("entity", "pickup_area")]
 script = ExtResource("2_ptn7t")
-entity = NodePath("")
+is_physics_based = true
+entity = NodePath("..")
 pickup_area = NodePath("../Area2D")
 metadata/_custom_type_script = "uid://hu8rorctk2if"

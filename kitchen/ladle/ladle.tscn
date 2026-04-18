@@ -29,6 +29,9 @@ size = Vector2(64, 29)
 
 [node name="Ladle" type="CharacterBody2D" unique_id=344356098 node_paths=PackedStringArray("pickup_area", "slop_area", "collision_area", "sprite_slop")]
 visibility_layer = 8
+z_index = 30
+collision_layer = 4
+collision_mask = 2
 script = ExtResource("1_t7dmj")
 pickup_area = NodePath("PickupArea")
 slop_area = NodePath("SlopArea")
