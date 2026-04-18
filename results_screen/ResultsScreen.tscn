@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://bpt6kioxrt81w"]
+
+[sub_resource type="Gradient" id="Gradient_6axyk"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_f0hcu"]
+gradient = SubResource("Gradient_6axyk")
+
+[sub_resource type="LabelSettings" id="LabelSettings_2gucj"]
+font_size = 100
+font_color = Color(0, 1, 1, 1)
+
+[node name="ResultsScreen" type="Control" unique_id=20810258]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="." unique_id=1145399942]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=211345994]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_f0hcu")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=960932845]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=1912650721]
+layout_mode = 2
+text = " "
+label_settings = SubResource("LabelSettings_2gucj")
+horizontal_alignment = 1
+vertical_alignment = 1
