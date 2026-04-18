@@ -24,11 +24,11 @@ colors = PackedColorArray(0.6706895, 0.6706895, 0.6706895, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_sj2ee"]
 gradient = SubResource("Gradient_3mv7b")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6x5lh"]
-size = Vector2(69, 62)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fmqde"]
 size = Vector2(67, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6x5lh"]
+size = Vector2(69, 62)
 
 [node name="Bowl" type="CharacterBody2D" unique_id=2120782261 node_paths=PackedStringArray("sprite_slop", "area")]
 visibility_layer = 5
@@ -51,6 +51,10 @@ position = Vector2(0, 14)
 scale = Vector2(1.0546875, 0.72656256)
 texture = SubResource("GradientTexture2D_sj2ee")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1439403279]
+position = Vector2(0.5, 7)
+shape = SubResource("RectangleShape2D_fmqde")
+
 [node name="Area2D" type="Area2D" parent="." unique_id=660285026]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1801275017]
@@ -62,10 +66,4 @@ script = ExtResource("2_6x5lh")
 is_physics_based = true
 entity = NodePath("..")
 pickup_area = NodePath("../Area2D")
-movement_speed = null
-min_cursor_distance = null
 metadata/_custom_type_script = "uid://hu8rorctk2if"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1439403279]
-position = Vector2(0.5, 7)
-shape = SubResource("RectangleShape2D_fmqde")

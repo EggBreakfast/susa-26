@@ -8,11 +8,13 @@ static var instance: Customer
 @export var offset: Vector2
 #@export var facial_expressions: Dictionary[StringName, Texture2D]
 
+@export_group ("Sprite Information", "sprite_")
 @export var sprite_body: AnimatedSprite2D
 @export var sprite_frames: SpriteFrames 
+@export var sprite_transition_player: AnimationPlayer
 
-var timer_duration: float
 @export var customer_timer: CustomerTimer
+var timer_duration: float
 
 var dialogue_source: PackedStringArray
 
@@ -33,6 +35,10 @@ func _ready() -> void:
 	instance = self
 	
 	SignalBroker.bowl_delivered_to_customer.connect(_on_bowl_delivered)
+	
+	customer_timer.timeout.connect(_on_timer_timeout)
+	
+	sprite_transition_player.play(&"enter")
 	
 	timer_duration = randf_range(data.min_timer_duration, data.max_timer_duration)
 	customer_timer.max_value = timer_duration
@@ -61,6 +67,9 @@ func _exit_tree() -> void:
 	instance = null # When customer leaves scene, make it so we're no longer thinking about it
 	
 	SignalBroker.bowl_delivered_to_customer.disconnect(_on_bowl_delivered)
+	SignalBroker.customer_leaves_kitchen.emit()
+	
+	customer_timer.timeout.disconnect(_on_timer_timeout)
 
 
 func begin_customer_order() -> void:
@@ -68,12 +77,12 @@ func begin_customer_order() -> void:
 	await get_tree().create_timer(0.5).timeout
 	sprite_body.play(&"talking")
 	for line: String in current_order.dialogue_order:
+		print_debug("Customer spoke emitted")
 		SignalBroker.customer_spoke.emit(line)
 		await SignalBroker.dialogue_finished
 	
-	await SignalBroker.dialogue_finished
 	sprite_body.play(&"idle")
-	#print_debug(current_order.dialogue)
+	print_debug("sprite_body.play idle emitted")
 
 
 func _on_bowl_delivered(bowl: Bowl) -> void:
@@ -107,11 +116,6 @@ func _on_bowl_delivered(bowl: Bowl) -> void:
 			SignalBroker.customer_spoke.emit(line)
 			await SignalBroker.dialogue_finished
 			sprite_body.play(&"idle")
-			
-
-
-
-
 
 
 func _get_ingredient_in_bowl(order_ingredient: IngredientData, bowl_ingredients: Array[IngredientData]) -> IngredientData:
@@ -177,3 +181,9 @@ func _get_ingredient_in_bowl(order_ingredient: IngredientData, bowl_ingredients:
 	#if a.ingredient_id < b.ingredient_id: # if sort_descending, then a > b
 		#return true
 	#return false
+
+
+func _on_timer_timeout() -> void:
+	sprite_transition_player.play(&"exit")
+	await sprite_transition_player.animation_finished
+	queue_free()

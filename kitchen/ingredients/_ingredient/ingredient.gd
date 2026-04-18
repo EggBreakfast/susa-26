@@ -1,5 +1,5 @@
 class_name Ingredient
-extends AnimatableBody2D
+extends CharacterBody2D
 
 #signal grabbed(ingredient: Ingredient)
 #signal dropped(ingredient: Ingredient)

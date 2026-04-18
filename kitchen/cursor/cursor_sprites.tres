@@ -1,10 +1,14 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://vtc8bebe0xp5"]
 
+[ext_resource type="Texture2D" uid="uid://bm2j7dhw10jvo" path="res://sprites/cursorgrab.png" id="1_6mdrg"]
 [ext_resource type="Texture2D" uid="uid://beyyq4nwr8dt7" path="res://sprites/cursoridle.png" id="2_rarv7"]
 
 [resource]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_6mdrg")
+}],
 "loop": true,
 "name": &"grab",
 "speed": 5.0

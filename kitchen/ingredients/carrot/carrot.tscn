@@ -2,6 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://cfrg7o6ah1g2u" path="res://kitchen/ingredients/_ingredient/ingredient.tscn" id="1_42umm"]
 [ext_resource type="Resource" uid="uid://c1urnmgjp74ep" path="res://kitchen/ingredients/carrot/carrot_data.tres" id="2_4vwby"]
+[ext_resource type="Texture2D" uid="uid://bypja61pf1ptg" path="res://sprites/kitchen/carrot.png" id="3_42umm"]
 
 [node name="Carrot" unique_id=1325366191 instance=ExtResource("1_42umm")]
+scale = Vector2(0.5, 0.5)
 data = ExtResource("2_4vwby")
+
+[node name="Sprite2D" parent="." index="2" unique_id=910218632]
+scale = Vector2(1, 1)
+texture = ExtResource("3_42umm")

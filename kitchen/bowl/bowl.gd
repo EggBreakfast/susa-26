@@ -7,9 +7,6 @@ class_name Bowl extends CharacterBody2D
 var bowl_filled: bool = false
 var ingredients: Array[IngredientData]
 
-var current_cursor: Cursor
-var cursor_offset: Vector2
-
 
 func _ready() -> void:
 	SignalBroker.bowl_delivered_to_customer.connect(_on_bowl_delivered)

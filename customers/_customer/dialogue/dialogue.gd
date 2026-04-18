@@ -21,12 +21,18 @@ var time_elapsed: float = 0.0
 func _ready() -> void:
 	SignalBroker.customer_spoke.connect(_on_customer_spoke)
 	customer_detect_area.area_entered.connect(_on_area_entered)
-	set_process(false)
 
 
 func _exit_tree() -> void:
 	SignalBroker.customer_spoke.disconnect(_on_customer_spoke)
 	customer_detect_area.area_entered.disconnect(_on_area_entered)
+
+
+func _float() -> void:
+	var tween: Tween = get_tree().create_tween()
+	tween.set_ease(Tween.EASE_OUT)
+	#tween.tween_property()
+	
 
 
 func _process(delta: float) -> void:
@@ -39,7 +45,9 @@ func _process(delta: float) -> void:
 		set_process(false)
 		await get_tree().create_timer(1.0).timeout
 		visible = false
+		print_debug("Function runs")
 		SignalBroker.dialogue_finished.emit()
+		print_debug("Dialogue finished emitted")
 
 
 func _on_area_entered(other: Node) -> void:
@@ -48,7 +56,6 @@ func _on_area_entered(other: Node) -> void:
 		return
 	else:
 		speed = current_customer.data.talking_speed
-
 
 
 func _on_customer_spoke(text_spoken: String) -> void:

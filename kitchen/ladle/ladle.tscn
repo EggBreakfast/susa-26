@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dom2rjpg3jf7t"]
 
 [ext_resource type="Script" uid="uid://dthb3veoo17rd" path="res://kitchen/ladle/ladle.gd" id="1_t7dmj"]
+[ext_resource type="Script" uid="uid://hu8rorctk2if" path="res://tools/reusable_pickups/pickup_component.gd" id="2_j3f13"]
 
 [sub_resource type="Gradient" id="Gradient_dt7g3"]
 offsets = PackedFloat32Array(0)
@@ -55,13 +56,20 @@ position = Vector2(0, -6.5)
 scale = Vector2(1, 0.703125)
 texture = SubResource("GradientTexture2D_c31l0")
 
-[node name="PickupArea" type="Area2D" parent="." unique_id=382080989]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PickupArea" unique_id=130780566]
-polygon = PackedVector2Array(-41, -38, -34, 24, 41, 24, 44, -172, 5, -173, 3, -45)
-
 [node name="SlopArea" type="Area2D" parent="." unique_id=898337586]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SlopArea" unique_id=650935386]
 position = Vector2(-1, -17.5)
 shape = SubResource("RectangleShape2D_j3f13")
+
+[node name="PickupArea" type="Area2D" parent="." unique_id=382080989]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PickupArea" unique_id=130780566]
+polygon = PackedVector2Array(-41, -38, -34, 24, 41, 24, 44, -172, 5, -173, 3, -45)
+
+[node name="PickupComponent" type="Node" parent="." unique_id=587515474 node_paths=PackedStringArray("entity", "pickup_area")]
+script = ExtResource("2_j3f13")
+is_physics_based = true
+entity = NodePath("..")
+pickup_area = NodePath("../PickupArea")
+metadata/_custom_type_script = "uid://hu8rorctk2if"

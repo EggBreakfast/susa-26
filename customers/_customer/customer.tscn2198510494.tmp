@@ -192,12 +192,12 @@ colors = PackedColorArray(0.105882354, 0.7176471, 0.7764706, 1)
 gradient = SubResource("Gradient_x7o7u")
 width = 1156
 
-[node name="Customer" type="Node2D" unique_id=159484568 node_paths=PackedStringArray("sprite_body", "sprite_transition_player", "customer_timer")]
+[node name="Customer" type="Node2D" unique_id=159484568 node_paths=PackedStringArray("sprite_body", "customer_timer")]
 scale = Vector2(2.5, 2.5)
 script = ExtResource("1_dqoax")
 data = SubResource("Resource_v2qqs")
+offset = null
 sprite_body = NodePath("Body")
-sprite_transition_player = NodePath("AnimationPlayer")
 customer_timer = NodePath("CanvasLayer/CustomerTimer")
 
 [node name="Body" type="AnimatedSprite2D" parent="." unique_id=371614508]

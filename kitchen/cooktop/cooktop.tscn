@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://cyn8k8q78v56m" path="res://kitchen/cooktop/cooktop.gd" id="1_hsghg"]
 [ext_resource type="Texture2D" uid="uid://qk2q6hr5sk4n" path="res://sprites/kitchen/countertop.png" id="1_oh1dw"]
 [ext_resource type="Texture2D" uid="uid://dankj0jkceiav" path="res://sprites/kitchen/stove.png" id="2_hsghg"]
-[ext_resource type="PackedScene" uid="uid://0s8oaewwkphp" path="res://kitchen/plates/plate.tscn" id="2_qxnpu"]
 [ext_resource type="PackedScene" uid="uid://b1lhn8p764gh7" path="res://kitchen/ingredients/patty/patty.tscn" id="4_fqane"]
 [ext_resource type="PackedScene" uid="uid://bj3d6viuhnsb7" path="res://kitchen/cooktop/skillet.tscn" id="5_io4qn"]
 [ext_resource type="PackedScene" uid="uid://bwrglqxqfolxv" path="res://kitchen/pot/pot.tscn" id="7_l8nfa"]
@@ -61,8 +60,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("1_hsghg")
-plate_scene = ExtResource("2_qxnpu")
 patty_scene = ExtResource("4_fqane")
+bowl_scene = ExtResource("9_ewy8k")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1781747532]
 layout_mode = 0
@@ -149,6 +148,3 @@ shape = SubResource("RectangleShape2D_ewy8k")
 
 [node name="Ladle" parent="." unique_id=1242583197 instance=ExtResource("8_vnblt")]
 position = Vector2(236, 207)
-
-[node name="Bowl" parent="." unique_id=1838452528 instance=ExtResource("9_ewy8k")]
-position = Vector2(100, 177)

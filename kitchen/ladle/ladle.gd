@@ -21,8 +21,8 @@ var ladle_filled: bool = false
 
 
 func _ready() -> void:
-	pickup_area.area_entered.connect(_on_pickup_area_entered)
-	pickup_area.area_exited.connect(_on_pickup_area_exited)
+	#pickup_area.area_entered.connect(_on_pickup_area_entered)
+	#pickup_area.area_exited.connect(_on_pickup_area_exited)
 	#collision_area.area_entered.connect(_on_collision_area_entered)
 	#collision_area.area_exited.connect(_on_collision_area_exited)
 	
@@ -30,8 +30,8 @@ func _ready() -> void:
 	slop_area.area_exited.connect(_on_slop_area_exited)
 
 func _exit_tree() -> void:
-	pickup_area.area_entered.disconnect(_on_pickup_area_entered)
-	pickup_area.area_exited.disconnect(_on_pickup_area_exited)
+	#pickup_area.area_entered.disconnect(_on_pickup_area_entered)
+	#pickup_area.area_exited.disconnect(_on_pickup_area_exited)
 	#collision_area.area_entered.disconnect(_on_collision_area_entered)
 	#collision_area.area_exited.disconnect(_on_collision_area_exited)
 	
@@ -39,21 +39,21 @@ func _exit_tree() -> void:
 	slop_area.area_exited.disconnect(_on_slop_area_exited)
 
 
-func _on_pickup_area_entered(other: Area2D) -> void:
-	if other.get_parent() is not Cursor:
-		return
+#func _on_pickup_area_entered(other: Area2D) -> void:
+	#if other.get_parent() is not Cursor:
+		#return
 	
-	var cursor: Cursor = other.get_parent()
-	cursor.interaction_started.connect(_on_cursor_interaction_started)
-	cursor.interaction_stopped.connect(_on_cursor_interaction_stopped)
+	#var cursor: Cursor = other.get_parent()
+	#cursor.interaction_started.connect(_on_cursor_interaction_started)
+	#cursor.interaction_stopped.connect(_on_cursor_interaction_stopped)
 
-func _on_pickup_area_exited(other: Area2D) -> void:
-	if other.get_parent() is not Cursor:
-		return
-	
-	var cursor: Cursor = other.get_parent()
-	cursor.interaction_started.disconnect(_on_cursor_interaction_started)
-	cursor.interaction_stopped.disconnect(_on_cursor_interaction_stopped)
+#func _on_pickup_area_exited(other: Area2D) -> void:
+	#if other.get_parent() is not Cursor:
+		#return
+	#
+	#var cursor: Cursor = other.get_parent()
+	#cursor.interaction_started.disconnect(_on_cursor_interaction_started)
+	#cursor.interaction_stopped.disconnect(_on_cursor_interaction_stopped)
 
 
 func _physics_process(delta: float) -> void:
@@ -71,16 +71,16 @@ func _physics_process(delta: float) -> void:
 			# HEY! You there! If you want to make it super jittery, move the movement_speed * 0.5
 			#global_position = current_cursor.global_position + cursor_offset
 
-func _on_cursor_interaction_started(cursor: Cursor, node: Node) -> void:
-	if node and (node == self or node.get_parent() == self):
-		current_cursor = cursor
-		cursor_offset = global_position - current_cursor.global_position
-		grabbed.emit(self)
-
-func _on_cursor_interaction_stopped(cursor: Cursor, _node: Node) -> void:
-	if current_cursor == cursor:
-		current_cursor = null 
-	dropped.emit(self)
+#func _on_cursor_interaction_started(cursor: Cursor, node: Node) -> void:
+	#if node and (node == self or node.get_parent() == self):
+		#current_cursor = cursor
+		#cursor_offset = global_position - current_cursor.global_position
+		#grabbed.emit(self)
+#
+#func _on_cursor_interaction_stopped(cursor: Cursor, _node: Node) -> void:
+	#if current_cursor == cursor:
+		#current_cursor = null 
+	#dropped.emit(self)
 
 
 #func _on_collision_area_entered(other: CollisionPolygon2D) -> void:

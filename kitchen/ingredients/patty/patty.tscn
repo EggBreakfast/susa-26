@@ -21,3 +21,6 @@ shape = SubResource("CircleShape2D_0c2e6")
 
 [node name="Sprite2D" parent="." index="2" unique_id=910218632]
 texture = ExtResource("2_ixs1b")
+
+[node name="PickupComponent" parent="." index="3" unique_id=1082544871 node_paths=PackedStringArray("entity")]
+entity = NodePath("..")

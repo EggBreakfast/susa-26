@@ -1,11 +1,16 @@
 class_name Cooktop 
 extends Control
 
-@export var plate_scene: PackedScene
+#@export var plate_scene: PackedScene
+@export_group("Item Scenes")
 @export var patty_scene: PackedScene
+@export var bowl_scene: PackedScene
 
-@export var count_plates: int = 3
+
+#@export var count_plates: int = 3
+@export_group("Item Counts")
 @export var count_patties: int = 3
+@export var count_bowls: int = 1
 
 var spawn_points: Array[Marker2D]
 # What do square brackets do? A lot of things. This one is a nested type. It specifies the kind of array this is. Same for dictionaries!
@@ -21,8 +26,8 @@ func _ready() -> void:
 	for i: int in range(count_patties):
 		var patty: Ingredient = patty_scene.instantiate()
 		add_child(patty)
-		patty.global_position = spawn_points[1].global_position
-		print_debug(patty.global_position, spawn_points[1].global_position)
+		patty.global_position = spawn_points[0].global_position
+		print_debug(patty.global_position, spawn_points[0].global_position)
 		patty.global_position.y -= (i * 5.0)
 	
 	#for i: int in range(count_plates):
@@ -32,6 +37,13 @@ func _ready() -> void:
 		#plate.global_position.y -= (i * 8.0)
 		
 		# Here, the square brackets are used to access something from within the array. Here, it's being used to access the [0] thing in the array. Cool beans!
+	for i: int in range(count_bowls):
+		var bowl: Bowl = bowl_scene.instantiate()
+		add_child(bowl)
+		bowl.global_position = spawn_points[1].global_position
+		print_debug(bowl.global_position, spawn_points[1].global_position)
+		bowl.global_position.y -= (i * 5.0)
+
 
 func _exit_tree() -> void:
 		SignalBroker.bowl_delivered_to_customer.disconnect(_on_bowl_delivered)

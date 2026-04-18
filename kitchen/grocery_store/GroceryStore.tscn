@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://by7bhnjxfdwk1" path="res://kitchen/ingredients/_ingredient/ingredient_data.gd" id="2_7t4ho"]
 [ext_resource type="Texture2D" uid="uid://defdvgn2rgcti" path="res://sprites/kitchen/patty_raw.png" id="2_utu78"]
 [ext_resource type="Resource" uid="uid://b0twc5ldid185" path="res://kitchen/ingredients/patty/patty_data.tres" id="3_8id2r"]
+[ext_resource type="Resource" uid="uid://c1urnmgjp74ep" path="res://kitchen/ingredients/carrot/carrot_data.tres" id="4_8id2r"]
 
 [sub_resource type="Gradient" id="Gradient_bbhq2"]
 offsets = PackedFloat32Array(0)
@@ -17,7 +18,7 @@ content_margin_left = 12.0
 content_margin_top = 12.0
 content_margin_right = 12.0
 content_margin_bottom = 12.0
-bg_color = Color(0.23492244, 0.5174453, 0.7861294, 1)
+bg_color = Color(0.2784314, 0.44313726, 0.69803923, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7t4ho"]
 size = Vector2(374, 83)
@@ -30,7 +31,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_n6kbe")
-ingredients = Array[ExtResource("2_7t4ho")]([ExtResource("3_8id2r")])
+ingredients = Array[ExtResource("2_7t4ho")]([ExtResource("3_8id2r"), ExtResource("4_8id2r")])
 
 [node name="Background" type="TextureRect" parent="." unique_id=1280045014]
 layout_mode = 1
@@ -74,11 +75,14 @@ layout_mode = 2
 
 [node name="ItemImage" type="TextureRect" parent="MarginContainer/GridContainer/TemplateItem/VBoxContainer" unique_id=1399631404]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture = ExtResource("2_utu78")
-stretch_mode = 5
+stretch_mode = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/GridContainer/TemplateItem/VBoxContainer" unique_id=1370233184]
 layout_mode = 2
+size_flags_vertical = 8
 alignment = 1
 
 [node name="Price" type="Label" parent="MarginContainer/GridContainer/TemplateItem/VBoxContainer/HBoxContainer" unique_id=1621644305]

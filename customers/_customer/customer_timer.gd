@@ -14,7 +14,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if value > 0.0:
-		value -= delta
+		value -= delta 
 	else:
 		process_mode = Node.PROCESS_MODE_ALWAYS
 		timeout.emit()
